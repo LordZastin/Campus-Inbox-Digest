@@ -21,6 +21,7 @@
     --brass:#A9834B;
     --focus:#2C6E8C;
     --timetable:#3A7D6E;
+    --custom:#8B6AAE;
   }
   html[data-theme="dark"]{
     --paper:#1A1E1D;
@@ -35,6 +36,7 @@
     --brass:#C4A84E;
     --focus:#5AADE0;
     --timetable:#5CB89A;
+    --custom:#B89AE0;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
@@ -264,6 +266,7 @@
   .row.admin{border-left-color:var(--admin);}
   .row.club-sports{border-left-color:var(--club);}
   .row.timetable{border-left-color:var(--timetable);}
+  .row.custom{border-left-color:var(--custom);}
 
   .row .time{
     font-family:'IBM Plex Mono', monospace;
@@ -300,6 +303,7 @@
   .badge.admin{color:var(--admin);}
   .badge.club-sports{color:var(--club);}
   .badge.timetable{color:var(--timetable);}
+  .badge.custom{color:var(--custom);}
   .badge.compulsory{color:var(--mandatory);border-color:var(--mandatory);background:rgba(178,58,46,0.06);}
   .row .note{
     font-size:12px;
@@ -307,6 +311,48 @@
     margin-top:6px;
     font-style:italic;
   }
+
+  .delete-btn{
+    background:none;border:none;color:var(--ink-soft);cursor:pointer;
+    font-size:14px;padding:2px 6px;opacity:0.5;transition:opacity .15s;
+    font-family:'IBM Plex Mono',monospace;
+  }
+  .delete-btn:hover{opacity:1;color:var(--mandatory);}
+
+  .modal-backdrop{
+    display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:300;
+    align-items:center;justify-content:center;
+  }
+  .modal-backdrop.open{display:flex;}
+  .modal{
+    background:var(--card);border:2px solid var(--ink);border-radius:4px;
+    padding:24px;width:90%;max-width:400px;max-height:90vh;overflow-y:auto;
+  }
+  .modal h3{
+    font-family:'Special Elite',monospace;font-size:16px;letter-spacing:0.5px;
+    margin:0 0 16px;
+  }
+  .modal .field{margin-bottom:12px;}
+  .modal label{
+    display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;
+    letter-spacing:0.4px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px;
+  }
+  .modal input,.modal select,.modal textarea{
+    width:100%;font-family:'IBM Plex Mono',monospace;font-size:13px;
+    padding:8px 10px;border:1.5px solid var(--paper-line);border-radius:2px;
+    background:var(--paper);color:var(--ink);outline:none;box-sizing:border-box;
+  }
+  .modal input:focus,.modal select:focus,.modal textarea:focus{border-color:var(--focus);}
+  .modal textarea{resize:vertical;min-height:60px;}
+  .modal-actions{display:flex;gap:10px;margin-top:16px;}
+  .modal-actions .btn{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:12px;
+    letter-spacing:0.5px;text-transform:uppercase;padding:10px 16px;
+    border:1.5px solid var(--ink);border-radius:2px;cursor:pointer;transition:background .12s;
+  }
+  .modal-actions .btn-primary{background:var(--ink);color:var(--paper);}
+  .modal-actions .btn-primary:hover{background:#243836;}
+  .modal-actions .btn-cancel{background:none;color:var(--ink);}
 
   .empty{
     font-family:'IBM Plex Mono', monospace;
@@ -400,6 +446,7 @@
       <h1>Inbox Digest</h1>
       <p>compiled from your NISER mail</p>
     </div>
+    <button class="sync-btn" id="addEventBtn">+ Add Event</button>
     <button class="sync-btn" id="refreshBtn">Refresh</button>
   </header>
 
@@ -466,6 +513,7 @@
       <span><i class="dot" style="background:var(--optional)"></i>Optional / academic</span>
       <span><i class="dot" style="background:var(--admin)"></i>Admin</span>
       <span><i class="dot" style="background:var(--club)"></i>Clubs &amp; sports</span>
+      <span><i class="dot" style="background:var(--custom)"></i>Personal</span>
     </div>
   </div>
 
@@ -482,6 +530,50 @@
   </footer>
 </div>
 
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal">
+    <h3>Add Custom Event</h3>
+    <div class="field">
+      <label>Title *</label>
+      <input type="text" id="customTitle" placeholder="e.g. Study group meeting">
+    </div>
+    <div class="field">
+      <label>Date *</label>
+      <input type="date" id="customDate">
+    </div>
+    <div class="field">
+      <label>Time</label>
+      <input type="time" id="customTime">
+    </div>
+    <div class="field">
+      <label>End Time (optional)</label>
+      <input type="time" id="customEndTime">
+    </div>
+    <div class="field">
+      <label>Location</label>
+      <input type="text" id="customLocation" placeholder="e.g. Library">
+    </div>
+    <div class="field">
+      <label>Category</label>
+      <select id="customCategory">
+        <option value="custom">Personal</option>
+        <option value="mandatory">Mandatory</option>
+        <option value="optional-academic">Optional / Academic</option>
+        <option value="club-sports">Club / Sport</option>
+        <option value="admin">Admin</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Notes</label>
+      <textarea id="customNote" placeholder="Any extra details..."></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" id="saveCustomEvent">Save</button>
+      <button class="btn btn-cancel" id="cancelCustomEvent">Cancel</button>
+    </div>
+  </div>
+</div>
+
 <script>
 const STORAGE_EVENTS_KEY = 'inbox-digest:events';
 const STORAGE_TOGGLE_KEY = 'inbox-digest:show-clubs';
@@ -491,12 +583,13 @@ const STORAGE_TIMETABLE_KEY = 'inbox-digest:show-timetable';
 const STORAGE_DARK_KEY = 'inbox-digest:dark-mode';
 const STORAGE_24HOUR_KEY = 'inbox-digest:24-hour';
 const STORAGE_BATCH_KEY = 'inbox-digest:batch';
+const STORAGE_CUSTOM_KEY = 'inbox-digest:custom-events';
 
 let state = {
   events: [], lastSynced: null, batch: 'all', timetable: null,
   showClubs: false, showSeminars: true, showAdmin: true,
   showTimetable: true, darkMode: false, use24Hour: false,
-  activeTab: 'upcoming',
+  activeTab: 'upcoming', customEvents: [],
 };
 
 const els = {
@@ -515,6 +608,17 @@ const els = {
   batchSelect: document.getElementById('batchSelect'),
   tabBar: document.getElementById('tabBar'),
   settingsBackdrop: document.getElementById('settingsBackdrop'),
+  addEventBtn: document.getElementById('addEventBtn'),
+  modalBackdrop: document.getElementById('modalBackdrop'),
+  customTitle: document.getElementById('customTitle'),
+  customDate: document.getElementById('customDate'),
+  customTime: document.getElementById('customTime'),
+  customEndTime: document.getElementById('customEndTime'),
+  customLocation: document.getElementById('customLocation'),
+  customCategory: document.getElementById('customCategory'),
+  customNote: document.getElementById('customNote'),
+  saveCustomEvent: document.getElementById('saveCustomEvent'),
+  cancelCustomEvent: document.getElementById('cancelCustomEvent'),
 };
 
 function setStatus(msg, isError){
@@ -589,6 +693,7 @@ function render(){
   const allEvents = getTodayEvents();
   const filtered = allEvents.filter(e => {
     if(e.category === 'mandatory') return true;
+    if(e.category === 'custom') return true;
     if(e.category === 'club-sports' && !state.showClubs) return false;
     if(e.category === 'optional-academic' && !state.showSeminars) return false;
     if(e.category === 'admin' && !state.showAdmin) return false;
@@ -663,16 +768,17 @@ function render(){
 }
 
 function rowHtml(e){
-  const cat = ['mandatory','optional-academic','admin','club-sports','timetable'].includes(e.category) ? e.category : 'admin';
-  const label = {mandatory:'Mandatory', 'optional-academic':'Optional', admin:'Admin', 'club-sports':'Club/Sport', timetable:'Class'}[cat];
+  const cat = ['mandatory','optional-academic','admin','club-sports','timetable','custom'].includes(e.category) ? e.category : 'admin';
+  const label = {mandatory:'Mandatory', 'optional-academic':'Optional', admin:'Admin', 'club-sports':'Club/Sport', timetable:'Class', custom:'Personal'}[cat];
   const compulsoryBadge = e.compulsory ? '<span class="badge compulsory">Compulsory</span>' : '';
   const bringInfo = e.bring ? `<span>Bring: ${escapeHtml(e.bring)}</span>` : '';
   const forInfo = e.for ? `<span>For: ${escapeHtml(e.for)}</span>` : '';
+  const deleteBtn = e._custom ? `<button class="delete-btn" data-id="${e._id}" title="Delete">&times;</button>` : '';
   return `
     <div class="row ${cat}">
       <div class="time">${escapeHtml(formatTimeString(e.time, state.use24Hour))}</div>
       <div class="content">
-        <p class="title">${escapeHtml(e.title || 'Untitled')}</p>
+        <p class="title">${escapeHtml(e.title || 'Untitled')}${deleteBtn}</p>
         <div class="meta">
           <span class="badge ${cat}">${label}</span>
           ${compulsoryBadge}
@@ -810,7 +916,8 @@ function getTodayEvents(){
   }
 
   const emailEvents = state.events.map(e => ({...e}));
-  return [...timetableEvents, ...emailEvents];
+  const customEvts = state.customEvents.map(e => ({...e, category: e.category || 'custom', _custom: true, _id: e.id}));
+  return [...timetableEvents, ...emailEvents, ...customEvts];
 }
 
 async function loadState(){
@@ -951,6 +1058,92 @@ els.tabBar.addEventListener('click', (e) => {
   render();
 });
 
+// ── Custom events ────────────────────────────────────────────────
+function loadCustomEvents(){
+  try{
+    const raw = localStorage.getItem(STORAGE_CUSTOM_KEY);
+    if(raw) state.customEvents = JSON.parse(raw);
+  }catch(e){}
+}
+function saveCustomEvents(){
+  try{ localStorage.setItem(STORAGE_CUSTOM_KEY, JSON.stringify(state.customEvents)); }catch(e){}
+}
+
+function formatDateInput(d){
+  const y = d.getFullYear();
+  const m = String(d.getMonth()+1).padStart(2,'0');
+  const day = String(d.getDate()).padStart(2,'0');
+  return `${y}-${m}-${day}`;
+}
+
+els.addEventBtn.addEventListener('click', () => {
+  els.customTitle.value = '';
+  els.customDate.value = formatDateInput(new Date());
+  els.customTime.value = '';
+  els.customEndTime.value = '';
+  els.customLocation.value = '';
+  els.customCategory.value = 'custom';
+  els.customNote.value = '';
+  els.modalBackdrop.classList.add('open');
+  els.customTitle.focus();
+});
+
+els.cancelCustomEvent.addEventListener('click', () => {
+  els.modalBackdrop.classList.remove('open');
+});
+els.modalBackdrop.addEventListener('click', (e) => {
+  if(e.target === els.modalBackdrop) els.modalBackdrop.classList.remove('open');
+});
+
+els.saveCustomEvent.addEventListener('click', () => {
+  const title = els.customTitle.value.trim();
+  const date = els.customDate.value;
+  if(!title || !date){ return; }
+  const d = new Date(date + 'T00:00:00');
+  const dayShort = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const monthShort = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const dateLabel = `${dayShort[d.getDay()]} ${d.getDate()} ${monthShort[d.getMonth()]}`;
+  let timeStr = 'TBD';
+  if(els.customTime.value){
+    const [h, m] = els.customTime.value.split(':').map(Number);
+    if(els.customEndTime.value){
+      const [eh, em] = els.customEndTime.value.split(':').map(Number);
+      const fmt = (hh, mm) => {
+        const ap = hh >= 12 ? 'PM' : 'AM';
+        const h12 = hh === 0 ? 12 : hh > 12 ? hh - 12 : hh;
+        return `${h12}:${String(mm).padStart(2,'0')} ${ap}`;
+      };
+      timeStr = `${fmt(h, m)} - ${fmt(eh, em)}`;
+    } else {
+      const ap = h >= 12 ? 'PM' : 'AM';
+      const h12 = h === 0 ? 12 : h > 12 ? h - 12 : h;
+      timeStr = `${h12}:${String(m).padStart(2,'0')} ${ap}`;
+    }
+  }
+  const evt = {
+    id: Date.now().toString(36) + Math.random().toString(36).slice(2,6),
+    title, date: dateLabel, time: timeStr,
+    location: els.customLocation.value.trim(),
+    category: els.customCategory.value,
+    note: els.customNote.value.trim(),
+    compulsory: false, bring: '', for: '', sender: '',
+  };
+  state.customEvents.push(evt);
+  saveCustomEvents();
+  els.modalBackdrop.classList.remove('open');
+  render();
+});
+
+els.results.addEventListener('click', (e) => {
+  const btn = e.target.closest('.delete-btn');
+  if(!btn) return;
+  const id = btn.dataset.id;
+  state.customEvents = state.customEvents.filter(e => e.id !== id);
+  saveCustomEvents();
+  render();
+});
+
+loadCustomEvents();
 loadState();
 </script>
 </body>
