@@ -610,20 +610,36 @@ function normalizeTitle(t) {
   return (t || '').toLowerCase().replace(/[^a-z0-9]/g,' ').replace(/\s+/g,' ').trim();
 }
 
+function titleSimilarity(a, b) {
+  const stop = new Set(['the','a','an','of','and','or','in','on','at','to','for','is','it','by','can','we','with','from','this','that','are','was','be','has','had','not']);
+  const wordsA = normalizeTitle(a).split(' ').filter(w => w.length > 2 && !stop.has(w));
+  const wordsB = normalizeTitle(b).split(' ').filter(w => w.length > 2 && !stop.has(w));
+  if (!wordsA.length || !wordsB.length) return 0;
+  const setB = new Set(wordsB);
+  const overlap = wordsA.filter(w => setB.has(w)).length;
+  return overlap / Math.max(wordsA.length, wordsB.length);
+}
+
 function dedupEvents(events) {
-  const seen = new Map();
+  const seen = [];
   for (const e of events) {
     const key = normalizeTitle(e.title) + '|' + (e.date || '') + '|' + (e.time || '');
-    if (!seen.has(key)) {
-      seen.set(key, e);
-    } else {
-      const existing = seen.get(key);
-      if ((e.note||'').length > (existing.note||'').length) existing.note = e.note;
-      if ((e.bring||'').length > (existing.bring||'').length) existing.bring = e.bring;
-      if ((e.for||'').length > (existing.for||'').length) existing.for = e.for;
+    let merged = false;
+    for (const s of seen) {
+      const sKey = normalizeTitle(s.title) + '|' + (s.date || '') + '|' + (s.time || '');
+      if (key === sKey || (s.date === e.date && titleSimilarity(s.title, e.title) > 0.5)) {
+        if ((e.note||'').length > (s.note||'').length) s.note = e.note;
+        if ((e.bring||'').length > (s.bring||'').length) s.bring = e.bring;
+        if ((e.for||'').length > (s.for||'').length) s.for = e.for;
+        if (!s.time || s.time === 'TBD') s.time = e.time;
+        if (!s.location || s.location === 'TBD') s.location = e.location;
+        merged = true;
+        break;
+      }
     }
+    if (!merged) seen.push({...e});
   }
-  return [...seen.values()];
+  return seen;
 }
 
 function groupByDate(events) {
@@ -753,6 +769,7 @@ Rules:
 - "for": extract roll numbers, batch, year, department if mentioned
 - "bring": extract materials, documents, laptops, IDs if mentioned
 - CRITICAL: NEVER invent, guess, or fabricate any detail not explicitly stated in the email snippet. If a location is not mentioned, leave location as empty string. If a time is not mentioned, use "TBD". If a detail (venue, room, building) appears elsewhere in the thread but not in the context of this event, do NOT use it. Hallucinated details are worse than missing details.
+- USE THE TIMETABLE: If an email mentions a class, lab, or batch (e.g. "Biology Lab - Batch 3", "Rescheduled lab session from 26 August holiday"), match it against the timetable above to fill in the correct time and location. Only do this if the email clearly refers to a regular class session.
 - Be terse. Titles under 60 chars.
 - Max 20 items. Sort chronologically.
 - If no emails have calendar-worthy events, return an empty array: []`;
@@ -1123,6 +1140,10 @@ async function callGemini(emailText, batchNum, totalBatches) {
   const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   const dateContext = `Today is ${dayNames[today.getDay()]}, ${today.getDate()} ${monthNames[today.getMonth()]} ${today.getFullYear()}.`;
   const batchLabel = batchNum ? `${batchNum}/${totalBatches}` : '';
+  let timetableContext = '';
+  if (timetable && timetable.week) {
+    timetableContext = `\n\nSTUDENT TIMETABLE (for reference — use this to fill in times/locations for class-related emails like "Biology Lab - Batch 3" or "Rescheduled lab session"):\n${JSON.stringify(timetable, null, 0)}`;
+  }
 
   for (let attempt = 0; attempt < 5; attempt++) {
     const res = await fetch(`${GEMINI_API}?key=${els.geminiKey.value}`, {
@@ -1131,7 +1152,7 @@ async function callGemini(emailText, batchNum, totalBatches) {
       body: JSON.stringify({
         contents: [{
           parts: [{
-            text: `${dateContext}\n\n${GEMINI_PROMPT}\n\n--- EMAILS ---\n\n${emailText}`
+            text: `${dateContext}\n\n${GEMINI_PROMPT}${timetableContext}\n\n--- EMAILS ---\n\n${emailText}`
           }]
         }],
         generationConfig: {
@@ -1176,6 +1197,10 @@ async function callGroq(emailText, batchNum, totalBatches) {
   const dateContext = `Today is ${dayNames[today.getDay()]}, ${today.getDate()} ${monthNames[today.getMonth()]} ${today.getFullYear()}.`;
   const batchLabel = batchNum ? `${batchNum}/${totalBatches}` : '';
   const groqKey = els.groqKey.value.trim();
+  let timetableGroq = '';
+  if (timetable && timetable.week) {
+    timetableGroq = `\n\nSTUDENT TIMETABLE: ${JSON.stringify(timetable)}`;
+  }
 
   for (let attempt = 0; attempt < 5; attempt++) {
     const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
@@ -1188,7 +1213,7 @@ async function callGroq(emailText, batchNum, totalBatches) {
         model: els.groqModel.value || 'openai/gpt-oss-120b',
         messages: [{
           role: 'user',
-          content: `${dateContext}\n\n${GROQ_PROMPT}\n\n--- EMAILS ---\n\n${emailText}`
+          content: `${dateContext}\n\n${GROQ_PROMPT}${timetableGroq}\n\n--- EMAILS ---\n\n${emailText}`
         }],
         temperature: 0.2,
         max_tokens: 8192,
