@@ -627,7 +627,7 @@ function dedupEvents(events) {
     let merged = false;
     for (const s of seen) {
       const sKey = normalizeTitle(s.title) + '|' + (s.date || '') + '|' + (s.time || '');
-      if (key === sKey || (s.date === e.date && titleSimilarity(s.title, e.title) > 0.5)) {
+      if (key === sKey || (s.date === e.date && titleSimilarity(s.title, e.title) > 0.3)) {
         if ((e.note||'').length > (s.note||'').length) s.note = e.note;
         if ((e.bring||'').length > (s.bring||'').length) s.bring = e.bring;
         if ((e.for||'').length > (s.for||'').length) s.for = e.for;
