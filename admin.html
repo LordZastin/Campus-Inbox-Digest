@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inbox Digest — Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EAF0EF;
+    --paper-line: rgba(44,78,76,0.13);
+    --card:#FBFDFC;
+    --ink:#16211F;
+    --ink-soft:#4A5C58;
+    --mandatory:#B23A2E;
+    --optional:#2C6E8C;
+    --admin:#6B5B2E;
+    --club:#7A6A53;
+    --brass:#A9834B;
+    --focus:#2C6E8C;
+    --timetable:#3A7D6E;
+    --success:#2E7D4F;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px) 0 0/100% 28px,
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px) 0 0/28px 100%,
+      var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    min-height:100vh;
+    padding:32px 16px 80px;
+  }
+  .wrap{max-width:720px;margin:0 auto;}
+
+  header.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:16px;
+    border-bottom:3px solid var(--ink);
+    padding-bottom:14px;
+    margin-bottom:22px;
+    flex-wrap:wrap;
+  }
+  .title-block h1{
+    font-family:'Special Elite', monospace;
+    font-size:26px;
+    letter-spacing:0.5px;
+    margin:0 0 4px;
+  }
+  .title-block p{
+    margin:0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    letter-spacing:0.4px;
+  }
+
+  .btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    background:var(--ink);
+    color:var(--paper);
+    border:none;
+    padding:11px 18px;
+    cursor:pointer;
+    border-radius:2px;
+    transition:transform .12s ease, background .12s ease;
+  }
+  .btn:hover{background:#243836;}
+  .btn:active{transform:translateY(1px);}
+  .btn:disabled{opacity:0.55;cursor:wait;}
+  .btn:focus-visible{outline:3px solid var(--focus);outline-offset:2px;}
+  .btn-success{background:var(--success);}
+  .btn-success:hover{background:#245a38;}
+  .btn-outline{
+    background:transparent;
+    color:var(--ink);
+    border:1.5px solid var(--ink);
+  }
+  .btn-outline:hover{background:var(--ink);color:var(--paper);}
+
+  .section{
+    background:var(--card);
+    border:1px solid var(--paper-line);
+    border-radius:2px;
+    padding:18px;
+    margin-bottom:18px;
+  }
+  .section h2{
+    font-family:'Special Elite', monospace;
+    font-size:15px;
+    letter-spacing:0.8px;
+    text-transform:uppercase;
+    margin:0 0 12px;
+    padding-bottom:8px;
+    border-bottom:1.5px dashed var(--ink);
+  }
+
+  .field{margin-bottom:14px;}
+  .field label{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.4px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:5px;
+  }
+  .field input,.field textarea{
+    width:100%;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    padding:10px 12px;
+    border:1.5px solid var(--paper-line);
+    border-radius:2px;
+    background:var(--paper);
+    color:var(--ink);
+    outline:none;
+    transition:border-color .15s;
+  }
+  .field input:focus,.field textarea:focus{
+    border-color:var(--focus);
+  }
+  .field textarea{resize:vertical;min-height:80px;}
+
+  .row-actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+
+  .status{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin-bottom:18px;
+    min-height:18px;
+  }
+  .status.err{color:var(--mandatory);}
+  .status.ok{color:var(--success);}
+
+  .day-group{margin-bottom:26px;}
+  .day-header{
+    font-family:'Special Elite', monospace;
+    font-size:14.5px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--ink);
+    border-bottom:1.5px dashed var(--ink);
+    padding-bottom:6px;
+    margin-bottom:12px;
+  }
+
+  .row{
+    display:grid;
+    grid-template-columns:78px 1fr;
+    gap:14px;
+    background:var(--card);
+    border:1px solid var(--paper-line);
+    border-left:4px solid var(--ink-soft);
+    padding:12px 14px;
+    margin-bottom:8px;
+    border-radius:2px;
+  }
+  .row.mandatory{border-left-color:var(--mandatory);}
+  .row.optional-academic{border-left-color:var(--optional);}
+  .row.admin{border-left-color:var(--admin);}
+  .row.club-sports{border-left-color:var(--club);}
+  .row.timetable{border-left-color:var(--timetable);}
+  .badge.timetable{color:var(--timetable);}
+
+  .row .time{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    font-weight:600;
+    color:var(--ink);
+    padding-top:1px;
+  }
+  .row .content .title{
+    font-weight:600;
+    font-size:14.5px;
+    margin:0 0 4px;
+  }
+  .row .content .meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    align-items:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+  }
+  .badge{
+    font-size:9.5px;
+    letter-spacing:0.6px;
+    text-transform:uppercase;
+    padding:2px 6px;
+    border-radius:2px;
+    border:1px solid currentColor;
+    font-weight:600;
+  }
+  .badge.mandatory{color:var(--mandatory);}
+  .badge.optional-academic{color:var(--optional);}
+  .badge.admin{color:var(--admin);}
+  .badge.club-sports{color:var(--club);}
+  .row .note{
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-top:6px;
+    font-style:italic;
+  }
+
+  .empty{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--ink-soft);
+    border:1.5px dashed var(--paper-line);
+    padding:28px 16px;
+    text-align:center;
+    border-radius:2px;
+  }
+
+  .email-preview{
+    max-height:300px;
+    overflow-y:auto;
+    border:1.5px solid var(--paper-line);
+    border-radius:2px;
+    padding:12px;
+    background:var(--paper);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    line-height:1.6;
+    white-space:pre-wrap;
+    margin-bottom:14px;
+  }
+
+  .btn-row{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:14px;
+  }
+
+  .warn-box{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    line-height:1.5;
+    color:var(--mandatory);
+    background:rgba(178,58,46,0.06);
+    border:1px solid rgba(178,58,46,0.25);
+    border-radius:2px;
+    padding:10px 12px;
+    margin-bottom:14px;
+  }
+  .warn-box strong{font-weight:600;}
+
+  .info-note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    line-height:1.5;
+    color:var(--ink-soft);
+    background:rgba(44,78,76,0.06);
+    border:1px solid var(--paper-line);
+    border-radius:2px;
+    padding:10px 12px;
+    margin-bottom:14px;
+    position:relative;
+  }
+  .info-note strong{font-weight:600;color:var(--ink);}
+  .info-note .dismiss{
+    position:absolute;
+    top:6px;
+    right:8px;
+    background:none;
+    border:none;
+    font-size:16px;
+    cursor:pointer;
+    color:var(--ink-soft);
+    line-height:1;
+    padding:0 2px;
+  }
+  .info-note .dismiss:hover{color:var(--ink);}
+
+  .switch-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.4px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .switch{
+    position:relative;
+    width:52px;
+    height:26px;
+    background:#D9DFD9;
+    border:1.5px solid var(--ink);
+    border-radius:3px;
+    cursor:pointer;
+    flex-shrink:0;
+  }
+  .switch .knob{
+    position:absolute;
+    top:2px;
+    left:2px;
+    width:20px;
+    height:19px;
+    background:var(--card);
+    border:1.5px solid var(--ink);
+    border-radius:2px;
+    transition:transform .18s ease;
+  }
+  .switch .lamp{
+    position:absolute;
+    top:4px;
+    right:6px;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#B7C2BC;
+    transition:background .18s ease, box-shadow .18s ease;
+  }
+  .switch.on{background:#DCE9E4;}
+  .switch.on .knob{transform:translateX(24px);}
+  .switch.on .lamp{background:var(--brass);box-shadow:0 0 6px var(--brass);}
+  .switch:focus-visible{outline:3px solid var(--focus);outline-offset:2px;}
+
+  .provider-row{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .provider-btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.4px;
+    padding:8px 14px;
+    border:1.5px solid var(--ink);
+    background:transparent;
+    color:var(--ink);
+    cursor:pointer;
+    border-radius:2px;
+    transition:background .12s, color .12s;
+  }
+  .provider-btn.active{background:var(--ink);color:var(--paper);}
+  .provider-btn:hover:not(.active){background:var(--ink);color:var(--paper);}
+  .provider-btn:focus-visible{outline:3px solid var(--focus);outline-offset:2px;}
+
+  footer{
+    margin-top:30px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    text-align:center;
+  }
+
+  @media (max-width:480px){
+    .row{grid-template-columns:1fr;}
+    .row .time{padding-top:0;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .btn{transition:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="title-block">
+      <h1>Inbox Digest</h1>
+      <p>admin — sync &amp; preview</p>
+    </div>
+  </header>
+
+  <div class="section">
+    <h2>Configuration</h2>
+    <div class="field">
+      <label>AI Provider</label>
+      <div class="provider-row">
+        <button class="provider-btn active" data-provider="gemini">Gemini</button>
+        <button class="provider-btn" data-provider="groq">Groq (Free)</button>
+        <button class="provider-btn" data-provider="local">Local Rules</button>
+      </div>
+    </div>
+    <div class="field" id="geminiKeyField">
+      <label>Gemini API Key</label>
+      <input type="password" id="geminiKey" placeholder="AIza...">
+    </div>
+    <div class="field" id="groqKeyField" style="display:none;">
+      <label>Groq API Key <span style="font-weight:400;text-transform:none;letter-spacing:0;">(free at console.groq.com)</span></label>
+      <input type="password" id="groqKey" placeholder="gsk_...">
+    </div>
+    <div class="field" id="groqModelField" style="display:none;">
+      <label>Groq Model</label>
+      <select id="groqModel" style="width:100%;font-family:'IBM Plex Mono',monospace;font-size:13px;padding:10px 12px;border:1.5px solid var(--paper-line);border-radius:2px;background:var(--paper);color:var(--ink);outline:none;">
+        <option value="openai/gpt-oss-120b">GPT OSS 120B (recommended)</option>
+        <option value="openai/gpt-oss-20b">GPT OSS 20B (faster)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Google OAuth Client ID</label>
+      <input type="text" id="clientId" placeholder="xxxx.apps.googleusercontent.com">
+    </div>
+    <div class="field">
+      <label>Google OAuth Client Secret</label>
+      <input type="password" id="clientSecret" placeholder="GOCSPX-...">
+    </div>
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);margin:8px 0 0;">
+      See <a href="SETUP.md" style="color:var(--focus);">SETUP.md</a> for how to get these credentials.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Sync Gmail</h2>
+    <div class="warn-box" id="redirectWarning" style="display:none;">
+      This page must be served at <strong>http://localhost:3000/admin.html</strong> — OAuth will fail with a redirect_uri_mismatch otherwise. Run <code>python -m http.server 3000</code> from the project folder and open that exact URL.
+    </div>
+    <div class="row-actions">
+      <button class="btn" id="getAuthUrlBtn">Get Sign-In Link</button>
+      <button class="btn" id="syncBtn" disabled>Sync After Sign-In</button>
+      <button class="btn btn-outline" id="signOutBtn" style="display:none;">Sign Out</button>
+      <button class="btn btn-outline" id="resetBtn" style="border-color:var(--mandatory);color:var(--mandatory);">Reset All Data</button>
+    </div>
+    <div class="status" id="status"></div>
+    <p id="tokenExpiryNote" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);margin:0 0 4px;display:none;">
+      Your session is managed via a refresh token — sign-in is automatic. If sync fails with an auth error, click "Get Sign-In Link" to re-authorize.
+    </p>
+    <div class="field" id="authLinkBox" style="display:none;margin-top:14px;">
+      <label>1. Open this link in Chrome (not Brave), sign in with NISER email</label>
+      <input type="text" id="authLinkInput" readonly style="font-size:11px;background:var(--paper);">
+    </div>
+    <div class="field" id="tokenBox" style="display:none;margin-top:10px;">
+      <label>2. After redirect, paste the full URL from address bar here</label>
+      <input type="text" id="tokenInput" placeholder="http://localhost:3000/admin.html?code=...">
+    </div>
+    <div class="field" id="manualTokenBox" style="display:none;margin-top:10px;">
+      <label>Or paste just the authorization code value directly</label>
+      <input type="text" id="manualTokenInput" placeholder="4/0A... authorization code">
+      <button class="btn" id="useTokenBtn" style="margin-top:8px;">Use This Code</button>
+    </div>
+    <div class="email-preview" id="emailPreview" style="display:none;"></div>
+  </div>
+
+  <div class="section">
+    <h2>Preview &amp; Publish</h2>
+    <div class="info-note" id="publishNote">
+      <button class="dismiss" id="dismissNote" aria-label="Dismiss">&times;</button>
+      <strong>Two ways to share:</strong><br>
+      <strong>Save Locally</strong> stores events in this browser's localStorage — only visible on this device. Use it to preview on this machine.<br>
+      <strong>Download JSON</strong> exports a <code>timetable-data.json</code> file. Replace that file wherever you've deployed the public page (e.g. GitHub Pages, Netlify) — that's what actually makes it visible to others.
+    </div>
+    <div id="preview"></div>
+    <div class="btn-row">
+      <button class="btn btn-success" id="downloadBtn" disabled>Download JSON</button>
+      <button class="btn btn-outline" id="publishBtn" disabled>Save Locally (this browser only)</button>
+    </div>
+    <div class="status" id="publishStatus"></div>
+  </div>
+
+  <footer>Inbox Digest Admin</footer>
+</div>
+
+<script type="module">
+import * as chrono from 'https://esm.sh/chrono-node@2.10.1';
+window.chrono = chrono;
+</script>
+<script src="https://unpkg.com/compromise@14.16.0/builds/compromise.min.js"></script>
+<script>
+const STORAGE_KEY = 'inbox-digest:events';
+const CONFIG_KEY = 'inbox-digest:config';
+const CURSOR_KEY = 'inbox-digest:last-message-epoch';
+const STORAGE_TOKEN_KEY = 'inbox-digest:access-token';
+const STORAGE_REFRESH_KEY = 'inbox-digest:refresh-token';
+const STORAGE_EXPIRY_KEY = 'inbox-digest:token-expiry';
+const GMAIL_SCOPE = 'https://www.googleapis.com/auth/gmail.readonly';
+const GMAIL_API = 'https://gmail.googleapis.com/gmail/v1/users/me/messages';
+const GEMINI_API = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent';
+
+let accessToken = null;
+let tokenExpiresAt = 0;
+let parsedEvents = [];
+let timetable = null;
+
+const els = {
+  geminiKey: document.getElementById('geminiKey'),
+  groqKey: document.getElementById('groqKey'),
+  groqModel: document.getElementById('groqModel'),
+  geminiKeyField: document.getElementById('geminiKeyField'),
+  groqKeyField: document.getElementById('groqKeyField'),
+  groqModelField: document.getElementById('groqModelField'),
+  clientId: document.getElementById('clientId'),
+  clientSecret: document.getElementById('clientSecret'),
+  getAuthUrlBtn: document.getElementById('getAuthUrlBtn'),
+  syncBtn: document.getElementById('syncBtn'),
+  signOutBtn: document.getElementById('signOutBtn'),
+  resetBtn: document.getElementById('resetBtn'),
+  status: document.getElementById('status'),
+  authLinkBox: document.getElementById('authLinkBox'),
+  authLinkInput: document.getElementById('authLinkInput'),
+  tokenBox: document.getElementById('tokenBox'),
+  tokenInput: document.getElementById('tokenInput'),
+  manualTokenBox: document.getElementById('manualTokenBox'),
+  manualTokenInput: document.getElementById('manualTokenInput'),
+  useTokenBtn: document.getElementById('useTokenBtn'),
+  emailPreview: document.getElementById('emailPreview'),
+  preview: document.getElementById('preview'),
+  publishBtn: document.getElementById('publishBtn'),
+  downloadBtn: document.getElementById('downloadBtn'),
+  publishStatus: document.getElementById('publishStatus'),
+  redirectWarning: document.getElementById('redirectWarning'),
+  dismissNote: document.getElementById('dismissNote'),
+  publishNote: document.getElementById('publishNote'),
+};
+
+function setStatus(el, msg, type) {
+  el.textContent = msg || '';
+  el.className = 'status' + (type === 'err' ? ' err' : type === 'ok' ? ' ok' : '');
+}
+
+function saveConfig() {
+  try {
+    localStorage.setItem(CONFIG_KEY, JSON.stringify({
+      geminiKey: els.geminiKey.value,
+      groqKey: els.groqKey.value,
+      groqModel: els.groqModel.value,
+      clientId: els.clientId.value,
+      clientSecret: els.clientSecret.value,
+      provider: activeProvider,
+    }));
+  } catch(e) {}
+}
+
+function loadConfig() {
+  try {
+    const c = JSON.parse(localStorage.getItem(CONFIG_KEY));
+    if (c) {
+      els.geminiKey.value = c.geminiKey || '';
+      els.groqKey.value = c.groqKey || '';
+      if (c.groqModel) els.groqModel.value = c.groqModel;
+      els.clientId.value = c.clientId || '';
+      els.clientSecret.value = c.clientSecret || '';
+      if (c.provider) setProvider(c.provider);
+    }
+  } catch(e) {}
+}
+
+els.geminiKey.addEventListener('change', saveConfig);
+els.groqKey.addEventListener('change', saveConfig);
+els.groqModel.addEventListener('change', saveConfig);
+els.clientId.addEventListener('change', saveConfig);
+els.clientSecret.addEventListener('change', saveConfig);
+
+// ── Provider selector ─────────────────────────────────────────────
+let activeProvider = 'gemini';
+
+function setProvider(p) {
+  activeProvider = p;
+  document.querySelectorAll('.provider-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.provider === p);
+  });
+  els.geminiKeyField.style.display = p === 'gemini' ? '' : 'none';
+  els.groqKeyField.style.display = p === 'groq' ? '' : 'none';
+  els.groqModelField.style.display = p === 'groq' ? '' : 'none';
+  saveConfig();
+}
+
+document.querySelectorAll('.provider-btn').forEach(btn => {
+  btn.addEventListener('click', () => setProvider(btn.dataset.provider));
+});
+
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
+
+function normalizeDate(d) {
+  const dayShort = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const months = {jan:'Jan',feb:'Feb',mar:'Mar',apr:'Apr',may:'May',jun:'Jun',jul:'Jul',aug:'Aug',sep:'Sep',oct:'Oct',nov:'Nov',dec:'Dec',
+    january:'Jan',february:'Feb',march:'Mar',april:'Apr',june:'Jun',july:'Jul',august:'Aug',september:'Sep',october:'Oct',november:'Nov',december:'Dec'};
+  const cleaned = d.replace(/[,\s]+/g,' ').trim();
+  // Try to extract parts: "Fri 21 Aug", "Friday 21 Aug", "21 Aug", "Aug 21", etc.
+  const parts = cleaned.split(' ');
+  let day = null, num = null, mon = null;
+  for(const p of parts) {
+    const lower = p.toLowerCase();
+    if(dayShort.map(d=>d.toLowerCase()).includes(lower)) day = dayShort[dayShort.map(d=>d.toLowerCase()).indexOf(lower)];
+    else if(months[lower]) mon = months[lower];
+    else if(/^\d{1,2}$/.test(p)) num = parseInt(p,10);
+  }
+  if(num && mon) return `${day || ''} ${num} ${mon}`.trim();
+  return d;
+}
+
+function normalizeTitle(t) {
+  return (t || '').toLowerCase().replace(/[^a-z0-9]/g,' ').replace(/\s+/g,' ').trim();
+}
+
+function dedupEvents(events) {
+  const seen = new Map();
+  for (const e of events) {
+    const key = normalizeTitle(e.title) + '|' + (e.date || '') + '|' + (e.time || '');
+    if (!seen.has(key)) {
+      seen.set(key, e);
+    } else {
+      const existing = seen.get(key);
+      if ((e.note||'').length > (existing.note||'').length) existing.note = e.note;
+      if ((e.bring||'').length > (existing.bring||'').length) existing.bring = e.bring;
+      if ((e.for||'').length > (existing.for||'').length) existing.for = e.for;
+    }
+  }
+  return [...seen.values()];
+}
+
+function groupByDate(events) {
+  const groups = {};
+  const order = [];
+  events.forEach(e => {
+    const key = e.date || 'Date TBD';
+    if (!groups[key]) { groups[key] = []; order.push(key); }
+    groups[key].push(e);
+  });
+  return order.map(key => ({ date: key, items: groups[key] }));
+}
+
+function getTodayTimetable() {
+  if (!timetable || !timetable.week) return [];
+  const dayNames = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+  const dayShort = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const monthShort = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const now = new Date();
+  const dayName = dayNames[now.getDay()];
+  const todayLabel = `${dayShort[now.getDay()]} ${now.getDate()} ${monthShort[now.getMonth()]}`;
+  const slots = timetable.timeSlots || [];
+  const dayClasses = timetable.week[dayName] || [];
+  const events = [];
+  for (const cls of dayClasses) {
+    if (cls.type === 'lunch') continue;
+    const slot = slots[cls.slot];
+    const timeStr = slot ? `${slot.start} - ${slot.end}` : 'TBD';
+    const batchNote = cls.batches ? ` (${cls.batches.join(', ')})` : '';
+    events.push({
+      title: cls.course + (cls.type === 'lab' ? ' Lab' : ''),
+      time: timeStr,
+      date: todayLabel,
+      location: timetable.venue?.theory || '',
+      category: 'timetable',
+      compulsory: true,
+      bring: '',
+      for: batchNote.trim() || '',
+      sender: '',
+      note: cls.type === 'lab' ? 'Lab class' : '',
+    });
+  }
+  return events;
+}
+
+function renderPreview() {
+  const timetableEvents = getTodayTimetable();
+  const allEvents = [...timetableEvents, ...parsedEvents];
+  if (allEvents.length === 0) {
+    els.preview.innerHTML = '<div class="empty">No events extracted yet. Sync your inbox first.</div>';
+    return;
+  }
+  const groups = groupByDate(allEvents);
+  els.preview.innerHTML = groups.map(g => `
+    <div class="day-group">
+      <div class="day-header">${escapeHtml(g.date)}</div>
+      ${g.items.map(rowHtml).join('')}
+    </div>
+  `).join('');
+}
+
+function rowHtml(e) {
+  const cat = ['mandatory','optional-academic','admin','club-sports','timetable'].includes(e.category) ? e.category : 'admin';
+  const label = {mandatory:'Mandatory','optional-academic':'Optional',admin:'Admin','club-sports':'Club/Sport',timetable:'Class'}[cat];
+  const compulsoryBadge = e.compulsory ? '<span class="badge mandatory">Compulsory</span>' : '';
+  const bringNote = e.bring ? `<span>Bring: ${escapeHtml(e.bring)}</span>` : '';
+  const forNote = e.for ? `<span>For: ${escapeHtml(e.for)}</span>` : '';
+  return `
+    <div class="row ${cat}">
+      <div class="time">${escapeHtml(e.time || 'TBD')}</div>
+      <div class="content">
+        <p class="title">${escapeHtml(e.title || 'Untitled')}</p>
+        <div class="meta">
+          <span class="badge ${cat}">${label}</span>
+          ${compulsoryBadge}
+          ${e.location ? `<span>${escapeHtml(e.location)}</span>` : ''}
+          ${bringNote}
+          ${forNote}
+          ${e.sender ? `<span>${escapeHtml(e.sender)}</span>` : ''}
+        </div>
+        ${e.note ? `<div class="note">${escapeHtml(e.note)}</div>` : ''}
+      </div>
+    </div>
+  `;
+}
+
+function generateUpcomingDates() {
+  const days = [];
+  const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const today = new Date();
+  for (let i = 0; i < 14; i++) {
+    const d = new Date(today);
+    d.setDate(today.getDate() + i);
+    const prefix = i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : '';
+    const str = `${prefix ? prefix + ' ' : ''}${dayNames[d.getDay()]} ${d.getDate()} ${monthNames[d.getMonth()]}`;
+    days.push(str);
+  }
+  return days;
+}
+
+const GEMINI_PROMPT = `You triage campus email for a NISER student.
+
+STRICTLY EXCLUDE these types of emails entirely — do NOT return them as events:
+- Lost and found / missing items
+- Mess complaints, hygiene, food quality complaints
+- Secondhand sales, buy/sell posts
+- General newsletters, announcements without a date/time
+- Hygiene complaints, hostel complaints
+- Anything without a concrete date, time, or deadline
+
+ONLY extract emails that have a specific actionable event with a date or time:
+- Classes, labs, lectures with a time slot
+- Seminars, workshops, orientations with a date
+- Deadlines (assignment, registration, fee payment) with a date
+- Club meetings, sports events, photoshoots with a date/time
+- Any event where attendance is expected at a specific time
+
+IMPORTANT: If multiple emails refer to the same event (e.g. a general announcement + a detailed follow-up, or "VAC Course Session" + "VAC Course: Sports and Physical Education"), merge them into ONE entry using the most specific title and combining all details (location, who it's for, whether compulsory, etc.). Do not return duplicate entries for the same event.
+
+Return ONLY a raw JSON array. No markdown fences, no explanation, no text before or after. The very first character must be [ and the last must be ]. Each item:
+{"title": "short event name", "time": "11:30 AM - 12:30 PM" or "TBD", "date": "Fri 21 Aug", "location": "room/hall or empty string", "category": "mandatory" | "optional-academic" | "admin" | "club-sports", "compulsory": true or false, "bring": "what to bring or empty string", "for": "target audience like Roll No 1-100 or empty string", "sender": "sender email address", "note": "extra info or empty string"}
+
+Rules:
+- compulsory=true only if email says mandatory/required/compulsory/"must attend"
+- compulsory=false for optional/unclear
+- "for": extract roll numbers, batch, year, department if mentioned
+- "bring": extract materials, documents, laptops, IDs if mentioned
+- CRITICAL: NEVER invent, guess, or fabricate any detail not explicitly stated in the email snippet. If a location is not mentioned, leave location as empty string. If a time is not mentioned, use "TBD". If a detail (venue, room, building) appears elsewhere in the thread but not in the context of this event, do NOT use it. Hallucinated details are worse than missing details.
+- Be terse. Titles under 60 chars.
+- Max 20 items. Sort chronologically.
+- If no emails have calendar-worthy events, return an empty array: []`;
+
+const GROQ_PROMPT = `Extract campus events from email. JSON array only.
+Each: {"title":"short","time":"HH:MM or TBD","date":"Fri 21 Aug","location":"","category":"mandatory|optional-academic|admin|club-sports","compulsory":false,"sender":""}
+Skip: lost/found, complaints, sales, newsletters. Only events with dates/times. Empty if none: []`;
+
+function extractPlainTextBody(payload) {
+  if (!payload) return '';
+  if (payload.parts) {
+    for (const part of payload.parts) {
+      if (part.mimeType === 'text/plain' && part.body?.data) return part.body.data;
+      const nested = extractPlainTextBody(part);
+      if (nested) return nested;
+    }
+  }
+  if (payload.mimeType === 'text/plain' && payload.body?.data) return payload.body.data;
+  return '';
+}
+
+function decodeGmailBody(encoded) {
+  if (!encoded) return '';
+  const padded = encoded.replace(/-/g, '+').replace(/_/g, '/');
+  const binary = atob(padded);
+  const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+  return new TextDecoder('utf-8').decode(bytes);
+}
+
+function findCalendarPart(payload) {
+  if (!payload) return null;
+  if (payload.mimeType === 'text/calendar' && payload.body?.data) return payload.body.data;
+  if (payload.parts) {
+    for (const part of payload.parts) {
+      const found = findCalendarPart(part);
+      if (found) return found;
+    }
+  }
+  return null;
+}
+
+function parseICS(icsText) {
+  const getField = (name) => {
+    const folded = icsText.replace(/\r?\n[ \t]/g, '');
+    const re = new RegExp('^' + name + ':(.+)$', 'mi');
+    const m = folded.match(re);
+    return m ? m[1].trim() : '';
+  };
+  const parseDT = (val) => {
+    if (!val) return null;
+    const m = val.match(/(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})/);
+    if (!m) return null;
+    return new Date(Date.UTC(+m[1], +m[2]-1, +m[3], +m[4], +m[5], +m[6]));
+  };
+  const dtstart = parseDT(getField('DTSTART'));
+  const dtend = parseDT(getField('DTEND'));
+  const summary = getField('SUMMARY');
+  const location = getField('LOCATION');
+  return { dtstart, dtend, summary, location };
+}
+
+function formatChronoDate(d) {
+  const dayShort = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const monthShort = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${dayShort[d.getDay()]} ${d.getDate()} ${monthShort[d.getMonth()]}`;
+}
+
+function formatChronoTime(d) {
+  let h = d.getHours(), m = d.getMinutes();
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  h = h % 12 || 12;
+  return `${h}:${String(m).padStart(2,'0')} ${ampm}`;
+}
+
+// ── Labeled-field extraction (highest priority) ────────────────────────
+function extractLabeledFields(text) {
+  const result = { date: '', time: '', location: '' };
+  const lines = text.split(/\r?\n/);
+  const LABEL_RE = /^\s*(Date|Time|Timing|Venue|Location|Timing and Venue)\s*:\s*(.+)$/i;
+
+  for (const line of lines) {
+    const m = line.match(LABEL_RE);
+    if (!m) continue;
+    const label = m[1].toLowerCase();
+    const val = m[2].trim();
+
+    if (label === 'date') {
+      result.date = result.date || val;
+    } else if (label === 'time' || label === 'timing') {
+      result.time = result.time || val;
+    } else if (label === 'venue' || label === 'location') {
+      result.location = result.location || val;
+    } else if (label === 'timing and venue') {
+      // Try splitting on common separators: " in ", " at ", " — ", " - "
+      if (!result.time) {
+        const split = val.split(/\s+(?:in|at|—|-)\s+/i);
+        if (split.length >= 2) {
+          result.time = split[0].trim();
+          result.location = split.slice(1).join(', ').trim();
+        } else {
+          // Couldn't split — treat the whole thing as time if it looks like time,
+          // otherwise as location
+          if (/\d{1,2}[:.]\d{2}/.test(val)) {
+            result.time = val;
+          } else {
+            result.location = val;
+          }
+        }
+      }
+    }
+  }
+  return result;
+}
+
+// ── Naive Bayes classifier for category ────────────────────────────────
+const NaiveBayes = {
+  // { category: { word: count } }
+  vocab: {},
+  catCounts: {},
+  totalDocs: 0,
+  minDocs: 20,
+
+  tokenize(text) {
+    return (text || '').toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(w => w.length > 1);
+  },
+
+  train(text, category) {
+    const tokens = this.tokenize(text);
+    if (!this.vocab[category]) this.vocab[category] = {};
+    this.catCounts[category] = (this.catCounts[category] || 0) + 1;
+    this.totalDocs++;
+    for (const t of tokens) {
+      this.vocab[category][t] = (this.vocab[category][t] || 0) + 1;
+    }
+  },
+
+  predict(text) {
+    if (this.totalDocs < this.minDocs) return null;
+    const tokens = this.tokenize(text);
+    const cats = Object.keys(this.catCounts);
+    if (!cats.length) return null;
+
+    let bestCat = null, bestScore = -Infinity;
+    for (const cat of cats) {
+      // log P(cat)
+      let score = Math.log(this.catCounts[cat] / this.totalDocs);
+      const vocab = this.vocab[cat];
+      const catTotal = Object.values(vocab).reduce((a, b) => a + b, 0);
+      for (const t of tokens) {
+        const count = vocab[t] || 0;
+        // Laplace smoothing
+        score += Math.log((count + 1) / (catTotal + Object.keys(vocab).length + 1));
+      }
+      if (score > bestScore) { bestScore = score; bestCat = cat; }
+    }
+    return bestCat;
+  },
+
+  loadFromEvents(events) {
+    for (const e of events) {
+      const text = (e.title || '') + ' ' + (e.note || '');
+      if (text.trim() && e.category) {
+        this.train(text, e.category);
+      }
+    }
+  }
+};
+
+// ── Load training data from timetable-data.json (best-effort) ─────────
+(function trainClassifier() {
+  fetch('timetable-data.json')
+    .then(r => r.ok ? r.json() : null)
+    .then(data => {
+      if (data && Array.isArray(data.events)) {
+        NaiveBayes.loadFromEvents(data.events);
+      }
+    })
+    .catch(() => {});
+})();
+
+// ── Main extraction: layered paths ────────────────────────────────────
+function extractEventRuleBased(msg) {
+  const headers = (msg.payload?.headers || []);
+  const subject = headers.find(h => h.name === 'Subject')?.value || '';
+  const from = headers.find(h => h.name === 'From')?.value || '';
+
+  const rawBody = decodeGmailBody(extractPlainTextBody(msg.payload));
+  const body = rawBody || msg.snippet || '';
+  const text = subject + '\n' + body;
+
+  // ── Step 1: Sender (extracted early for gate checks) ─────────────
+  const senderMatch = from.match(/<([^>]+)>/) || [null, from];
+  const sender = senderMatch[1] || '';
+
+  // ── Step 2: Pre-extraction gate — skip non-campus senders ────────
+  const SKIP_SENDERS = /^(no-reply|noreply|do-not-reply|mailer-daemon)@/i;
+  if (SKIP_SENDERS.test(sender)) return null;
+
+  // ── Step 3: chrono-node (early — gate requires a genuine date) ──
+  let chronoDate = '', chronoTime = '';
+  const chrono = window.chrono;
+  if (chrono) {
+    const parsed = chrono.parse(text);
+    if (parsed.length) {
+      const best = parsed[0];
+      const startDate = best.start.date();
+      const endDate = best.end ? best.end.date() : null;
+      chronoDate = formatChronoDate(startDate);
+      if (endDate && endDate.getTime() !== startDate.getTime()) {
+        chronoTime = `${formatChronoTime(startDate)} - ${formatChronoTime(endDate)}`;
+      } else {
+        chronoTime = formatChronoTime(startDate);
+      }
+    }
+  }
+
+  // ── Gate: require event-indicating keywords AND chrono-parsed date
+  const EVENT_RE = /\b(seminar|workshop|lecture|colloquium|deadline|submission|registration|orientation|club|sports|meeting|event|class|lab|tutorial|induction|programme|session|talk|presentation|exam|quiz|test|viva|mandatory|compulsory)\b/i;
+  if (!EVENT_RE.test(text) || !chronoDate) return null;
+
+  // ── Step 4: Labeled-field extraction (highest priority) ──────────
+  const labeled = extractLabeledFields(text);
+
+  // ── Step 5: iCalendar high-confidence path ───────────────────────
+  let icsFields = {};
+  const calData = findCalendarPart(msg.payload);
+  if (calData) {
+    const icsText = decodeGmailBody(calData);
+    const ics = parseICS(icsText);
+    if (ics.dtstart) {
+      icsFields = {
+        icsDate: formatChronoDate(ics.dtstart),
+        icsTime: ics.dtend
+          ? `${formatChronoTime(ics.dtstart)} - ${formatChronoTime(ics.dtend)}`
+          : formatChronoTime(ics.dtstart),
+        icsLocation: ics.location || '',
+        icsSummary: ics.summary || '',
+      };
+    }
+  }
+
+  // ── Step 6: Location — labeled > iCal > compromise > regex ──────
+  let location = labeled.location || icsFields.icsLocation || '';
+  if (!location && window.nlp) {
+    try {
+      const doc = window.nlp(text);
+      const places = doc.places().out('array');
+      const orgs = doc.organizations().out('array');
+      const candidates = [...places, ...orgs];
+      if (candidates.length) {
+        location = candidates[0];
+      }
+    } catch(e) { /* compromise failed, fall through */ }
+  }
+  if (!location) {
+    const locUnlabeled = text.match(/\b(?:at|in)\s+(LH-?\d{1,2}|SAC|CL-?\d{2,3}|M-?\d{1,2}|B-?\d{1,2})\b/i);
+    if (locUnlabeled) location = locUnlabeled[1];
+  }
+
+  // ── Step 7: Date — labeled > iCal > chrono (never email header) ─
+  const dateStr = labeled.date || icsFields.icsDate || chronoDate;
+  if (!dateStr) return null;
+
+  // ── Step 8: Time — labeled > iCal > chrono ───────────────────────
+  const time = labeled.time || icsFields.icsTime || chronoTime || 'TBD';
+
+  // ── Step 9: Compulsory ──────────────────────────────────────────
+  const compulsory = /\b(mandatory|compulsory|must attend|required)\b/i.test(text);
+
+  // ── Step 10: Category — Naive Bayes > keyword heuristic ──────────
+  let category = NaiveBayes.predict(text);
+  if (!category) {
+    category = 'optional-academic';
+    if (/\b(club|induction)\b/i.test(subject) || /club@/i.test(sender)) {
+      category = 'club-sports';
+    } else if (compulsory) {
+      category = 'mandatory';
+    } else if (/\b(seminar|talk|lecture|colloquium)\b/i.test(text)) {
+      category = 'optional-academic';
+    } else if (/\b(orientation|registration|deadline|submission|form)\b/i.test(text)) {
+      category = 'admin';
+    }
+  }
+
+  // ── Step 11: Title — strip prefixes, clean, truncate to 60 chars ─
+  let title = icsFields.icsSummary || subject.replace(/^(\[students\]\s*|Re:\s*|Fwd:\s*)+/gi, '').trim();
+  // Google Classroom: strip surrounding smart-quotes and collapse newlines
+  if (/no-reply@classroom\.google\.com/i.test(sender)) {
+    title = title.replace(/^[""\u201C\u201D\u2018\u2019]+|[""\u201C\u201D\u2018\u2019]+$/g, '').replace(/[\r\n]+/g, ' ').trim();
+  }
+  if (title.length > 60) title = title.substring(0, 57) + '...';
+
+  return {
+    title,
+    time,
+    date: normalizeDate(dateStr),
+    location,
+    category,
+    compulsory,
+    bring: '',
+    for: '',
+    sender,
+    note: '',
+  };
+}
+
+async function fetchGmailMessages(query, maxResults) {
+  let allIds = [];
+  let pageToken = undefined;
+  do {
+    const url = `${GMAIL_API}?q=${encodeURIComponent(query)}&maxResults=${maxResults}` + (pageToken ? `&pageToken=${encodeURIComponent(pageToken)}` : '');
+    const listRes = await fetch(url, { headers: { 'Authorization': 'Bearer ' + accessToken } });
+    if (!listRes.ok) throw new Error('Gmail list failed: ' + listRes.status);
+    const listData = await listRes.json();
+    if (listData.messages) allIds = allIds.concat(listData.messages);
+    pageToken = listData.nextPageToken || null;
+  } while (pageToken);
+
+  const messages = [];
+  for (const msg of allIds) {
+    const msgRes = await fetch(`${GMAIL_API}/${msg.id}?format=full&metadataHeaders=Subject&metadataHeaders=From&metadataHeaders=Date`, {
+      headers: { 'Authorization': 'Bearer ' + accessToken }
+    });
+    if (msgRes.ok) {
+      const msgData = await msgRes.json();
+      msgData._internalDate = msgData.internalDate;
+      messages.push(msgData);
+    }
+  }
+  return messages;
+}
+
+function formatEmailForGemini(messages, maxBodyLen) {
+  const limit = maxBodyLen || 1500;
+  return messages.map(msg => {
+    const headers = (msg.payload?.headers || []);
+    const subject = headers.find(h => h.name === 'Subject')?.value || '(no subject)';
+    const from = headers.find(h => h.name === 'From')?.value || '(unknown)';
+    const date = headers.find(h => h.name === 'Date')?.value || '';
+    let body = decodeGmailBody(extractPlainTextBody(msg.payload));
+    if (!body) body = msg.snippet || '';
+    if (body.length > limit) body = body.substring(0, limit);
+    return `From: ${from}\nDate: ${date}\nSubject: ${subject}\nBody:\n${body}`;
+  }).join('\n\n---\n\n');
+}
+
+function sleep(ms) {
+  return new Promise(r => setTimeout(r, ms));
+}
+
+function parseRetryDelay(body) {
+  try {
+    const data = JSON.parse(body);
+    const details = data.error?.details || [];
+    for (const d of details) {
+      if (d['@type']?.includes('RetryInfo') && d.retryDelay) {
+        const secs = parseInt(d.retryDelay.replace(/s$/, ''), 10);
+        if (!isNaN(secs)) return secs;
+      }
+    }
+  } catch(e) {}
+  return null;
+}
+
+async function callGemini(emailText, batchNum, totalBatches) {
+  const today = new Date();
+  const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const dateContext = `Today is ${dayNames[today.getDay()]}, ${today.getDate()} ${monthNames[today.getMonth()]} ${today.getFullYear()}.`;
+  const batchLabel = batchNum ? `${batchNum}/${totalBatches}` : '';
+
+  for (let attempt = 0; attempt < 5; attempt++) {
+    const res = await fetch(`${GEMINI_API}?key=${els.geminiKey.value}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{
+          parts: [{
+            text: `${dateContext}\n\n${GEMINI_PROMPT}\n\n--- EMAILS ---\n\n${emailText}`
+          }]
+        }],
+        generationConfig: {
+          temperature: 0.2,
+          maxOutputTokens: 8192,
+          responseMimeType: "application/json"
+        }
+      })
+    });
+    if (res.status === 503) {
+      const waitMs = 2000 * (attempt + 1);
+      if (batchNum) setStatus(els.status, `Gemini overloaded — waiting ${Math.round(waitMs/1000)}s before retrying batch ${batchLabel}...`);
+      await sleep(waitMs);
+      continue;
+    }
+    if (res.status === 429) {
+      const errBody = await res.text();
+      const retrySecs = parseRetryDelay(errBody);
+      const waitSecs = (retrySecs || 60) + 1;
+      if (batchNum) setStatus(els.status, `Rate limited — waiting ${waitSecs}s before retrying batch ${batchLabel}...`);
+      await sleep(waitSecs * 1000);
+      continue;
+    }
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error('Gemini API failed: ' + err);
+    }
+    const data = await res.json();
+    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    if (!text) {
+      throw new Error('Gemini returned empty response. Raw: ' + JSON.stringify(data).substring(0, 500));
+    }
+    return text;
+  }
+  throw new Error('Gemini API unavailable after 5 attempts. Try again later.');
+}
+
+async function callGroq(emailText, batchNum, totalBatches) {
+  const today = new Date();
+  const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const dateContext = `Today is ${dayNames[today.getDay()]}, ${today.getDate()} ${monthNames[today.getMonth()]} ${today.getFullYear()}.`;
+  const batchLabel = batchNum ? `${batchNum}/${totalBatches}` : '';
+  const groqKey = els.groqKey.value.trim();
+
+  for (let attempt = 0; attempt < 5; attempt++) {
+    const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + groqKey,
+      },
+      body: JSON.stringify({
+        model: els.groqModel.value || 'openai/gpt-oss-120b',
+        messages: [{
+          role: 'user',
+          content: `${dateContext}\n\n${GROQ_PROMPT}\n\n--- EMAILS ---\n\n${emailText}`
+        }],
+        temperature: 0.2,
+        max_tokens: 8192,
+      })
+    });
+    if (res.status === 429) {
+      const retryAfter = parseInt(res.headers.get('retry-after') || '60', 10);
+      const waitSecs = (retryAfter || 60) + 1;
+      if (batchNum) setStatus(els.status, `Rate limited — waiting ${waitSecs}s before retrying batch ${batchLabel}...`);
+      await sleep(waitSecs * 1000);
+      continue;
+    }
+    if (res.status === 503 || res.status === 529) {
+      const waitMs = 2000 * (attempt + 1);
+      if (batchNum) setStatus(els.status, `Groq overloaded — waiting ${Math.round(waitMs/1000)}s before retrying batch ${batchLabel}...`);
+      await sleep(waitMs);
+      continue;
+    }
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error('Groq API failed (' + res.status + '): ' + err);
+    }
+    const data = await res.json();
+    const text = data.choices?.[0]?.message?.content || '';
+    if (!text) {
+      throw new Error('Groq returned empty response. Raw: ' + JSON.stringify(data).substring(0, 500));
+    }
+    return text;
+  }
+  throw new Error('Groq API unavailable after 5 attempts. Try again later.');
+}
+
+async function syncMail() {
+  if (activeProvider === 'gemini' && !els.geminiKey.value.trim()) {
+    setStatus(els.status, 'Enter your Gemini API key first.', 'err'); return;
+  }
+  if (activeProvider === 'groq' && !els.groqKey.value.trim()) {
+    setStatus(els.status, 'Enter your Groq API key first (free at console.groq.com).', 'err'); return;
+  }
+  if (!accessToken) { setStatus(els.status, 'Sign in with Google first (use the link above).', 'err'); return; }
+
+  if (Date.now() >= tokenExpiresAt - 60000) {
+    const refreshToken = localStorage.getItem(STORAGE_REFRESH_KEY);
+    if (refreshToken) {
+      setStatus(els.status, 'Refreshing session...');
+      const ok = await silentRefresh();
+      if (!ok) {
+        setStatus(els.status, 'Session expired. Click "Get Sign-In Link" to re-authorize.', 'err');
+        els.syncBtn.disabled = false;
+        return;
+      }
+    }
+  }
+
+  els.syncBtn.disabled = true;
+
+  try {
+    setStatus(els.status, 'Reading your inbox...');
+
+    // Gmail query-level filter: exclude junk threads before fetch. Add more terms to the same -subject:() pattern if new junk categories appear.
+    const EXCLUDE = '-subject:(lost OR found OR missing OR "for sale" OR selling OR wallet OR charger OR earbuds) -subject:(hygiene OR complaint)';
+    const cursorEpoch = localStorage.getItem(CURSOR_KEY);
+    let query;
+    if (cursorEpoch) {
+      query = `in:inbox after:${cursorEpoch} ${EXCLUDE}`;
+    } else {
+      query = `in:inbox newer_than:14d ${EXCLUDE}`;
+    }
+    const messages = await fetchGmailMessages(query, 75);
+    if (messages.length === 0) {
+      setStatus(els.status, 'No recent emails found in inbox.', 'err');
+      els.syncBtn.disabled = false;
+      return;
+    }
+
+    els.emailPreview.style.display = 'block';
+    parsedEvents = [];
+
+    if (activeProvider === 'local') {
+      els.emailPreview.textContent = `Found ${messages.length} emails. Extracting with local rules...`;
+      for (let i = 0; i < messages.length; i++) {
+        setStatus(els.status, `Processing email ${i + 1}/${messages.length}...`);
+        const evt = extractEventRuleBased(messages[i]);
+        if (evt) parsedEvents.push(evt);
+      }
+    } else {
+      const callAI = activeProvider === 'groq' ? callGroq : callGemini;
+      const providerLabel = activeProvider === 'groq' ? 'Groq' : 'Gemini';
+      const CHUNK_SIZE = activeProvider === 'groq' ? 1 : 8;
+      const chunks = [];
+      for (let i = 0; i < messages.length; i += CHUNK_SIZE) {
+        chunks.push(messages.slice(i, i + CHUNK_SIZE));
+      }
+      els.emailPreview.textContent = `Found ${messages.length} emails. Processing via ${providerLabel} in ${chunks.length} batches of ${CHUNK_SIZE}...`;
+
+      const rawResponses = [];
+      for (let ci = 0; ci < chunks.length; ci++) {
+        setStatus(els.status, `Processing batch ${ci + 1}/${chunks.length} (${chunks[ci].length} emails)...`);
+        const emailText = formatEmailForGemini(chunks[ci], activeProvider === 'groq' ? 500 : 1500);
+        try {
+          const aiResponse = await callAI(emailText, ci + 1, chunks.length);
+          rawResponses.push({ batch: ci + 1, provider: providerLabel, response: aiResponse, parsed: true });
+
+          // Try multiple extraction strategies for JSON
+          const clean = aiResponse.replace(/```json|```/g, '').trim();
+          let parsed = null;
+
+          // Strategy 1: find outermost JSON array
+          const arrayStart = clean.indexOf('[');
+          const arrayEnd = clean.lastIndexOf(']');
+          if (arrayStart !== -1 && arrayEnd > arrayStart) {
+            try { parsed = JSON.parse(clean.substring(arrayStart, arrayEnd + 1)); } catch(e) {}
+          }
+
+          // Strategy 2: find outermost JSON object and wrap in array
+          if (!parsed) {
+            const objStart = clean.indexOf('{');
+            const objEnd = clean.lastIndexOf('}');
+            if (objStart !== -1 && objEnd > objStart) {
+              try {
+                const obj = JSON.parse(clean.substring(objStart, objEnd + 1));
+                if (obj && (obj.title || obj.date)) parsed = [obj];
+              } catch(e) {}
+            }
+          }
+
+          // Strategy 3: look for JSON array inside code fences
+          if (!parsed) {
+            const fenceMatch = clean.match(/```[\s\S]*?\[[\s\S]*?\][\s\S]*?```/);
+            if (fenceMatch) {
+              const inner = fenceMatch[0].replace(/```json|```/g, '').trim();
+              const s = inner.indexOf('[');
+              const e = inner.lastIndexOf(']');
+              if (s !== -1 && e > s) {
+                try { parsed = JSON.parse(inner.substring(s, e + 1)); } catch(ex) {}
+              }
+            }
+          }
+
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            parsedEvents = parsedEvents.concat(parsed);
+            els.emailPreview.textContent += `\n\n--- Batch ${ci + 1} (${providerLabel}) → ${parsed.length} events ---\n` + JSON.stringify(parsed, null, 1).substring(0, 1000);
+          } else {
+            // No valid JSON found — show the raw response for debugging
+            rawResponses.push({ batch: ci + 1, provider: providerLabel, response: aiResponse, parsed: false });
+            els.emailPreview.textContent += `\n\n--- Batch ${ci + 1} (${providerLabel}) → 0 events (no JSON extracted) ---\nRaw:\n${aiResponse.substring(0, 800)}`;
+          }
+        } catch(e) {
+          console.error(`Batch ${ci + 1}/${chunks.length} failed:`, e.message);
+          rawResponses.push({ batch: ci + 1, provider: providerLabel, response: e.message, parsed: false, error: true });
+          els.emailPreview.textContent += `\n\n--- Batch ${ci + 1} (${providerLabel}) FAILED: ${e.message} ---`;
+        }
+        if (ci < chunks.length - 1) {
+          setStatus(els.status, `Waiting 4s before batch ${ci + 2}/${chunks.length}...`);
+          await sleep(4000);
+        }
+      }
+      // Save raw AI responses for debugging
+      try {
+        localStorage.setItem('inbox-digest:raw-responses', JSON.stringify(rawResponses, null, 2));
+      } catch(e) {}
+    }
+    parsedEvents = parsedEvents.filter(e => {
+      const t = ((e.title || '') + ' ' + (e.note || '')).toLowerCase();
+      return !/lost|found|missing|sale|sell|buy|complaint|mess|hygiene|keyboard|mouse|charger|wallet|id card|hostel.*issue|food.*quality/.test(t);
+    });
+    // Normalize date formats so groupByDate doesn't split the same day into multiple groups
+    parsedEvents.forEach(e => { if(e.date) e.date = normalizeDate(e.date); });
+    // Deduplicate near-matches (e.g. "Seminar by X" vs "Seminar: X")
+    parsedEvents = dedupEvents(parsedEvents);
+
+    // Merge into existing events: match by normalized title+date, overwrite if found, otherwise append
+    try {
+      const existingRaw = localStorage.getItem(STORAGE_KEY);
+      if (existingRaw) {
+        const existing = JSON.parse(existingRaw);
+        const existingEvents = existing.events || [];
+        for (const evt of parsedEvents) {
+          const eTitle = normalizeTitle(evt.title);
+          const idx = existingEvents.findIndex(e => normalizeTitle(e.title) === eTitle && e.date === evt.date);
+          if (idx >= 0) {
+            existingEvents[idx] = evt;
+          } else {
+            existingEvents.push(evt);
+          }
+        }
+        parsedEvents = existingEvents;
+      }
+    } catch(e) { /* first sync or bad cache — just use fresh results */ }
+    parsedEvents = dedupEvents(parsedEvents);
+
+    // Update cursor to newest message epoch so next sync skips already-seen messages
+    let maxEpoch = cursorEpoch ? parseInt(cursorEpoch, 10) : 0;
+    for (const msg of messages) {
+      const epoch = Math.floor(parseInt(msg._internalDate || msg.internalDate || '0', 10) / 1000);
+      if (epoch > maxEpoch) maxEpoch = epoch;
+    }
+    if (maxEpoch > 0) {
+      try { localStorage.setItem(CURSOR_KEY, String(maxEpoch)); } catch(e) {}
+    }
+
+    renderPreview();
+
+    els.publishBtn.disabled = false;
+    els.downloadBtn.disabled = false;
+    els.signOutBtn.style.display = 'inline-block';
+    setStatus(els.status, `Extracted ${parsedEvents.length} events. Review and publish below.`, 'ok');
+  } catch(err) {
+    console.error(err);
+    const isAuthErr = err.message && (err.message.includes('401') || err.message.includes('403') || err.message.includes('auth'));
+    setStatus(els.status, 'Sync failed: ' + err.message + (isAuthErr ? ' — your session may have expired. Click "Get Sign-In Link" to re-authenticate.' : ''), 'err');
+  } finally {
+    els.syncBtn.disabled = false;
+  }
+}
+
+function getRedirectUri() {
+  return window.location.origin + window.location.pathname;
+}
+
+function buildAuthUrl(clientId) {
+  const redirectUri = getRedirectUri();
+  return `https://accounts.google.com/o/oauth2/v2/auth?` +
+    `client_id=${encodeURIComponent(clientId)}` +
+    `&redirect_uri=${encodeURIComponent(redirectUri)}` +
+    `&response_type=code` +
+    `&scope=${encodeURIComponent(GMAIL_SCOPE)}` +
+    `&access_type=offline` +
+    `&prompt=consent`;
+}
+
+// NOTE: The client secret is used directly in the browser here. This is only
+// acceptable because admin.html is a private page served locally and never
+// deployed publicly. If this page is ever hosted on a real server, the token
+// exchange MUST move to a backend — client secrets must never be exposed in
+// client-side code served to other users.
+async function exchangeCodeForTokens(code) {
+  const clientId = els.clientId.value.trim();
+  const clientSecret = els.clientSecret.value.trim();
+  const redirectUri = getRedirectUri();
+
+  const res = await fetch('https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      code,
+      client_id: clientId,
+      client_secret: clientSecret,
+      redirect_uri: redirectUri,
+      grant_type: 'authorization_code',
+    }),
+  });
+
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.error_description || err.error || 'Token exchange failed: ' + res.status);
+  }
+
+  const data = await res.json();
+  accessToken = data.access_token;
+  tokenExpiresAt = Date.now() + (data.expires_in || 3600) * 1000;
+
+  try { localStorage.setItem(STORAGE_TOKEN_KEY, accessToken); } catch(e) {}
+  try { localStorage.setItem(STORAGE_EXPIRY_KEY, String(tokenExpiresAt)); } catch(e) {}
+  if (data.refresh_token) {
+    try { localStorage.setItem(STORAGE_REFRESH_KEY, data.refresh_token); } catch(e) {}
+  }
+
+  return data;
+}
+
+async function silentRefresh() {
+  const refreshToken = localStorage.getItem(STORAGE_REFRESH_KEY);
+  const clientId = els.clientId.value.trim();
+  const clientSecret = els.clientSecret.value.trim();
+
+  if (!refreshToken || !clientId || !clientSecret) return false;
+
+  const res = await fetch('https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      refresh_token: refreshToken,
+      client_id: clientId,
+      client_secret: clientSecret,
+      grant_type: 'refresh_token',
+    }),
+  });
+
+  if (!res.ok) return false;
+
+  const data = await res.json();
+  accessToken = data.access_token;
+  tokenExpiresAt = Date.now() + (data.expires_in || 3600) * 1000;
+
+  try { localStorage.setItem(STORAGE_TOKEN_KEY, accessToken); } catch(e) {}
+  try { localStorage.setItem(STORAGE_EXPIRY_KEY, String(tokenExpiresAt)); } catch(e) {}
+
+  return true;
+}
+
+function publishEvents() {
+  try {
+    const data = {
+      events: parsedEvents,
+      lastSynced: Date.now(),
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    setStatus(els.publishStatus, `Saved ${parsedEvents.length} events to this browser's localStorage.`, 'ok');
+  } catch(e) {
+    setStatus(els.publishStatus, 'Failed to publish: ' + e.message, 'err');
+  }
+}
+
+function downloadJSON() {
+  const data = {
+    events: parsedEvents,
+    lastSynced: Date.now(),
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'timetable-data.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+els.syncBtn.addEventListener('click', syncMail);
+
+els.publishBtn.addEventListener('click', publishEvents);
+els.downloadBtn.addEventListener('click', downloadJSON);
+els.signOutBtn.addEventListener('click', () => {
+  accessToken = null;
+  tokenExpiresAt = 0;
+  try { localStorage.removeItem(STORAGE_TOKEN_KEY); } catch(e) {}
+  try { localStorage.removeItem(STORAGE_REFRESH_KEY); } catch(e) {}
+  try { localStorage.removeItem(STORAGE_EXPIRY_KEY); } catch(e) {}
+  els.signOutBtn.style.display = 'none';
+  els.syncBtn.disabled = true;
+  document.getElementById('tokenExpiryNote').style.display = 'none';
+  setStatus(els.status, 'Signed out.');
+});
+
+els.resetBtn.addEventListener('click', () => {
+  if (!confirm('This will delete all synced events and reset the sync cursor. Your API keys and login will NOT be cleared. This cannot be undone.\n\nContinue?')) return;
+  try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+  try { localStorage.removeItem(CURSOR_KEY); } catch(e) {}
+  parsedEvents = [];
+  renderPreview();
+  els.publishBtn.disabled = true;
+  els.downloadBtn.disabled = true;
+  setStatus(els.status, 'All data reset. Click Sync to start fresh.', 'ok');
+});
+
+els.getAuthUrlBtn.addEventListener('click', () => {
+  const clientId = els.clientId.value.trim();
+  const clientSecret = els.clientSecret.value.trim();
+  if (!clientId) { setStatus(els.status, 'Enter your Client ID first.', 'err'); return; }
+  if (!clientSecret) { setStatus(els.status, 'Enter your Client Secret first.', 'err'); return; }
+  const url = buildAuthUrl(clientId);
+  els.authLinkBox.style.display = 'block';
+  els.tokenBox.style.display = 'block';
+  els.manualTokenBox.style.display = 'block';
+  els.authLinkInput.value = url;
+  els.authLinkInput.select();
+  setStatus(els.status, 'Link generated. Open it in Chrome, sign in with NISER email, then paste the redirect URL below.');
+});
+
+els.tokenInput.addEventListener('change', async () => {
+  const url = els.tokenInput.value.trim();
+  const codeMatch = url.match(/[?&]code=([^&]+)/);
+  if (codeMatch) {
+    try {
+      setStatus(els.status, 'Exchanging authorization code for tokens...');
+      await exchangeCodeForTokens(codeMatch[1]);
+      els.syncBtn.disabled = false;
+      els.signOutBtn.style.display = 'inline-block';
+      document.getElementById('tokenExpiryNote').style.display = 'block';
+      setStatus(els.status, 'Signed in successfully. Click Sync to continue.', 'ok');
+      history.replaceState(null, '', window.location.pathname);
+    } catch(e) {
+      setStatus(els.status, 'Token exchange failed: ' + e.message, 'err');
+    }
+  } else if (url.length > 10) {
+    setStatus(els.status, 'Could not find authorization code in URL. Make sure you pasted the full redirect URL.', 'err');
+  }
+});
+
+els.useTokenBtn.addEventListener('click', async () => {
+  const code = els.manualTokenInput.value.trim();
+  if (code) {
+    try {
+      setStatus(els.status, 'Exchanging authorization code for tokens...');
+      await exchangeCodeForTokens(code);
+      els.syncBtn.disabled = false;
+      els.signOutBtn.style.display = 'inline-block';
+      document.getElementById('tokenExpiryNote').style.display = 'block';
+      setStatus(els.status, 'Signed in successfully. Click Sync to continue.', 'ok');
+    } catch(e) {
+      setStatus(els.status, 'Token exchange failed: ' + e.message, 'err');
+    }
+  }
+});
+
+loadConfig();
+fetch('timetable.json').then(r=>r.json()).then(d=>{ timetable=d; renderPreview(); }).catch(()=>{});
+renderPreview();
+
+(async () => {
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get('code');
+  if (code) {
+    try {
+      setStatus(els.status, 'Completing sign-in...');
+      await exchangeCodeForTokens(code);
+      els.syncBtn.disabled = false;
+      els.signOutBtn.style.display = 'inline-block';
+      document.getElementById('tokenExpiryNote').style.display = 'block';
+      setStatus(els.status, 'Signed in successfully. Click Sync to continue.', 'ok');
+      history.replaceState(null, '', window.location.pathname);
+      return;
+    } catch(e) {
+      setStatus(els.status, 'Sign-in failed: ' + e.message + '. Click "Get Sign-In Link" to try again.', 'err');
+      history.replaceState(null, '', window.location.pathname);
+      return;
+    }
+  }
+
+  const savedToken = localStorage.getItem(STORAGE_TOKEN_KEY);
+  const savedExpiry = parseInt(localStorage.getItem(STORAGE_EXPIRY_KEY) || '0', 10);
+  const refreshToken = localStorage.getItem(STORAGE_REFRESH_KEY);
+
+  if (savedToken && Date.now() < savedExpiry - 60000) {
+    accessToken = savedToken;
+    tokenExpiresAt = savedExpiry;
+    els.syncBtn.disabled = false;
+    els.signOutBtn.style.display = 'inline-block';
+    document.getElementById('tokenExpiryNote').style.display = 'block';
+    setStatus(els.status, 'Session restored. Click Sync to continue.', 'ok');
+  } else if (refreshToken && els.clientId.value.trim() && els.clientSecret.value.trim()) {
+    setStatus(els.status, 'Refreshing session...');
+    const ok = await silentRefresh();
+    if (ok) {
+      els.syncBtn.disabled = false;
+      els.signOutBtn.style.display = 'inline-block';
+      document.getElementById('tokenExpiryNote').style.display = 'block';
+      setStatus(els.status, 'Session refreshed. Click Sync to continue.', 'ok');
+    } else {
+      setStatus(els.status, 'Session expired. Click "Get Sign-In Link" to re-authorize.', 'err');
+    }
+  } else if (savedToken) {
+    accessToken = savedToken;
+    tokenExpiresAt = savedExpiry;
+    els.syncBtn.disabled = false;
+    els.signOutBtn.style.display = 'inline-block';
+    document.getElementById('tokenExpiryNote').style.display = 'block';
+    setStatus(els.status, 'Session restored. Click Sync to continue.', 'ok');
+  }
+})();
+
+const expectedUrl = 'http://localhost:3000/admin.html';
+const currentUrl = window.location.origin + window.location.pathname;
+if (currentUrl !== expectedUrl && currentUrl !== 'http://localhost:3000/admin') {
+  els.redirectWarning.style.display = 'block';
+} else {
+  els.redirectWarning.style.display = 'none';
+}
+
+const publishNoteDismissed = localStorage.getItem('inbox-digest:note-dismissed');
+if (publishNoteDismissed) {
+  els.publishNote.style.display = 'none';
+}
+els.dismissNote.addEventListener('click', () => {
+  els.publishNote.style.display = 'none';
+  try { localStorage.setItem('inbox-digest:note-dismissed', '1'); } catch(e) {}
+});
+</script>
+</body>
+</html>

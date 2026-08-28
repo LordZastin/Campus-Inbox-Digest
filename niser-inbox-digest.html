@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inbox Digest — NISER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EAF0EF;
+    --paper-line: rgba(44,78,76,0.13);
+    --card:#FBFDFC;
+    --ink:#16211F;
+    --ink-soft:#4A5C58;
+    --mandatory:#B23A2E;
+    --optional:#2C6E8C;
+    --admin:#6B5B2E;
+    --club:#7A6A53;
+    --brass:#A9834B;
+    --focus:#2C6E8C;
+    --timetable:#3A7D6E;
+  }
+  html[data-theme="dark"]{
+    --paper:#1A1E1D;
+    --paper-line: rgba(180,195,190,0.12);
+    --card:#222725;
+    --ink:#E0E6E4;
+    --ink-soft:#9AABA6;
+    --mandatory:#E06050;
+    --optional:#5AADE0;
+    --admin:#C4A84E;
+    --club:#B09878;
+    --brass:#C4A84E;
+    --focus:#5AADE0;
+    --timetable:#5CB89A;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px) 0 0/100% 28px,
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px) 0 0/28px 100%,
+      var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    min-height:100vh;
+    padding:32px 16px 80px;
+  }
+  .wrap{max-width:720px;margin:0 auto;}
+
+  header.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:16px;
+    border-bottom:3px solid var(--ink);
+    padding-bottom:14px;
+    margin-bottom:22px;
+    flex-wrap:wrap;
+  }
+  .title-block h1{
+    font-family:'Special Elite', monospace;
+    font-size:26px;
+    letter-spacing:0.5px;
+    margin:0 0 4px;
+  }
+  .title-block p{
+    margin:0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    letter-spacing:0.4px;
+  }
+
+  .sync-btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    background:var(--ink);
+    color:var(--paper);
+    border:none;
+    padding:11px 18px;
+    cursor:pointer;
+    border-radius:2px;
+    transition:transform .12s ease, background .12s ease;
+  }
+  .sync-btn:hover{background:#243836;}
+  .sync-btn:active{transform:translateY(1px);}
+  .sync-btn:disabled{opacity:0.55;cursor:wait;}
+  .sync-btn:focus-visible{outline:3px solid var(--focus);outline-offset:2px;}
+
+  .controls{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-bottom:22px;
+  }
+
+  .settings-wrap{position:relative;}
+  .settings-btn{
+    background:var(--card);
+    border:1.5px solid var(--ink);
+    border-radius:2px;
+    padding:7px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:background .12s;
+  }
+  .settings-btn:hover{background:var(--paper-line);}
+  .settings-btn:focus-visible{outline:3px solid var(--focus);outline-offset:2px;}
+  .settings-btn svg{width:18px;height:18px;fill:var(--ink);}
+
+  .settings-panel{
+    display:none;
+    position:absolute;
+    top:calc(100% + 8px);
+    right:0;
+    z-index:100;
+    background:var(--card);
+    border:1.5px solid var(--ink);
+    border-radius:3px;
+    padding:14px 16px;
+    min-width:220px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  }
+  .settings-panel.open{display:block;}
+  .settings-header{
+    font-family:'Special Elite', monospace;
+    font-size:12px;
+    letter-spacing:0.8px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:12px;
+    padding-bottom:8px;
+    border-bottom:1px dashed var(--paper-line);
+  }
+  .settings-panel .switch-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.3px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    padding:6px 0;
+    cursor:pointer;
+  }
+  .settings-panel .switch-row+.switch-row{
+    border-top:1px solid var(--paper-line);
+  }
+
+  .switch-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.4px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .switch{
+    position:relative;
+    width:52px;
+    height:26px;
+    background:#D9DFD9;
+    border:1.5px solid var(--ink);
+    border-radius:3px;
+    cursor:pointer;
+    flex-shrink:0;
+  }
+  .switch .knob{
+    position:absolute;
+    top:2px;
+    left:2px;
+    width:20px;
+    height:19px;
+    background:var(--card);
+    border:1.5px solid var(--ink);
+    border-radius:2px;
+    transition:transform .18s ease;
+  }
+  .switch .lamp{
+    position:absolute;
+    top:4px;
+    right:6px;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#B7C2BC;
+    transition:background .18s ease, box-shadow .18s ease;
+  }
+  .switch.on{background:#DCE9E4;}
+  .switch.on .knob{transform:translateX(24px);}
+  .switch.on .lamp{background:var(--brass);box-shadow:0 0 6px var(--brass);}
+  .switch:focus-visible{outline:3px solid var(--focus);outline-offset:2px;}
+
+  .legend{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.3px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .legend span{display:inline-flex;align-items:center;gap:5px;}
+  .dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+
+  .status{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin-bottom:18px;
+    min-height:18px;
+  }
+  .status.err{color:var(--mandatory);}
+
+  .day-group{margin-bottom:26px;}
+  .day-header{
+    font-family:'Special Elite', monospace;
+    font-size:14.5px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--ink);
+    border-bottom:1.5px dashed var(--ink);
+    padding-bottom:6px;
+    margin-bottom:12px;
+  }
+
+  .row{
+    display:grid;
+    grid-template-columns:78px 1fr;
+    gap:14px;
+    background:var(--card);
+    border:1px solid var(--paper-line);
+    border-left:4px solid var(--ink-soft);
+    padding:12px 14px;
+    margin-bottom:8px;
+    border-radius:2px;
+  }
+  .row.mandatory{border-left-color:var(--mandatory);}
+  .row.optional-academic{border-left-color:var(--optional);}
+  .row.admin{border-left-color:var(--admin);}
+  .row.club-sports{border-left-color:var(--club);}
+  .row.timetable{border-left-color:var(--timetable);}
+
+  .row .time{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    font-weight:600;
+    color:var(--ink);
+    padding-top:1px;
+  }
+  .row .content .title{
+    font-weight:600;
+    font-size:14.5px;
+    margin:0 0 4px;
+  }
+  .row .content .meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    align-items:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+  }
+  .badge{
+    font-size:9.5px;
+    letter-spacing:0.6px;
+    text-transform:uppercase;
+    padding:2px 6px;
+    border-radius:2px;
+    border:1px solid currentColor;
+    font-weight:600;
+  }
+  .badge.mandatory{color:var(--mandatory);}
+  .badge.optional-academic{color:var(--optional);}
+  .badge.admin{color:var(--admin);}
+  .badge.club-sports{color:var(--club);}
+  .badge.timetable{color:var(--timetable);}
+  .badge.compulsory{color:var(--mandatory);border-color:var(--mandatory);background:rgba(178,58,46,0.06);}
+  .row .note{
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-top:6px;
+    font-style:italic;
+  }
+
+  .empty{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--ink-soft);
+    border:1.5px dashed var(--paper-line);
+    padding:28px 16px;
+    text-align:center;
+    border-radius:2px;
+  }
+
+  footer{
+    margin-top:30px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    text-align:center;
+  }
+  footer .privacy-note{
+    margin-top:10px;
+    font-size:10px;
+    opacity:0.6;
+  }
+
+  @media (max-width:480px){
+    .row{grid-template-columns:1fr;}
+    .row .time{padding-top:0;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .switch .knob, .switch .lamp, .sync-btn{transition:none;}
+  }
+</style>
+<!-- GoatCounter — privacy-first, cookie-less, anonymous aggregate analytics.
+     Sign up at goatcounter.com to get your own site code, then replace YOUR_CODE below. -->
+<script data-goatcounter="https://zastin.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="title-block">
+      <h1>Inbox Digest</h1>
+      <p>compiled from your NISER mail</p>
+    </div>
+    <button class="sync-btn" id="refreshBtn">Refresh</button>
+  </header>
+
+  <div class="controls">
+    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+      <div class="settings-wrap">
+        <button class="settings-btn" id="settingsBtn" aria-label="Settings">
+          <svg viewBox="0 0 24 24"><path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/></svg>
+        </button>
+        <div class="settings-panel" id="settingsPanel">
+          <div class="settings-header">Filters</div>
+          <label class="switch-row" id="clubLabel">
+            <span class="switch" id="clubSwitch" role="switch" aria-checked="false" tabindex="0">
+              <span class="knob"></span><span class="lamp"></span>
+            </span>
+            Clubs &amp; sports
+          </label>
+          <label class="switch-row" id="seminarLabel">
+            <span class="switch on" id="seminarSwitch" role="switch" aria-checked="true" tabindex="0">
+              <span class="knob"></span><span class="lamp"></span>
+            </span>
+            Seminars
+          </label>
+          <label class="switch-row" id="adminLabel">
+            <span class="switch on" id="adminSwitch" role="switch" aria-checked="true" tabindex="0">
+              <span class="knob"></span><span class="lamp"></span>
+            </span>
+            Optional / admin
+          </label>
+          <label class="switch-row" id="timetableLabel">
+            <span class="switch on" id="timetableSwitch" role="switch" aria-checked="true" tabindex="0">
+              <span class="knob"></span><span class="lamp"></span>
+            </span>
+            Class timetable
+          </label>
+          <label class="switch-row" id="darkLabel">
+            <span class="switch" id="darkSwitch" role="switch" aria-checked="false" tabindex="0">
+              <span class="knob"></span><span class="lamp"></span>
+            </span>
+            Dark mode
+          </label>
+          <label class="switch-row" id="hour24Label">
+            <span class="switch" id="hour24Switch" role="switch" aria-checked="false" tabindex="0">
+              <span class="knob"></span><span class="lamp"></span>
+            </span>
+            24-hour time
+          </label>
+        </div>
+      </div>
+      <label class="switch-row">
+        <select id="batchSelect" style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.4px;padding:4px 8px;border:1.5px solid var(--ink);border-radius:2px;background:var(--card);color:var(--ink);cursor:pointer;">
+          <option value="all">All Batches</option>
+          <option value="B1">Batch B1</option>
+          <option value="B2">Batch B2</option>
+          <option value="B3">Batch B3</option>
+          <option value="B4">Batch B4</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="legend">
+      <span><i class="dot" style="background:var(--timetable)"></i>Timetable</span>
+      <span><i class="dot" style="background:var(--mandatory)"></i>Mandatory</span>
+      <span><i class="dot" style="background:var(--optional)"></i>Optional / academic</span>
+      <span><i class="dot" style="background:var(--admin)"></i>Admin</span>
+      <span><i class="dot" style="background:var(--club)"></i>Clubs &amp; sports</span>
+    </div>
+  </div>
+
+  <div class="status" id="status"></div>
+  <div id="results"></div>
+
+  <footer id="lastSynced">
+    <div class="privacy-note">This site collects anonymous, aggregate visit data to understand usage. No personal information is collected.</div>
+  </footer>
+</div>
+
+<script>
+const STORAGE_EVENTS_KEY = 'inbox-digest:events';
+const STORAGE_TOGGLE_KEY = 'inbox-digest:show-clubs';
+const STORAGE_SEMINAR_KEY = 'inbox-digest:show-seminars';
+const STORAGE_ADMIN_KEY = 'inbox-digest:show-admin';
+const STORAGE_TIMETABLE_KEY = 'inbox-digest:show-timetable';
+const STORAGE_DARK_KEY = 'inbox-digest:dark-mode';
+const STORAGE_24HOUR_KEY = 'inbox-digest:24-hour';
+const STORAGE_BATCH_KEY = 'inbox-digest:batch';
+
+let state = {
+  events: [], lastSynced: null, batch: 'all', timetable: null,
+  showClubs: false, showSeminars: true, showAdmin: true,
+  showTimetable: true, darkMode: false, use24Hour: false,
+};
+
+const els = {
+  refreshBtn: document.getElementById('refreshBtn'),
+  status: document.getElementById('status'),
+  results: document.getElementById('results'),
+  lastSynced: document.getElementById('lastSynced'),
+  settingsBtn: document.getElementById('settingsBtn'),
+  settingsPanel: document.getElementById('settingsPanel'),
+  clubSwitch: document.getElementById('clubSwitch'),
+  seminarSwitch: document.getElementById('seminarSwitch'),
+  adminSwitch: document.getElementById('adminSwitch'),
+  timetableSwitch: document.getElementById('timetableSwitch'),
+  darkSwitch: document.getElementById('darkSwitch'),
+  hour24Switch: document.getElementById('hour24Switch'),
+  batchSelect: document.getElementById('batchSelect'),
+};
+
+function setStatus(msg, isError){
+  els.status.textContent = msg || '';
+  els.status.classList.toggle('err', !!isError);
+}
+
+function groupByDate(events){
+  const groups = {};
+  const order = [];
+  events.forEach(e => {
+    const key = e.date || 'Date TBD';
+    if(!groups[key]){ groups[key] = []; order.push(key); }
+    groups[key].push(e);
+  });
+  return order.map(key => ({ date: key, items: groups[key] }));
+}
+
+function render(){
+  const allEvents = getTodayEvents();
+  const visible = allEvents.filter(e => {
+    if(e.category === 'mandatory') return true;
+    if(e.category === 'club-sports' && !state.showClubs) return false;
+    if(e.category === 'optional-academic' && !state.showSeminars) return false;
+    if(e.category === 'admin' && !state.showAdmin) return false;
+    if(e.category === 'timetable' && !state.showTimetable) return false;
+    return true;
+  });
+
+  if(visible.length === 0){
+    els.results.innerHTML = `<div class="empty">${
+      allEvents.length === 0
+        ? 'No digest yet — open <strong>admin.html</strong> on your PC, sync your inbox, and publish. Or place a <code>timetable-data.json</code> file here.'
+        : 'Nothing to show with current filters. Adjust the settings panel to reveal more events.'
+    }</div>`;
+  } else {
+    const groups = groupByDate(visible);
+    els.results.innerHTML = groups.map(g => `
+      <div class="day-group">
+        <div class="day-header">${escapeHtml(g.date)}</div>
+        ${g.items.map(rowHtml).join('')}
+      </div>
+    `).join('');
+  }
+
+  els.lastSynced.textContent = state.lastSynced
+    ? `Last synced ${new Date(state.lastSynced).toLocaleString()}`
+    : 'Not synced yet';
+
+  els.clubSwitch.classList.toggle('on', state.showClubs);
+  els.clubSwitch.setAttribute('aria-checked', String(state.showClubs));
+  els.seminarSwitch.classList.toggle('on', state.showSeminars);
+  els.seminarSwitch.setAttribute('aria-checked', String(state.showSeminars));
+  els.adminSwitch.classList.toggle('on', state.showAdmin);
+  els.adminSwitch.setAttribute('aria-checked', String(state.showAdmin));
+  els.timetableSwitch.classList.toggle('on', state.showTimetable);
+  els.timetableSwitch.setAttribute('aria-checked', String(state.showTimetable));
+  els.darkSwitch.classList.toggle('on', state.darkMode);
+  els.darkSwitch.setAttribute('aria-checked', String(state.darkMode));
+  els.hour24Switch.classList.toggle('on', state.use24Hour);
+  els.hour24Switch.setAttribute('aria-checked', String(state.use24Hour));
+  document.documentElement.setAttribute('data-theme', state.darkMode ? 'dark' : 'light');
+}
+
+function rowHtml(e){
+  const cat = ['mandatory','optional-academic','admin','club-sports','timetable'].includes(e.category) ? e.category : 'admin';
+  const label = {mandatory:'Mandatory', 'optional-academic':'Optional', admin:'Admin', 'club-sports':'Club/Sport', timetable:'Class'}[cat];
+  const compulsoryBadge = e.compulsory ? '<span class="badge compulsory">Compulsory</span>' : '';
+  const bringInfo = e.bring ? `<span>Bring: ${escapeHtml(e.bring)}</span>` : '';
+  const forInfo = e.for ? `<span>For: ${escapeHtml(e.for)}</span>` : '';
+  return `
+    <div class="row ${cat}">
+      <div class="time">${escapeHtml(formatTimeString(e.time, state.use24Hour))}</div>
+      <div class="content">
+        <p class="title">${escapeHtml(e.title || 'Untitled')}</p>
+        <div class="meta">
+          <span class="badge ${cat}">${label}</span>
+          ${compulsoryBadge}
+          ${e.location ? `<span>${escapeHtml(e.location)}</span>` : ''}
+          ${bringInfo}
+          ${forInfo}
+          ${e.sender ? `<span>${escapeHtml(e.sender)}</span>` : ''}
+        </div>
+        ${e.note ? `<div class="note">${escapeHtml(e.note)}</div>` : ''}
+      </div>
+    </div>
+  `;
+}
+
+function escapeHtml(str){
+  return String(str).replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
+
+function formatTimeString(raw, use24Hour){
+  const s = String(raw || '').trim();
+  if(!s || s === 'TBD') return s || 'TBD';
+
+  function parseToken(tok){
+    tok = tok.trim();
+    const m24 = tok.match(/^(\d{1,2}):(\d{2})$/);
+    if(m24){ return parseInt(m24[1])*60 + parseInt(m24[2]); }
+    const m12 = tok.match(/^(\d{1,2}):(\d{2})\s*(AM|PM|am|pm)$/i);
+    if(m12){
+      let h = parseInt(m12[1]);
+      const mi = parseInt(m12[2]);
+      const ap = m12[3].toUpperCase();
+      if(ap === 'PM' && h !== 12) h += 12;
+      if(ap === 'AM' && h === 12) h = 0;
+      return h*60 + mi;
+    }
+    return null;
+  }
+
+  function renderToken(minutes, fallback){
+    if(minutes === null) return fallback;
+    if(use24Hour){
+      const h = Math.floor(minutes/60) % 24;
+      const m = minutes % 60;
+      return String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0');
+    }
+    let h = Math.floor(minutes/60) % 24;
+    const m = minutes % 60;
+    const ap = h >= 12 ? 'PM' : 'AM';
+    if(h === 0) h = 12; else if(h > 12) h -= 12;
+    return h + ':' + String(m).padStart(2,'0') + ' ' + ap;
+  }
+
+  return s.split(', ').map(seg => {
+    return seg.split(' - ').map(tok => {
+      const mins = parseToken(tok);
+      return mins !== null ? renderToken(mins, tok) : tok;
+    }).join(' - ');
+  }).join(', ');
+}
+
+function normalizeDate(d){
+  const dayShort = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const months = {jan:'Jan',feb:'Feb',mar:'Mar',apr:'Apr',may:'May',jun:'Jun',jul:'Jul',aug:'Aug',sep:'Sep',oct:'Oct',nov:'Nov',dec:'Dec',
+    january:'Jan',february:'Feb',march:'Mar',april:'Apr',june:'Jun',july:'Jul',august:'Aug',september:'Sep',october:'Oct',november:'Nov',december:'Dec'};
+  const cleaned = d.replace(/[,\s]+/g,' ').trim();
+  const parts = cleaned.split(' ');
+  let day = null, num = null, mon = null;
+  for(const p of parts) {
+    const lower = p.toLowerCase();
+    if(dayShort.map(d=>d.toLowerCase()).includes(lower)) day = dayShort[dayShort.map(d=>d.toLowerCase()).indexOf(lower)];
+    else if(months[lower]) mon = months[lower];
+    else if(/^\d{1,2}$/.test(p)) num = parseInt(p,10);
+  }
+  if(num && mon) return `${day || ''} ${num} ${mon}`.trim();
+  return d;
+}
+
+function getTodayEvents(){
+  const dayNames = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+  const dayShort = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const monthShort = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const now = new Date();
+  const dayIndex = now.getDay();
+  const dayName = dayNames[dayIndex];
+  const todayLabel = `${dayShort[dayIndex]} ${now.getDate()} ${monthShort[now.getMonth()]}`;
+
+  const timetableEvents = [];
+  if(state.timetable && state.timetable.week && state.timetable.week[dayName]){
+    const slots = state.timetable.timeSlots || [];
+    const dayClasses = state.timetable.week[dayName];
+    for(const cls of dayClasses){
+      if(cls.type === 'lunch') continue;
+      if(cls.type === 'lab' && cls.batches && state.batch !== 'all'){
+        if(!cls.batches.includes(state.batch)) continue;
+      }
+      if(cls.type === 'lab' && (!cls.batches || cls.batches.length === 0)) continue;
+      const slot = slots[cls.slot];
+      const timeStr = slot ? `${slot.start} - ${slot.end}` : 'TBD';
+      const batchNote = cls.batches ? ` (${cls.batches.join(', ')})` : '';
+      timetableEvents.push({
+        title: cls.course + (cls.type === 'lab' ? ' Lab' : ''),
+        time: timeStr,
+        date: todayLabel,
+        location: state.timetable.venue?.theory || '',
+        category: 'timetable',
+        compulsory: true,
+        bring: '',
+        for: batchNote.trim() || '',
+        sender: '',
+        note: cls.type === 'lab' ? 'Lab class' : '',
+      });
+    }
+  }
+
+  const emailEvents = state.events.map(e => ({...e}));
+  return [...timetableEvents, ...emailEvents];
+}
+
+async function loadState(){
+  try{
+    const raw = localStorage.getItem(STORAGE_EVENTS_KEY);
+    if(raw){
+      const parsed = JSON.parse(raw);
+      state.events = (parsed.events || []).map(e => ({...e, date: e.date ? normalizeDate(e.date) : e.date}));
+      state.lastSynced = parsed.lastSynced || null;
+    }
+  }catch(e){ /* no cache yet */ }
+
+  if(state.events.length === 0){
+    try{
+      const res = await fetch('timetable-data.json');
+      if(res.ok){
+        const data = await res.json();
+        state.events = (data.events || []).map(e => ({...e, date: e.date ? normalizeDate(e.date) : e.date}));
+        state.lastSynced = data.lastSynced || null;
+        localStorage.setItem(STORAGE_EVENTS_KEY, JSON.stringify({events:state.events,lastSynced:state.lastSynced}));
+      }
+    }catch(e){ /* no JSON file */ }
+  }
+
+  try{
+    const tg = localStorage.getItem(STORAGE_TOGGLE_KEY);
+    if(tg !== null){ state.showClubs = tg === 'true'; }
+  }catch(e){}
+
+  try{
+    const sg = localStorage.getItem(STORAGE_SEMINAR_KEY);
+    if(sg !== null){ state.showSeminars = sg === 'true'; }
+  }catch(e){}
+
+  try{
+    const ag = localStorage.getItem(STORAGE_ADMIN_KEY);
+    if(ag !== null){ state.showAdmin = ag === 'true'; }
+  }catch(e){}
+
+  try{
+    const tt = localStorage.getItem(STORAGE_TIMETABLE_KEY);
+    if(tt !== null){ state.showTimetable = tt === 'true'; }
+  }catch(e){}
+
+  try{
+    const dm = localStorage.getItem(STORAGE_DARK_KEY);
+    if(dm !== null){ state.darkMode = dm === 'true'; }
+  }catch(e){}
+
+  try{
+    const h24 = localStorage.getItem(STORAGE_24HOUR_KEY);
+    if(h24 !== null){ state.use24Hour = h24 === 'true'; }
+  }catch(e){}
+
+  try{
+    const bt = localStorage.getItem(STORAGE_BATCH_KEY);
+    if(bt){ state.batch = bt; }
+  }catch(e){}
+
+  try{
+    const res = await fetch('timetable.json');
+    if(res.ok){ state.timetable = await res.json(); }
+  }catch(e){ /* no timetable file */ }
+
+  els.batchSelect.value = state.batch;
+  render();
+}
+
+els.refreshBtn.addEventListener('click', () => {
+  loadState();
+  setStatus('Refreshed from local data.');
+});
+
+// ── Settings panel toggle ────────────────────────────────────────
+els.settingsBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  els.settingsPanel.classList.toggle('open');
+});
+document.addEventListener('click', (e) => {
+  if(!els.settingsPanel.contains(e.target) && e.target !== els.settingsBtn){
+    els.settingsPanel.classList.remove('open');
+  }
+});
+
+// ── Switch helpers ───────────────────────────────────────────────
+function makeToggle(switchEl, stateKey, storageKey, goatEvent){
+  function toggle(){
+    state[stateKey] = !state[stateKey];
+    try{ localStorage.setItem(storageKey, String(state[stateKey])); }catch(e){}
+    if(typeof goatcounter !== 'undefined' && goatEvent){
+      goatcounter.count({ path: state[stateKey] ? goatEvent + '-on' : goatEvent + '-off' });
+    }
+    render();
+  }
+  switchEl.addEventListener('click', toggle);
+  switchEl.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }
+  });
+}
+
+makeToggle(els.clubSwitch, 'showClubs', STORAGE_TOGGLE_KEY, 'toggle-clubs');
+makeToggle(els.seminarSwitch, 'showSeminars', STORAGE_SEMINAR_KEY, 'toggle-seminars');
+makeToggle(els.adminSwitch, 'showAdmin', STORAGE_ADMIN_KEY, 'toggle-admin');
+makeToggle(els.timetableSwitch, 'showTimetable', STORAGE_TIMETABLE_KEY, 'toggle-timetable');
+
+function toggleDark(){
+  state.darkMode = !state.darkMode;
+  try{ localStorage.setItem(STORAGE_DARK_KEY, String(state.darkMode)); }catch(e){}
+  render();
+}
+els.darkSwitch.addEventListener('click', toggleDark);
+els.darkSwitch.addEventListener('keydown', (e) => {
+  if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleDark(); }
+});
+
+makeToggle(els.hour24Switch, 'use24Hour', STORAGE_24HOUR_KEY, 'toggle-24hour');
+
+els.batchSelect.addEventListener('change', () => {
+  state.batch = els.batchSelect.value;
+  try{ localStorage.setItem(STORAGE_BATCH_KEY, state.batch); }catch(e){}
+  render();
+});
+
+loadState();
+</script>
+</body>
+</html>

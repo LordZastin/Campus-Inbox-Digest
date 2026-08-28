@@ -1,0 +1,75 @@
+{
+  "program": "BSMS 1st Year (Batch 2026)",
+  "semester": "Odd Semester, 2026-27",
+  "venue": {
+    "theory": "LH5",
+    "lab": "Respective Departments"
+  },
+  "timeSlots": [
+    {"start": "08:30", "end": "09:25"},
+    {"start": "09:30", "end": "10:25"},
+    {"start": "10:30", "end": "11:25"},
+    {"start": "11:30", "end": "12:25"},
+    {"start": "12:30", "end": "13:25", "label": "LUNCH BREAK"},
+    {"start": "13:30", "end": "14:30"},
+    {"start": "14:30", "end": "15:25"},
+    {"start": "15:30", "end": "16:25"},
+    {"start": "16:30", "end": "17:25"}
+  ],
+  "week": {
+    "monday": [
+      {"slot": 1, "course": "CHE101", "type": "theory"},
+      {"slot": 2, "course": "MAT101", "type": "theory"},
+      {"slot": 3, "course": "PHY101", "type": "theory"},
+      {"slot": 6, "course": "PHY141", "type": "lab", "batches": ["B1"]},
+      {"slot": 7, "course": "PHY141", "type": "lab", "batches": ["B1"]},
+      {"slot": 8, "course": "PHY141", "type": "lab", "batches": ["B1"]},
+      {"slot": 6, "course": "CSE101", "type": "lab", "batches": ["B2"]},
+      {"slot": 7, "course": "CSE101", "type": "lab", "batches": ["B2"]},
+      {"slot": 8, "course": "CSE101", "type": "lab", "batches": ["B2"]}
+    ],
+    "tuesday": [
+      {"slot": 1, "course": "BIO101", "type": "theory"},
+      {"slot": 2, "course": "CHE101", "type": "theory"},
+      {"slot": 3, "course": "MAT101", "type": "theory"},
+      {"slot": 5, "course": "PHY101", "type": "theory"},
+      {"slot": 6, "course": "PHY141", "type": "lab", "batches": ["B2"]},
+      {"slot": 7, "course": "PHY141", "type": "lab", "batches": ["B2"]},
+      {"slot": 8, "course": "PHY141", "type": "lab", "batches": ["B2"]},
+      {"slot": 6, "course": "CSE101", "type": "lab", "batches": ["B3"]},
+      {"slot": 7, "course": "CSE101", "type": "lab", "batches": ["B3"]},
+      {"slot": 8, "course": "CSE101", "type": "lab", "batches": ["B3"]}
+    ],
+    "wednesday": [
+      {"slot": 1, "course": "HSS109", "type": "theory"},
+      {"slot": 2, "course": "BIO101", "type": "theory"},
+      {"slot": 3, "course": "CHE101", "type": "theory"},
+      {"slot": 5, "course": "MAT101", "type": "theory"},
+      {"slot": 6, "course": "PHY141", "type": "lab", "batches": ["B3"]},
+      {"slot": 7, "course": "PHY141", "type": "lab", "batches": ["B3"]},
+      {"slot": 8, "course": "PHY141", "type": "lab", "batches": ["B3"]},
+      {"slot": 6, "course": "CSE101", "type": "lab", "batches": ["B4"]},
+      {"slot": 7, "course": "CSE101", "type": "lab", "batches": ["B4"]},
+      {"slot": 8, "course": "CSE101", "type": "lab", "batches": ["B4"]}
+    ],
+    "thursday": [
+      {"slot": 1, "course": "EPS101", "type": "theory"},
+      {"slot": 2, "course": "HSS109", "type": "theory"},
+      {"slot": 3, "course": "BIO101", "type": "theory"},
+      {"slot": 6, "course": "PHY141", "type": "lab", "batches": ["B4"]},
+      {"slot": 7, "course": "PHY141", "type": "lab", "batches": ["B4"]},
+      {"slot": 8, "course": "PHY141", "type": "lab", "batches": ["B4"]},
+      {"slot": 6, "course": "CSE101", "type": "lab", "batches": ["B1"]},
+      {"slot": 7, "course": "CSE101", "type": "lab", "batches": ["B1"]},
+      {"slot": 8, "course": "CSE101", "type": "lab", "batches": ["B1"]}
+    ],
+    "friday": [
+      {"slot": 1, "course": "PHY101", "type": "theory"},
+      {"slot": 2, "course": "EPS101", "type": "theory"},
+      {"slot": 7, "course": "NISER Colloquium", "type": "event"},
+      {"slot": 8, "course": "NISER Colloquium", "type": "event"}
+    ],
+    "saturday": [],
+    "sunday": []
+  }
+}
