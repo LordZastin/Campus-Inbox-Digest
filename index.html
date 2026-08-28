@@ -566,8 +566,10 @@ function titleSimilarity(a, b) {
 function dedupEvents(events) {
   const seen = [];
   for (const e of events) {
+    if (e.category === 'timetable') { seen.push({...e}); continue; }
     let merged = false;
     for (const s of seen) {
+      if (s.category === 'timetable') continue;
       if (s.date === e.date && titleSimilarity(s.title, e.title) > 0.3) {
         if ((e.note||'').length > (s.note||'').length) s.note = e.note;
         if ((e.bring||'').length > (s.bring||'').length) s.bring = e.bring;
