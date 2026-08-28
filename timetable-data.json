@@ -527,7 +527,55 @@
       "for": "Freshers",
       "sender": "dmc@niser.ac.in",
       "note": ""
+    },
+    {
+      "title": "Film Screening: Solaris",
+      "time": "9:00 PM",
+      "date": "Fri 28 Aug",
+      "location": "LH5",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "filmclub@niser.ac.in",
+      "note": "Space Day screening organized by Film Club and Astronomy Club"
+    },
+    {
+      "title": "NPL Shot Boundary Cricket 2026",
+      "time": "TBD",
+      "date": "Sun 30 Aug",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "Registered players",
+      "sender": "ranjit.bhoi@niser.ac.in",
+      "note": "Contact batch captains for match schedule and participation"
+    },
+    {
+      "title": "Zaariya Induction",
+      "time": "4:00 PM - 5:00 PM",
+      "date": "Sat 29 Aug",
+      "location": "LH 3",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "zaariya@niser.ac.in",
+      "note": ""
+    },
+    {
+      "title": "VAC Chess Course Meeting",
+      "time": "5:00 PM",
+      "date": "Sat 29 Aug",
+      "location": "C6, SCS, 1st floor",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "MSc batch 2026 registered for Chess",
+      "sender": "aishanig@niser.ac.in",
+      "note": "Meeting regarding Value Added Course (Sports & Physical Education) Chess classes"
     }
   ],
-  "lastSynced": 1787929699356
+  "lastSynced": 1787954131883
 }
