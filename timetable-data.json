@@ -575,7 +575,19 @@
       "for": "MSc batch 2026 registered for Chess",
       "sender": "aishanig@niser.ac.in",
       "note": "Meeting regarding Value Added Course (Sports & Physical Education) Chess classes"
+    },
+    {
+      "title": "VAC Chess Meeting",
+      "time": "TBD",
+      "date": "Sat 29 Aug",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "MSC batch 2026 registered for Chess",
+      "sender": "aishanig@niser.ac.in",
+      "note": "Contact sender if registered for Chess but did not receive meeting email"
     }
   ],
-  "lastSynced": 1787954131883
+  "lastSynced": 1787954822878
 }
