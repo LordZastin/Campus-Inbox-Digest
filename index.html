@@ -533,9 +533,43 @@ function groupByDate(events){
   return order.map(key => ({ date: key, items: groups[key] }));
 }
 
+function normalizeTitle(t) {
+  return (t || '').toLowerCase().replace(/[^a-z0-9]/g,' ').replace(/\s+/g,' ').trim();
+}
+
+function titleSimilarity(a, b) {
+  const stop = new Set(['the','a','an','of','and','or','in','on','at','to','for','is','it','by','can','we','with','from','this','that','are','was','be','has','had','not']);
+  const wordsA = normalizeTitle(a).split(' ').filter(w => w.length > 2 && !stop.has(w));
+  const wordsB = normalizeTitle(b).split(' ').filter(w => w.length > 2 && !stop.has(w));
+  if (!wordsA.length || !wordsB.length) return 0;
+  const setB = new Set(wordsB);
+  const overlap = wordsA.filter(w => setB.has(w)).length;
+  return overlap / Math.max(wordsA.length, wordsB.length);
+}
+
+function dedupEvents(events) {
+  const seen = [];
+  for (const e of events) {
+    let merged = false;
+    for (const s of seen) {
+      if (s.date === e.date && titleSimilarity(s.title, e.title) > 0.4) {
+        if ((e.note||'').length > (s.note||'').length) s.note = e.note;
+        if ((e.bring||'').length > (s.bring||'').length) s.bring = e.bring;
+        if ((e.for||'').length > (s.for||'').length) s.for = e.for;
+        if (!s.time || s.time === 'TBD') s.time = e.time;
+        if (!s.location || s.location === 'TBD') s.location = e.location;
+        merged = true;
+        break;
+      }
+    }
+    if (!merged) seen.push({...e});
+  }
+  return seen;
+}
+
 function render(){
   const allEvents = getTodayEvents();
-  const visible = allEvents.filter(e => {
+  const filtered = allEvents.filter(e => {
     if(e.category === 'mandatory') return true;
     if(e.category === 'club-sports' && !state.showClubs) return false;
     if(e.category === 'optional-academic' && !state.showSeminars) return false;
@@ -543,6 +577,8 @@ function render(){
     if(e.category === 'timetable' && !state.showTimetable) return false;
     return true;
   });
+
+  const visible = dedupEvents(filtered);
 
   const todayStart = new Date();
   todayStart.setHours(0,0,0,0);
@@ -625,7 +661,6 @@ function rowHtml(e){
           ${e.location ? `<span>${escapeHtml(e.location)}</span>` : ''}
           ${bringInfo}
           ${forInfo}
-          ${e.sender ? `<span>${escapeHtml(e.sender)}</span>` : ''}
         </div>
         ${e.note ? `<div class="note">${escapeHtml(e.note)}</div>` : ''}
       </div>
