@@ -76,13 +76,13 @@
       "title": "Odd Semester Talk: Kuramoto Swimmers",
       "time": "7:00 PM",
       "date": "Fri 28 Aug",
-      "location": "LH 4",
+      "location": "Lecture Hall 4",
       "category": "optional-academic",
       "compulsory": false,
       "bring": "",
       "for": "",
       "sender": "vikiran@niser.ac.in",
-      "note": "Speaker: Amrithraj K P, 4th year Int. MSc"
+      "note": "Speaker: Amrithraj K P"
     },
     {
       "title": "Chemistry Seminar: Dr. Monisha Singha",
@@ -189,8 +189,8 @@
       "compulsory": false,
       "bring": "",
       "for": "",
-      "sender": "sms_seminar@niser.ac.in",
-      "note": "Speaker: Arijit Mahato (NISER)"
+      "sender": "shubhdeep.das@niser.ac.in",
+      "note": "Speaker: Arijit Mahato (NISER)."
     },
     {
       "title": "Solaris Film Screening",
@@ -376,13 +376,13 @@
       "title": "BioBulletin: De-Novo Genome Annotation of an Eukaryote",
       "time": "5:30 PM",
       "date": "Fri 28 Aug",
-      "location": "Lecture Hall 2 (LH-2)",
+      "location": "LH 2",
       "category": "optional-academic",
       "compulsory": false,
       "bring": "",
-      "for": "1st-year students, B24",
+      "for": "1st year students",
       "sender": "thebioclub@niser.ac.in",
-      "note": "Speaker: Harshit Bhatt (B24)"
+      "note": "Talk by Harshit Bhatt (B24)"
     },
     {
       "title": "LitC Translation Discussion: Questions Deadline",
@@ -428,9 +428,9 @@
       "category": "club-sports",
       "compulsory": false,
       "bring": "",
-      "for": "Int. MSc. B26 and Int. PhD. B26 batches",
+      "for": "all students",
       "sender": "arc@niser.ac.in",
-      "note": "Includes Scribble & Giggles team game; open to all students"
+      "note": "Discussion on IICM followed by a drawing-and-guessing team game (4 to 6 members)."
     },
     {
       "title": "GAC Logo & Merch Design Submission Deadline",
@@ -443,7 +443,91 @@
       "for": "",
       "sender": "gac@niser.ac.in",
       "note": "Submit logo or merch design proposals via Google Form."
+    },
+    {
+      "title": "NPL Shot Boundary Cricket Tournament 2026",
+      "time": "TBD",
+      "date": "Sun 30 Aug",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "Registered players",
+      "sender": "ranjit.bhoi@niser.ac.in",
+      "note": "Contact batch captains for schedule; unassigned players contact WhatsApp 9776191601"
+    },
+    {
+      "title": "Anime & Manga Club First Screening: Paprika",
+      "time": "9:00 PM",
+      "date": "Sat 29 Aug",
+      "location": "LH5",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "kanishk.kaushik@niser.ac.in",
+      "note": "Screening followed by discussion"
+    },
+    {
+      "title": "Brain Matters Club Induction",
+      "time": "6:00 PM",
+      "date": "Sun 30 Aug",
+      "location": "LH-1",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "brainmatters@niser.ac.in",
+      "note": "Includes interactive discussion and demonstration"
+    },
+    {
+      "title": "VAC Course: Sports and Physical Education",
+      "time": "5:45 PM - 7:45 PM",
+      "date": "Fri 28 Aug",
+      "location": "Respective sports venues",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "First-year students",
+      "sender": "pmal@niser.ac.in",
+      "note": ""
+    },
+    {
+      "title": "Deadline: Registration for Murder Mystery 2.0",
+      "time": "11:59 PM",
+      "date": "Fri 28 Aug",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "tfr_chem@niser.ac.in",
+      "note": "Max 6 participants per team"
+    },
+    {
+      "title": "The Free Radicals Induction & Murder Mystery 2.0",
+      "time": "5:30 PM",
+      "date": "Sat 29 Aug",
+      "location": "LH 5",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "tfr_chem@niser.ac.in",
+      "note": ""
+    },
+    {
+      "title": "Drama and Music Club Induction - SPOTLIGHT",
+      "time": "5:30 PM",
+      "date": "Fri 4 Sep",
+      "location": "LH 5",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "Freshers",
+      "sender": "dmc@niser.ac.in",
+      "note": ""
     }
   ],
-  "lastSynced": 1787900709432
+  "lastSynced": 1787929699356
 }
