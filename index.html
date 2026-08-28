@@ -322,11 +322,58 @@
   }
 
   @media (max-width:480px){
+    body{padding:20px 12px 60px;}
+    .title-block h1{font-size:22px;}
+    header.top{gap:10px;}
     .row{grid-template-columns:1fr;}
     .row .time{padding-top:0;}
+    .controls{gap:10px;}
+    .legend{gap:8px;font-size:9.5px;}
+    .settings-panel{min-width:190px;right:-40px;}
+    .sync-btn{font-size:12px;padding:9px 14px;}
+    .day-header{font-size:13px;}
+    .row .content .title{font-size:13.5px;}
+    .tab-bar{gap:0;}
+    .tab-btn{font-size:11px;padding:8px 12px;}
+  }
+  @media (max-width:360px){
+    .title-block h1{font-size:19px;}
+    .legend{font-size:8.5px;gap:6px;}
+    .tab-btn{font-size:10px;padding:7px 10px;}
   }
   @media (prefers-reduced-motion: reduce){
     .switch .knob, .switch .lamp, .sync-btn{transition:none;}
+  }
+
+  .tab-bar{
+    display:flex;
+    border-bottom:2px solid var(--ink);
+    margin-bottom:18px;
+    gap:0;
+  }
+  .tab-btn{
+    flex:1;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:12px;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    padding:10px 16px;
+    background:none;
+    border:none;
+    border-bottom:3px solid transparent;
+    color:var(--ink-soft);
+    cursor:pointer;
+    transition:color .15s, border-color .15s;
+    margin-bottom:-2px;
+    text-align:center;
+  }
+  .tab-btn:hover{color:var(--ink);}
+  .tab-btn.active{color:var(--ink);border-bottom-color:var(--brass);}
+  .tab-btn .count{
+    font-size:10px;
+    opacity:0.6;
+    margin-left:4px;
   }
 </style>
 <!-- GoatCounter — privacy-first, cookie-less, anonymous aggregate analytics.
@@ -411,6 +458,10 @@
   </div>
 
   <div class="status" id="status"></div>
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="upcoming">Today &amp; Upcoming</button>
+    <button class="tab-btn" data-tab="past">Past Events</button>
+  </div>
   <div id="results"></div>
 
   <footer id="lastSynced">
@@ -432,6 +483,7 @@ let state = {
   events: [], lastSynced: null, batch: 'all', timetable: null,
   showClubs: false, showSeminars: true, showAdmin: true,
   showTimetable: true, darkMode: false, use24Hour: false,
+  activeTab: 'upcoming',
 };
 
 const els = {
@@ -448,6 +500,7 @@ const els = {
   darkSwitch: document.getElementById('darkSwitch'),
   hour24Switch: document.getElementById('hour24Switch'),
   batchSelect: document.getElementById('batchSelect'),
+  tabBar: document.getElementById('tabBar'),
 };
 
 function setStatus(msg, isError){
@@ -477,14 +530,43 @@ function render(){
     return true;
   });
 
-  if(visible.length === 0){
+  const todayStart = new Date();
+  todayStart.setHours(0,0,0,0);
+
+  const upcoming = [];
+  const past = [];
+  for(const e of visible){
+    if(e.category === 'timetable'){
+      upcoming.push(e);
+    } else {
+      const d = parseEventDate(e.date);
+      if(d && d < todayStart) past.push(e);
+      else upcoming.push(e);
+    }
+  }
+
+  const active = state.activeTab === 'upcoming' ? upcoming : past;
+
+  const tabBtns = els.tabBar.querySelectorAll('.tab-btn');
+  tabBtns.forEach(btn => {
+    const tab = btn.dataset.tab;
+    btn.classList.toggle('active', tab === state.activeTab);
+    const count = tab === 'upcoming' ? upcoming.length : past.length;
+    const label = tab === 'upcoming' ? 'Today & Upcoming' : 'Past Events';
+    btn.innerHTML = `${label}<span class="count">${count ? '(' + count + ')' : ''}</span>`;
+  });
+
+  if(active.length === 0){
+    const isUpcoming = state.activeTab === 'upcoming';
     els.results.innerHTML = `<div class="empty">${
       allEvents.length === 0
         ? 'No digest yet — open <strong>admin.html</strong> on your PC, sync your inbox, and publish. Or place a <code>timetable-data.json</code> file here.'
-        : 'Nothing to show with current filters. Adjust the settings panel to reveal more events.'
+        : isUpcoming
+          ? (past.length > 0 ? 'No upcoming events. Check the Past Events tab.' : 'Nothing to show with current filters. Adjust the settings panel to reveal more events.')
+          : 'No past events yet.'
     }</div>`;
   } else {
-    const groups = groupByDate(visible);
+    const groups = groupByDate(active);
     els.results.innerHTML = groups.map(g => `
       <div class="day-group">
         <div class="day-header">${escapeHtml(g.date)}</div>
@@ -600,6 +682,27 @@ function normalizeDate(d){
   }
   if(num && mon) return `${day || ''} ${num} ${mon}`.trim();
   return d;
+}
+
+function parseEventDate(dateStr){
+  if(!dateStr) return null;
+  const s = dateStr.replace(/[,\s]+/g,' ').trim();
+  const months = {jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11,
+    january:0,february:1,march:2,april:3,june:5,july:6,august:7,september:8,october:9,november:10,december:11};
+  const parts = s.split(' ');
+  let num = null, mon = null;
+  for(const p of parts){
+    const lower = p.toLowerCase();
+    if(months[lower] !== undefined) mon = months[lower];
+    else if(/^\d{1,2}$/.test(p)) num = parseInt(p,10);
+  }
+  if(num !== null && mon !== null){
+    const now = new Date();
+    const d = new Date(now.getFullYear(), mon, num);
+    if(d < new Date(now.getFullYear(), now.getMonth(), now.getDate()) - 86400000 * 365) d.setFullYear(d.getFullYear() + 1);
+    return d;
+  }
+  return null;
 }
 
 function getTodayEvents(){
@@ -761,6 +864,13 @@ makeToggle(els.hour24Switch, 'use24Hour', STORAGE_24HOUR_KEY, 'toggle-24hour');
 els.batchSelect.addEventListener('change', () => {
   state.batch = els.batchSelect.value;
   try{ localStorage.setItem(STORAGE_BATCH_KEY, state.batch); }catch(e){}
+  render();
+});
+
+els.tabBar.addEventListener('click', (e) => {
+  const btn = e.target.closest('.tab-btn');
+  if(!btn) return;
+  state.activeTab = btn.dataset.tab;
   render();
 });
 
