@@ -530,7 +530,23 @@ function groupByDate(events){
     if(!groups[key]){ groups[key] = []; order.push(key); }
     groups[key].push(e);
   });
-  return order.map(key => ({ date: key, items: groups[key] }));
+  return order.map(key => ({ date: key, items: groups[key].sort((a, b) => timeToMinutes(a.time) - timeToMinutes(b.time)) }));
+}
+
+function timeToMinutes(t){
+  if(!t || t === 'TBD') return 9999;
+  const s = String(t).trim();
+  const m24 = s.match(/^(\d{1,2}):(\d{2})/);
+  if(m24) return parseInt(m24[1])*60 + parseInt(m24[2]);
+  const m12 = s.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+  if(m12){
+    let h = parseInt(m12[1]);
+    const ap = m12[3].toUpperCase();
+    if(ap === 'PM' && h !== 12) h += 12;
+    if(ap === 'AM' && h === 12) h = 0;
+    return h*60 + parseInt(m12[2]);
+  }
+  return 9999;
 }
 
 function normalizeTitle(t) {
