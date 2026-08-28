@@ -748,6 +748,8 @@ function getTodayEvents(){
 }
 
 async function loadState(){
+  const localSynced = state.lastSynced;
+
   try{
     const raw = localStorage.getItem(STORAGE_EVENTS_KEY);
     if(raw){
@@ -757,17 +759,18 @@ async function loadState(){
     }
   }catch(e){ /* no cache yet */ }
 
-  if(state.events.length === 0){
-    try{
-      const res = await fetch('timetable-data.json');
-      if(res.ok){
-        const data = await res.json();
+  try{
+    const res = await fetch('timetable-data.json');
+    if(res.ok){
+      const data = await res.json();
+      const serverSynced = data.lastSynced || 0;
+      if(!localSynced || serverSynced > localSynced){
         state.events = (data.events || []).map(e => ({...e, date: e.date ? normalizeDate(e.date) : e.date}));
-        state.lastSynced = data.lastSynced || null;
+        state.lastSynced = serverSynced;
         localStorage.setItem(STORAGE_EVENTS_KEY, JSON.stringify({events:state.events,lastSynced:state.lastSynced}));
       }
-    }catch(e){ /* no JSON file */ }
-  }
+    }
+  }catch(e){ /* no JSON file */ }
 
   try{
     const tg = localStorage.getItem(STORAGE_TOGGLE_KEY);
