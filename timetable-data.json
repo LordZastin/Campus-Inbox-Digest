@@ -10,7 +10,7 @@
       "bring": "",
       "for": "",
       "sender": "sportsclub@niser.ac.in",
-      "note": "Corrected from original 7 PM announcement"
+      "note": "Timing changed from 7 PM to 8 PM."
     },
     {
       "title": "OORNA Club Induction",
@@ -58,7 +58,7 @@
       "bring": "",
       "for": "",
       "sender": "seps-seminar@niser.ac.in",
-      "note": "Speaker: Dr. Spandan Dash, Paris Institute of Earth Physics"
+      "note": "Speaker: Dr. Spandan Dash"
     },
     {
       "title": "Zaariya Club Induction",
@@ -85,7 +85,7 @@
       "note": "Speaker: Amrithraj K P, 4th year Int. MSc"
     },
     {
-      "title": "Chemistry Seminar - Dr. Monisha Singha",
+      "title": "Chemistry Seminar: Dr. Monisha Singha",
       "time": "3:30 PM",
       "date": "Fri 28 Aug",
       "location": "SCS Seminar Room",
@@ -94,7 +94,7 @@
       "bring": "",
       "for": "",
       "sender": "sghosh@niser.ac.in",
-      "note": "Title: Mechanism-Driven Chemistry for Enzyme Targets"
+      "note": "Mechanism-Driven Chemistry for Enzyme Targets"
     },
     {
       "title": "SMS Seminar by Arijit Mahato",
@@ -179,7 +179,271 @@
       "for": "",
       "sender": "sps_seminar@niser.ac.in",
       "note": ""
+    },
+    {
+      "title": "SMS Seminar: Rigidity of Coxeter Groups",
+      "time": "3:30 PM - 4:30 PM",
+      "date": "Fri 28 Aug",
+      "location": "SMS Seminar Room",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "sms_seminar@niser.ac.in",
+      "note": "Speaker: Arijit Mahato (NISER)"
+    },
+    {
+      "title": "Solaris Film Screening",
+      "time": "9:00 PM",
+      "date": "Fri 28 Aug",
+      "location": "LH5",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "filmclub@niser.ac.in",
+      "note": "Space Day screening in collaboration with NISER Astronomy Club"
+    },
+    {
+      "title": "Vaktavya B26 Representative Voting Deadline",
+      "time": "10:40 AM",
+      "date": "Sat 29 Aug",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "B26",
+      "sender": "vaktavya@niser.ac.in",
+      "note": "Voting form closes at 10:40 AM"
+    },
+    {
+      "title": "Zaariya Club Induction",
+      "time": "3:30 PM - 4:30 PM",
+      "date": "Sat 29 Aug",
+      "location": "LH 3",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "zaariya@niser.ac.in",
+      "note": ""
+    },
+    {
+      "title": "Vikiran Physics Club Induction",
+      "time": "5:00 PM onwards",
+      "date": "Sun 30 Aug",
+      "location": "LH -4",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "new students",
+      "sender": "vikiran@niser.ac.in",
+      "note": ""
+    },
+    {
+      "title": "Matki Painting Competition",
+      "time": "2:30 PM - 5:30 PM",
+      "date": "Sat 5 Sep",
+      "location": "SAC(Lit C)",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "paints and other painting materials",
+      "for": "",
+      "sender": "archishman.das@niser.ac.in",
+      "note": "Register by 3rd September"
+    },
+    {
+      "title": "National Sports Day 2026 Registration Deadline",
+      "time": "12:00 PM",
+      "date": "Fri 28 Aug",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "studentsgymkhana@niser.ac.in",
+      "note": "Deadline to submit form to register for sports events"
+    },
+    {
+      "title": "Zaariya Club Induction 2026",
+      "time": "6:00 PM - 7:00 PM",
+      "date": "Fri 28 Aug",
+      "location": "LH 3",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "zaariya@niser.ac.in",
+      "note": "Induction for Zaariya social service club"
+    },
+    {
+      "title": "Biology Lab - Batch 3",
+      "time": "TBD",
+      "date": "Fri 28 Aug",
+      "location": "",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "Batch 3",
+      "sender": "jerushajoseph@niser.ac.in",
+      "note": "Rescheduled lab from 26 August holiday"
+    },
+    {
+      "title": "5 km Walkathon / Fun Run / Marathon",
+      "time": "6:00 AM",
+      "date": "Sun 30 Aug",
+      "location": "Front of Directorate/ Admin Complex",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "running shoes, hydration kit",
+      "for": "students, employees, family members, friends",
+      "sender": "studentsgymkhana@niser.ac.in",
+      "note": "E-certificate provided to all participants"
+    },
+    {
+      "title": "SPS Seminar - Prof. Swagata Mukherjee",
+      "time": "3:30 PM",
+      "date": "Thu 3 Sep",
+      "location": "SPS Seminar room",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "sps_seminar@niser.ac.in",
+      "note": "Title: Hunt for long-lived particles in future colliders"
+    },
+    {
+      "title": "GAC Logo & Merch Design Deadline",
+      "time": "TBD",
+      "date": "Sat 5 Sep",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "gac@niser.ac.in",
+      "note": "Submit designs via Google Forms link"
+    },
+    {
+      "title": "SEPS Seminar: Exoplanet Atmospheres Detection",
+      "time": "4:00 PM",
+      "date": "Thu 27 Aug",
+      "location": "",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "seps-seminar@niser.ac.in",
+      "note": "Speaker: Dr. Spandan Dash"
+    },
+    {
+      "title": "Mental Wellbeing Survey Deadline",
+      "time": "11:59 PM",
+      "date": "Thu 27 Aug",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "amit.yadav@niser.ac.in",
+      "note": "Anonymous 2-minute survey on mental wellbeing"
+    },
+    {
+      "title": "Vaktavya Core Elections Voting (B26 Representative)",
+      "time": "10:00 AM",
+      "date": "Fri 28 Aug",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "B26 / NISER students",
+      "sender": "vaktavya@niser.ac.in",
+      "note": "Voting open via Google Form for 24 hours until 10 AM on 29th Aug"
+    },
+    {
+      "title": "Assignment-1 Submission Deadline",
+      "time": "TBD",
+      "date": "Fri 28 Aug",
+      "location": "",
+      "category": "mandatory",
+      "compulsory": true,
+      "bring": "",
+      "for": "",
+      "sender": "mishratapan@niser.ac.in",
+      "note": "Staple pages together with name and roll number on top. Optional Assignment-2 can also be submitted."
+    },
+    {
+      "title": "BioBulletin: De-Novo Genome Annotation of an Eukaryote",
+      "time": "5:30 PM",
+      "date": "Fri 28 Aug",
+      "location": "Lecture Hall 2 (LH-2)",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "1st-year students, B24",
+      "sender": "thebioclub@niser.ac.in",
+      "note": "Speaker: Harshit Bhatt (B24)"
+    },
+    {
+      "title": "LitC Translation Discussion: Questions Deadline",
+      "time": "11:00 PM",
+      "date": "Fri 28 Aug",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "litc@niser.ac.in",
+      "note": "Deadline to submit questions for Rajya Sabha translators"
+    },
+    {
+      "title": "AARPO'26 - Onam Celebrations",
+      "time": "Morning",
+      "date": "Sat 5 Sep",
+      "location": "NISER Community centre",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "niranjankrishna.p@niser.ac.in",
+      "note": "Pookkalam in the morning; Onasadhya feast at noon (requires coupon purchase)"
+    },
+    {
+      "title": "VAC Sports & Physical Education Classes",
+      "time": "TBD",
+      "date": "Fri 28 Aug",
+      "location": "Respective sports venues",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "pmal@niser.ac.in",
+      "note": "Classes commence at respective sports venues"
+    },
+    {
+      "title": "Arts Club Induction & Scribble Game",
+      "time": "5:30 PM - 8:00 PM",
+      "date": "Fri 28 Aug",
+      "location": "LH 5",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "Int. MSc. B26 and Int. PhD. B26 batches",
+      "sender": "arc@niser.ac.in",
+      "note": "Includes Scribble & Giggles team game; open to all students"
+    },
+    {
+      "title": "GAC Logo & Merch Design Submission Deadline",
+      "time": "TBD",
+      "date": "Sat 5 Sep",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "gac@niser.ac.in",
+      "note": "Submit logo or merch design proposals via Google Form."
     }
   ],
-  "lastSynced": 1787900155109
+  "lastSynced": 1787900709432
 }
