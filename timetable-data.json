@@ -587,7 +587,43 @@
       "for": "MSC batch 2026",
       "sender": "aishanig@niser.ac.in",
       "note": "Contact sender if registered for Chess but did not receive meeting email"
+    },
+    {
+      "title": "Poster Making Competition Registration Deadline",
+      "time": "TBD",
+      "date": "Mon 31 Aug",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "archishman.das@niser.ac.in",
+      "note": "Theme: Krishna Ji's Baal Lila. Topic provided via WhatsApp after registration."
+    },
+    {
+      "title": "EPS101 Quiz",
+      "time": "10:45 AM - 11:45 AM",
+      "date": "Fri 4 Sep",
+      "location": "",
+      "category": "mandatory",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "jgoyal@niser.ac.in",
+      "note": "Syllabus covers everything up to 28th August 2026."
+    },
+    {
+      "title": "Poster Making Competition Submission",
+      "time": "12:00 PM",
+      "date": "Fri 4 Sep",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "own colors",
+      "for": "",
+      "sender": "archishman.das@niser.ac.in",
+      "note": "Art papers provided at Lit C Room from 9 PM."
     }
   ],
-  "lastSynced": 1787969203146
+  "lastSynced": 1787976408721
 }
