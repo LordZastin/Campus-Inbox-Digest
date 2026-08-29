@@ -628,13 +628,22 @@ function setStatus(msg, isError){
 
 function groupByDate(events){
   const groups = {};
-  const order = [];
   events.forEach(e => {
     const key = e.date || 'Date TBD';
-    if(!groups[key]){ groups[key] = []; order.push(key); }
+    if(!groups[key]) groups[key] = [];
     groups[key].push(e);
   });
-  return order.map(key => ({ date: key, items: groups[key].sort((a, b) => timeToMinutes(a.time) - timeToMinutes(b.time)) }));
+  return Object.keys(groups).map(key => ({
+    date: key,
+    items: groups[key].sort((a, b) => timeToMinutes(a.time) - timeToMinutes(b.time))
+  })).sort((a, b) => {
+    const da = parseEventDate(a.date);
+    const db = parseEventDate(b.date);
+    if(da && db) return da - db;
+    if(da) return -1;
+    if(db) return 1;
+    return 0;
+  });
 }
 
 function timeToMinutes(t){
