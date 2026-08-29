@@ -584,10 +584,10 @@
       "category": "optional-academic",
       "compulsory": false,
       "bring": "",
-      "for": "MSC batch 2026 registered for Chess",
+      "for": "MSC batch 2026",
       "sender": "aishanig@niser.ac.in",
-      "note": "Contact Dr. Aishani Ghosal if registered for Chess but didn't receive meeting details."
+      "note": "Contact sender if registered for Chess but did not receive meeting email"
     }
   ],
-  "lastSynced": 1787962007251
+  "lastSynced": 1787969203146
 }
