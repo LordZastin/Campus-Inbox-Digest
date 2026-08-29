@@ -695,7 +695,43 @@
       "for": "",
       "sender": "archishman.das@niser.ac.in",
       "note": "Janmashtami celebrations; batch-wise competition with separate events for boys and girls"
+    },
+    {
+      "title": "Anime & Manga Club: Paprika Screening",
+      "time": "9:00 PM",
+      "date": "Sat 29 Aug",
+      "location": "LH5",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "kanishk.kaushik@niser.ac.in",
+      "note": "Screening of Paprika (2006) followed by discussion."
+    },
+    {
+      "title": "National Sports Day: 5 km Walkathon / Fun Run",
+      "time": "6:00 AM",
+      "date": "Sun 30 Aug",
+      "location": "Front of Directorate / Admin Complex",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "studentsgymkhana@niser.ac.in",
+      "note": "Water and electrolytes will be available near Animal House and Admin."
+    },
+    {
+      "title": "SRS-46: Lebesgue Differentiation Theorem",
+      "time": "5:30 PM",
+      "date": "Tue 1 Sep",
+      "location": "",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "mathematix@niser.ac.in",
+      "note": "Speaker: Mr. Yuvraj Thapa. Pre-requisite: basic understanding of Lebesgue integration."
     }
   ],
-  "lastSynced": 1788019605559
+  "lastSynced": 1788026792404
 }
