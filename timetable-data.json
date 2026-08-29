@@ -649,7 +649,7 @@
       "note": ""
     },
     {
-      "title": "Meeting at C6, SCS",
+      "title": "Meeting at C6 (SCS)",
       "time": "5:00 PM",
       "date": "Sat 29 Aug",
       "location": "C6, SCS, 1st floor",
@@ -657,9 +657,33 @@
       "compulsory": false,
       "bring": "",
       "for": "",
-      "sender": "aishanig@niser.ac.in",
+      "sender": "sanjitchakraborty@niser.ac.in",
       "note": ""
+    },
+    {
+      "title": "Meet The Free Radicals — Induction × Murder Mystery 2.0",
+      "time": "5:00 PM",
+      "date": "Sat 29 Aug",
+      "location": "LH-5",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "pen",
+      "for": "",
+      "sender": "tfr_chem@niser.ac.in",
+      "note": "Registration form open until 4:45 PM for teams of 3-6"
+    },
+    {
+      "title": "Matki Phod Competition – Janmashtami 2026",
+      "time": "9:00 PM onwards",
+      "date": "Sat 5 Sep",
+      "location": "Mahanadi Courtyard",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "archishman.das@niser.ac.in",
+      "note": "Batch-wise competition with separate boys' and girls' teams"
     }
   ],
-  "lastSynced": 1787998035580
+  "lastSynced": 1788005260718
 }
