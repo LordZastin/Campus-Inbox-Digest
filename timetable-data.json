@@ -809,13 +809,13 @@
       "time": "9:30 AM",
       "date": "Fri 4 Sep",
       "location": "",
-      "category": "optional-academic",
+      "category": "mandatory",
       "compulsory": false,
       "bring": "",
       "for": "PH101 students",
       "sender": "mishratapan@niser.ac.in",
-      "note": "Conducted during the tutorial session"
+      "note": "Conducted during tutorial session"
     }
   ],
-  "lastSynced": 1788120430429
+  "lastSynced": 1788127582851
 }
