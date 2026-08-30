@@ -295,10 +295,10 @@
       "location": "Front of Directorate / Admin Complex",
       "category": "club-sports",
       "compulsory": false,
-      "bring": "comfortable sports attire and suitable footwear",
+      "bring": "",
       "for": "",
       "sender": "studentsgymkhana@niser.ac.in",
-      "note": "Organised as part of National Sports Day 2026. Water and electrolytes available near Animal House and Admin."
+      "note": "National Sports Day 2026 event. Water and electrolytes provided near Animal House and Admin."
     },
     {
       "title": "SPS Seminar - Prof. Swagata Mukherjee",
@@ -733,5 +733,5 @@
       "note": "Speaker: Mr. Yuvraj Thapa. Pre-requisites: basic understanding of Lebesgue integration."
     }
   ],
-  "lastSynced": 1788055591056
+  "lastSynced": 1788062794905
 }
