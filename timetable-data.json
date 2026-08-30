@@ -295,10 +295,10 @@
       "location": "Front of Directorate / Admin Complex",
       "category": "club-sports",
       "compulsory": false,
-      "bring": "",
+      "bring": "comfortable sports attire and suitable footwear",
       "for": "",
       "sender": "studentsgymkhana@niser.ac.in",
-      "note": "National Sports Day 2026 event. Water and electrolytes provided near Animal House and Admin."
+      "note": "Organised as part of National Sports Day 2026. Water and electrolytes available near Animal House and Admin."
     },
     {
       "title": "SPS Seminar - Prof. Swagata Mukherjee",
@@ -731,7 +731,31 @@
       "for": "",
       "sender": "mathematix@niser.ac.in",
       "note": "Speaker: Mr. Yuvraj Thapa. Pre-requisites: basic understanding of Lebesgue integration."
+    },
+    {
+      "title": "Violin Class",
+      "time": "9:00 AM - 10:45 AM",
+      "date": "Sun 23 Aug",
+      "location": "SAC Music Room",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "dmc@niser.ac.in",
+      "note": ""
+    },
+    {
+      "title": "Translation: Across Voices, Across Words",
+      "time": "TBD",
+      "date": "Sun 30 Aug",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "litc@niser.ac.in",
+      "note": "Discussion with Rajya Sabha Translators Mrs. Manjari Joshi and Mr. Rana Dhirendra."
     }
   ],
-  "lastSynced": 1788062794905
+  "lastSynced": 1788070076245
 }
