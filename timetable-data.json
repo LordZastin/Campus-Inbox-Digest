@@ -292,13 +292,13 @@
       "title": "5 km Walkathon / Fun Run / Marathon",
       "time": "6:00 AM",
       "date": "Sun 30 Aug",
-      "location": "Front of Directorate/ Admin Complex",
+      "location": "Front of Directorate / Admin Complex",
       "category": "club-sports",
       "compulsory": false,
-      "bring": "running shoes, hydration kit",
-      "for": "students, employees, family members, friends",
+      "bring": "comfortable sports attire and suitable footwear",
+      "for": "",
       "sender": "studentsgymkhana@niser.ac.in",
-      "note": "E-certificate provided to all participants"
+      "note": "Organised as part of National Sports Day 2026. Water and electrolytes available near Animal House and Admin."
     },
     {
       "title": "SPS Seminar - Prof. Swagata Mukherjee",
@@ -730,8 +730,8 @@
       "bring": "",
       "for": "",
       "sender": "mathematix@niser.ac.in",
-      "note": "Speaker: Mr. Yuvraj Thapa. Pre-requisites: Basic understanding of Lebesgue integration."
+      "note": "Speaker: Mr. Yuvraj Thapa. Pre-requisites: basic understanding of Lebesgue integration."
     }
   ],
-  "lastSynced": 1788048477345
+  "lastSynced": 1788055591056
 }
