@@ -229,10 +229,10 @@
       "note": ""
     },
     {
-      "title": "Vikiran Physics Club Induction",
+      "title": "Vikiran: Physics Club Induction",
       "time": "5:00 PM",
       "date": "Sun 30 Aug",
-      "location": "",
+      "location": "LH4",
       "category": "club-sports",
       "compulsory": false,
       "bring": "",
@@ -746,15 +746,15 @@
     },
     {
       "title": "Translation: Across Voices, Across Words",
-      "time": "TBD",
+      "time": "5:10 PM",
       "date": "Sun 30 Aug",
       "location": "",
       "category": "club-sports",
       "compulsory": false,
-      "bring": "",
+      "bring": "pencil/pen",
       "for": "",
       "sender": "litc@niser.ac.in",
-      "note": "Discussion with Rajya Sabha Translators Mrs. Manjari Joshi and Mr. Rana Dhirendra."
+      "note": "Discussion with Rajya Sabha Translators"
     },
     {
       "title": "SPS Seminar: Quantum Theory of Materials",
@@ -781,5 +781,5 @@
       "note": ""
     }
   ],
-  "lastSynced": 1788084373811
+  "lastSynced": 1788091645579
 }
