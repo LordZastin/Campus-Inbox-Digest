@@ -230,13 +230,13 @@
     },
     {
       "title": "Vikiran Physics Club Induction",
-      "time": "5:00 PM onwards",
+      "time": "5:00 PM",
       "date": "Sun 30 Aug",
-      "location": "LH -4",
+      "location": "",
       "category": "club-sports",
       "compulsory": false,
       "bring": "",
-      "for": "new students",
+      "for": "",
       "sender": "vikiran@niser.ac.in",
       "note": ""
     },
@@ -755,7 +755,31 @@
       "for": "",
       "sender": "litc@niser.ac.in",
       "note": "Discussion with Rajya Sabha Translators Mrs. Manjari Joshi and Mr. Rana Dhirendra."
+    },
+    {
+      "title": "SPS Seminar: Quantum Theory of Materials",
+      "time": "11:30 AM",
+      "date": "Wed 2 Sep",
+      "location": "SPS Seminar room",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "sps_seminar@niser.ac.in",
+      "note": "Speaker: Prof. Manish Jain"
+    },
+    {
+      "title": "Brain Matters Club Induction",
+      "time": "6:00 PM",
+      "date": "Wed 2 Sep",
+      "location": "LH-1",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "brainmatters@niser.ac.in",
+      "note": ""
     }
   ],
-  "lastSynced": 1788070076245
+  "lastSynced": 1788077269580
 }
