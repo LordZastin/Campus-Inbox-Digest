@@ -779,7 +779,31 @@
       "for": "",
       "sender": "brainmatters@niser.ac.in",
       "note": ""
+    },
+    {
+      "title": "Physics Club Induction Session",
+      "time": "5:00 PM",
+      "date": "Sun 30 Aug",
+      "location": "LH4",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "vikiran@niser.ac.in",
+      "note": "Get-to-know each other induction session."
+    },
+    {
+      "title": "NISER@20 Logo Design Competition Deadline",
+      "time": "TBD",
+      "date": "Mon 31 Aug",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "dean_aa@niser.ac.in",
+      "note": "Email entry to dean_aa@niser.ac.in with subject 'NISER@20 Logo Competition'. Max 2 designs per person."
     }
   ],
-  "lastSynced": 1788091645579
+  "lastSynced": 1788098801817
 }
