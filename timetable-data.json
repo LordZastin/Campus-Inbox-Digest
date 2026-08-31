@@ -935,7 +935,55 @@
       "for": "BIO141 First-Year Lab",
       "sender": "no-reply@classroom.google.com",
       "note": "Test for Lipids"
+    },
+    {
+      "title": "Collection of Lab Notebooks",
+      "time": "By 8:00 PM",
+      "date": "Mon 31 Aug",
+      "location": "Room 406, fourth floor, SCS",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "peru@niser.ac.in",
+      "note": ""
+    },
+    {
+      "title": "BIO141 Lab: Anthrone Assay",
+      "time": "TBD",
+      "date": "3 Sep",
+      "location": "",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "BIO141 First-Year Lab",
+      "sender": "no-reply@classroom.google.com",
+      "note": "Quantitative estimation of Carbohydrates by Anthrone assay"
+    },
+    {
+      "title": "BIO141 Lab: Benedict's Test & Iodine Test",
+      "time": "TBD",
+      "date": "10 Sep",
+      "location": "",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "BIO141 First-Year Lab",
+      "sender": "no-reply@classroom.google.com",
+      "note": "Quantitative estimation of Carbohydrates (reducing sugars) by Benedict's test and polysaccharides by iodine test"
+    },
+    {
+      "title": "BIO141 Lab: Test for Lipids",
+      "time": "TBD",
+      "date": "17 Sep",
+      "location": "",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "BIO141 First-Year Lab",
+      "sender": "no-reply@classroom.google.com",
+      "note": ""
     }
   ],
-  "lastSynced": 1788178048711
+  "lastSynced": 1788185225882
 }
