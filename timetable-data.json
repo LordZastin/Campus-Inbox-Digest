@@ -938,9 +938,9 @@
     },
     {
       "title": "Collection of Lab Notebooks",
-      "time": "By 8:00 PM",
+      "time": "by 8:00 PM",
       "date": "Mon 31 Aug",
-      "location": "Room 406, fourth floor, SCS",
+      "location": "Room 406, 4th floor, SCS",
       "category": "admin",
       "compulsory": false,
       "bring": "",
@@ -985,5 +985,5 @@
       "note": ""
     }
   ],
-  "lastSynced": 1788185225882
+  "lastSynced": 1788192396275
 }
