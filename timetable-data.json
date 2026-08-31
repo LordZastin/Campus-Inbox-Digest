@@ -398,15 +398,15 @@
     },
     {
       "title": "AARPO'26 - Onam Celebrations",
-      "time": "Morning",
+      "time": "TBD",
       "date": "Sat 5 Sep",
-      "location": "NISER Community centre",
+      "location": "",
       "category": "club-sports",
       "compulsory": false,
       "bring": "",
       "for": "",
       "sender": "niranjankrishna.p@niser.ac.in",
-      "note": "Pookkalam in the morning; Onasadhya feast at noon (requires coupon purchase)"
+      "note": "Includes cultural events, Onasadya feast at noon (requires coupon purchase), and games."
     },
     {
       "title": "VAC Sports & Physical Education Classes",
@@ -814,8 +814,20 @@
       "bring": "",
       "for": "PH101 students",
       "sender": "mishratapan@niser.ac.in",
-      "note": "Conducted during tutorial session. Reach venue before time."
+      "note": "Conducted during tutorial session."
+    },
+    {
+      "title": "Onasadya & Cultural Events Form Deadline",
+      "time": "11:59 PM",
+      "date": "Wed 2 Sep",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "niranjankrishna.p@niser.ac.in",
+      "note": "Deadline to fill form for Onasadya and cultural events participation."
     }
   ],
-  "lastSynced": 1788142023897
+  "lastSynced": 1788149220418
 }
