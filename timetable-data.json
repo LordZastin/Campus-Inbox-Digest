@@ -899,7 +899,43 @@
       "for": "",
       "sender": "convener_pgcsc@niser.ac.in",
       "note": "Thesis: Photophysical Studies of Emerging Nanocrystals. Supervisor: Prof. Subhadip Ghosh."
+    },
+    {
+      "title": "BIO141 Lab: Anthrone assay",
+      "time": "TBD",
+      "date": "Thu 3 Sep",
+      "location": "",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "BIO141 First-Year Lab",
+      "sender": "no-reply@classroom.google.com",
+      "note": "Quantitative estimation of Carbohydrates by Anthrone assay"
+    },
+    {
+      "title": "BIO141 Lab: Benedict's test & Iodine test",
+      "time": "TBD",
+      "date": "Thu 10 Sep",
+      "location": "",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "BIO141 First-Year Lab",
+      "sender": "no-reply@classroom.google.com",
+      "note": "Quantitative estimation of Carbohydrates (reducing sugars) by Benedict's test and polysaccharides by iodine test"
+    },
+    {
+      "title": "BIO141 Lab: Test for Lipids",
+      "time": "TBD",
+      "date": "Thu 17 Sep",
+      "location": "",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "BIO141 First-Year Lab",
+      "sender": "no-reply@classroom.google.com",
+      "note": "Test for Lipids"
     }
   ],
-  "lastSynced": 1788170822967
+  "lastSynced": 1788178048711
 }
