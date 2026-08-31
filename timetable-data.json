@@ -851,7 +851,43 @@
       "for": "",
       "sender": "niranjankrishna.p@niser.ac.in",
       "note": "Onam celebrations including cultural events, games, and Onasadya feast at noon (coupons required)."
+    },
+    {
+      "title": "Biology Practical Lab - Batch 3",
+      "time": "2:45 PM",
+      "date": "Wed 2 Sep",
+      "location": "Lab",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "Batch 3",
+      "sender": "jerushajoseph@niser.ac.in",
+      "note": "Theory session at scheduled time before practical"
+    },
+    {
+      "title": "Biology Practical Lab - Batch 4",
+      "time": "2:45 PM",
+      "date": "Thu 3 Sep",
+      "location": "Lab",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "Batch 4",
+      "sender": "jerushajoseph@niser.ac.in",
+      "note": "Theory session at scheduled time before practical"
+    },
+    {
+      "title": "NISER@20 Lecture: Prof. Deepak Dhar",
+      "time": "4:00 PM",
+      "date": "Fri 4 Sep",
+      "location": "Pathani Samanta Auditorium, NISER",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "dean_aa@niser.ac.in",
+      "note": "Guest of Honour talk on Transience and Nonergodicity. High tea after event in Auditorium Foyer."
     }
   ],
-  "lastSynced": 1788156523508
+  "lastSynced": 1788163720876
 }
