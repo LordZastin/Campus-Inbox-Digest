@@ -938,15 +938,15 @@
     },
     {
       "title": "Collection of Lab Notebooks",
-      "time": "By 8:00 PM",
+      "time": "8:00 PM",
       "date": "Mon 31 Aug",
-      "location": "Room 406, SCS",
+      "location": "Room 406, fourth floor, SCS",
       "category": "optional-academic",
       "compulsory": false,
       "bring": "",
       "for": "",
       "sender": "peru@niser.ac.in",
-      "note": "Fourth floor"
+      "note": ""
     },
     {
       "title": "BIO141 Lab: Anthrone Assay",
@@ -985,5 +985,5 @@
       "note": ""
     }
   ],
-  "lastSynced": 1788221949676
+  "lastSynced": 1788228657679
 }
