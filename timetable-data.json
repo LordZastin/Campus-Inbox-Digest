@@ -724,7 +724,7 @@
       "title": "SRS-46: Lebesgue Differentiation Theorem",
       "time": "5:30 PM",
       "date": "Tue 1 Sep",
-      "location": "",
+      "location": "classroom M1 (SMS)",
       "category": "optional-academic",
       "compulsory": false,
       "bring": "",
@@ -988,14 +988,26 @@
       "title": "Arts Club Induction & Scribble Game",
       "time": "3:30 PM - 5:00 PM",
       "date": "Sun 6 Sep",
-      "location": "",
+      "location": "LH4",
       "category": "club-sports",
       "compulsory": false,
       "bring": "",
       "for": "",
       "sender": "arc@niser.ac.in",
-      "note": "Reply with team member names or individual interest."
+      "note": ""
+    },
+    {
+      "title": "SMS Seminar: Higher-Genus Angel Surfaces",
+      "time": "2:30 PM - 3:30 PM",
+      "date": "Fri 4 Sep",
+      "location": "SMS Seminar Room",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "sms_seminar@niser.ac.in",
+      "note": "Speaker: Dr. Rivu Bardhan (NISER)"
     }
   ],
-  "lastSynced": 1788257564192
+  "lastSynced": 1788265019373
 }
