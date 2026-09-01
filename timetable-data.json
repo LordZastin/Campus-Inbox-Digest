@@ -994,7 +994,7 @@
       "bring": "",
       "for": "",
       "sender": "arc@niser.ac.in",
-      "note": ""
+      "note": "Reply to the mail thread with team member names."
     },
     {
       "title": "SMS Seminar: Higher-Genus Angel Surfaces",
@@ -1007,7 +1007,19 @@
       "for": "",
       "sender": "sms_seminar@niser.ac.in",
       "note": "Speaker: Dr. Rivu Bardhan (NISER)"
+    },
+    {
+      "title": "Vikiran Talk: The Physics and Simulations of Liquid Crystals",
+      "time": "7:30 PM onwards",
+      "date": "Fri 4 Sep",
+      "location": "Lecture Hall 4",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "vikiran@niser.ac.in",
+      "note": "Speaker: Rohan Deepak Bhide. Prerequisites: Basic Thermodynamic."
     }
   ],
-  "lastSynced": 1788265019373
+  "lastSynced": 1788271948795
 }
