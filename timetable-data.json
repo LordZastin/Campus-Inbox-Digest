@@ -622,7 +622,7 @@
       "bring": "own colors",
       "for": "",
       "sender": "archishman.das@niser.ac.in",
-      "note": "Art papers provided from Lit C Room from 9 PM."
+      "note": "Theme: Krishna Ji's Baal Lila. Art papers provided at Lit C Room from 9 PM."
     },
     {
       "title": "Registration: Poster Making Competition",
@@ -730,7 +730,7 @@
       "bring": "",
       "for": "",
       "sender": "mathematix@niser.ac.in",
-      "note": "Speaker: Mr. Yuvraj Thapa. Pre-requisites: basic understanding of Lebesgue integration."
+      "note": "Speaker: Mr. Yuvraj Thapa"
     },
     {
       "title": "Violin Class",
@@ -983,7 +983,19 @@
       "for": "BIO141 First-Year Lab",
       "sender": "no-reply@classroom.google.com",
       "note": ""
+    },
+    {
+      "title": "Arts Club Induction & Scribble Game",
+      "time": "3:30 PM - 5:00 PM",
+      "date": "Sun 6 Sep",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "arc@niser.ac.in",
+      "note": "Reply with team member names or individual interest."
     }
   ],
-  "lastSynced": 1788235908362
+  "lastSynced": 1788243385800
 }
