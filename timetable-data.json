@@ -1055,7 +1055,31 @@
       "for": "",
       "sender": "sps_seminar@niser.ac.in",
       "note": "Title: Quantum Theory of Materials: Methods and Applications."
+    },
+    {
+      "title": "PhD Viva-Voce: Mrinal Kanti Panda",
+      "time": "11:00 AM - 12:00 PM",
+      "date": "Wed 2 Sep",
+      "location": "SCS Seminar Room",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "convener_pgcsc@niser.ac.in",
+      "note": "Title: Photophysical Studies of Emerging Nanocrystals."
+    },
+    {
+      "title": "Pre-synopsis seminar: Sayantan Mukhopadhyay",
+      "time": "3:30 PM - 4:30 PM",
+      "date": "Wed 9 Sep",
+      "location": "SCS Seminar Room",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "convener_pgcsc@niser.ac.in",
+      "note": "Title: Bis-Guanidinate-Supported Magnesium Complexes; Synthesis, Reactivity, Catalytic Applications, and Mechanistic Insights"
     }
   ],
-  "lastSynced": 1788322470628
+  "lastSynced": 1788330100908
 }
