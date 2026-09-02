@@ -729,8 +729,8 @@
       "compulsory": false,
       "bring": "",
       "for": "",
-      "sender": "mathematix@niser.ac.in",
-      "note": "Speaker: Mr. Yuvraj Thapa"
+      "sender": "yuvraj.thapa@niser.ac.in",
+      "note": ""
     },
     {
       "title": "Violin Class",
@@ -1079,7 +1079,19 @@
       "for": "",
       "sender": "convener_pgcsc@niser.ac.in",
       "note": "Title: Bis-Guanidinate-Supported Magnesium Complexes; Synthesis, Reactivity, Catalytic Applications, and Mechanistic Insights"
+    },
+    {
+      "title": "Drama and Music Club Induction Form Deadline",
+      "time": "TBD",
+      "date": "Fri 4 Sep",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "Freshers",
+      "sender": "dmc@niser.ac.in",
+      "note": "On the spot registration available"
     }
   ],
-  "lastSynced": 1788336812357
+  "lastSynced": 1788344026177
 }
