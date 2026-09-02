@@ -770,7 +770,7 @@
     },
     {
       "title": "Brain Matters Club Induction",
-      "time": "6:00 PM",
+      "time": "7:00 PM",
       "date": "Wed 2 Sep",
       "location": "LH-1",
       "category": "club-sports",
@@ -778,7 +778,7 @@
       "bring": "",
       "for": "",
       "sender": "brainmatters@niser.ac.in",
-      "note": ""
+      "note": "Postponed to 7:00 PM"
     },
     {
       "title": "Physics Club Induction Session",
@@ -1091,7 +1091,31 @@
       "for": "Freshers",
       "sender": "dmc@niser.ac.in",
       "note": "On the spot registration available"
+    },
+    {
+      "title": "Lecture by Prof. Deepak Dhar",
+      "time": "4:00 PM",
+      "date": "Fri 4 Sep",
+      "location": "Pathani Samanta Auditorium, NISER",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "director@niser.ac.in",
+      "note": "NISER@20 Celebrations"
+    },
+    {
+      "title": "Anime Screening: Witch Hat Atelier",
+      "time": "8:45 PM",
+      "date": "Sat 5 Sep",
+      "location": "LH5",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "kanishk.kaushik@niser.ac.in",
+      "note": "Episodes 1–6 followed by discussion"
     }
   ],
-  "lastSynced": 1788351400369
+  "lastSynced": 1788365695580
 }
