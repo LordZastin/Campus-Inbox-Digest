@@ -1198,7 +1198,7 @@
       "bring": "",
       "for": "",
       "sender": "code@niser.ac.in",
-      "note": "First session, designed for absolute beginners."
+      "note": ""
     },
     {
       "title": "Introduction to Programming - Session 1",
@@ -1211,7 +1211,19 @@
       "for": "",
       "sender": "code@niser.ac.in",
       "note": "First session of series; no prior coding experience required."
+    },
+    {
+      "title": "Frisbee Unity Cup Induction Session",
+      "time": "4:00 PM",
+      "date": "Sat 5 Sep",
+      "location": "Yamuna Cricket Ground",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "vishesh.yaduvanshi@niser.ac.in",
+      "note": "Covers tournament format, game basics, and live demo game."
     }
   ],
-  "lastSynced": 1788437838421
+  "lastSynced": 1788444811917
 }
