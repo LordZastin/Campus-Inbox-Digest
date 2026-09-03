@@ -1199,7 +1199,19 @@
       "for": "",
       "sender": "code@niser.ac.in",
       "note": ""
+    },
+    {
+      "title": "Introduction to Programming - Session 1",
+      "time": "5:30 PM",
+      "date": "Sat 5 Sep",
+      "location": "M4 (SMS, 1st Floor)",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "code@niser.ac.in",
+      "note": "First session of series; no prior coding experience required."
     }
   ],
-  "lastSynced": 1788423226580
+  "lastSynced": 1788430417284
 }
