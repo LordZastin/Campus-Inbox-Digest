@@ -604,13 +604,13 @@
       "title": "EPS101 Quiz",
       "time": "10:45 AM - 11:45 AM",
       "date": "Fri 4 Sep",
-      "location": "",
+      "location": "LH-5",
       "category": "mandatory",
-      "compulsory": true,
+      "compulsory": false,
       "bring": "scientific calculator",
-      "for": "",
+      "for": "EPS101 Students",
       "sender": "jgoyal@niser.ac.in",
-      "note": "15 MCQs for 30 marks. Mobile phones not allowed for calculations."
+      "note": "15 MCQs for 30 marks. Mobile phones not allowed for calculations. Seating arranged by TAs."
     },
     {
       "title": "Poster Making Competition Submission",
@@ -1175,7 +1175,19 @@
       "for": "",
       "sender": "palok.aich@niser.ac.in",
       "note": "Last date of registrations is 15th September 2026"
+    },
+    {
+      "title": "RoboTech Club Induction",
+      "time": "5:30 PM",
+      "date": "Sun 6 Sep",
+      "location": "LH3",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "Batch 26",
+      "sender": "rtc@niser.ac.in",
+      "note": ""
     }
   ],
-  "lastSynced": 1788413652485
+  "lastSynced": 1788416381446
 }
