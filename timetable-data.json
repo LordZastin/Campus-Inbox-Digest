@@ -250,7 +250,7 @@
       "bring": "paints and other painting materials",
       "for": "",
       "sender": "archishman.das@niser.ac.in",
-      "note": "Register by 3rd September"
+      "note": "Matkis provided. Registration deadline 3rd Sep."
     },
     {
       "title": "National Sports Day 2026 Registration Deadline",
@@ -301,7 +301,7 @@
       "note": "Organised as part of National Sports Day 2026. Water and electrolytes available near Animal House and Admin."
     },
     {
-      "title": "SPS Seminar - Prof. Swagata Mukherjee",
+      "title": "SPS Seminar: Prof. Swagata Mukherjee",
       "time": "3:30 PM",
       "date": "Thu 3 Sep",
       "location": "SPS Seminar room",
@@ -310,7 +310,7 @@
       "bring": "",
       "for": "",
       "sender": "sps_seminar@niser.ac.in",
-      "note": "Title: Hunt for long-lived particles in future colliders"
+      "note": "Hunt for long-lived particles in future colliders"
     },
     {
       "title": "GAC Logo & Merch Design Deadline",
@@ -606,11 +606,11 @@
       "date": "Fri 4 Sep",
       "location": "",
       "category": "mandatory",
-      "compulsory": false,
-      "bring": "",
+      "compulsory": true,
+      "bring": "scientific calculator",
       "for": "",
       "sender": "jgoyal@niser.ac.in",
-      "note": "Syllabus covers everything up to 28th August 2026."
+      "note": "15 MCQs for 30 marks. Mobile phones not allowed for calculations."
     },
     {
       "title": "Poster Making Competition Submission",
@@ -1162,8 +1162,20 @@
       "bring": "",
       "for": "",
       "sender": "gac@niser.ac.in",
-      "note": "Competitions for both Men and Women; team structures and registration details to follow"
+      "note": "Onam celebration competition for both Men and Women"
+    },
+    {
+      "title": "Odisha Skills Competition 2026-27 Registration",
+      "time": "TBD",
+      "date": "Tue 15 Sep",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "palok.aich@niser.ac.in",
+      "note": "Last date of registrations is 15th September 2026"
     }
   ],
-  "lastSynced": 1788401787754
+  "lastSynced": 1788413652485
 }
