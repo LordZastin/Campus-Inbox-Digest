@@ -1187,7 +1187,19 @@
       "for": "Batch 26",
       "sender": "rtc@niser.ac.in",
       "note": ""
+    },
+    {
+      "title": "Introduction to Programming Series",
+      "time": "5:30 PM",
+      "date": "Sat 5 Sep",
+      "location": "M4 (SMS, 1st Floor)",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "code@niser.ac.in",
+      "note": ""
     }
   ],
-  "lastSynced": 1788416381446
+  "lastSynced": 1788423226580
 }
