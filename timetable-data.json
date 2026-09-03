@@ -602,15 +602,15 @@
     },
     {
       "title": "EPS101 Quiz",
-      "time": "10:45 AM - 11:45 AM",
+      "time": "10:30 AM - 11:45 AM",
       "date": "Fri 4 Sep",
-      "location": "LH-5",
-      "category": "mandatory",
+      "location": "LH5 / LH4",
+      "category": "optional-academic",
       "compulsory": false,
       "bring": "scientific calculator",
-      "for": "EPS101 Students",
-      "sender": "jgoyal@niser.ac.in",
-      "note": "15 MCQs for 30 marks. Mobile phones not allowed for calculations. Seating arranged by TAs."
+      "for": "Roll no 2611001 - 2611205",
+      "sender": "avinash.verma@niser.ac.in",
+      "note": "Present at 10:30 AM, quiz 10:45 AM - 11:45 AM. LH5 (2611001-2611152), LH4 (2611153-2611205)."
     },
     {
       "title": "Poster Making Competition Submission",
@@ -1222,8 +1222,8 @@
       "bring": "",
       "for": "",
       "sender": "vishesh.yaduvanshi@niser.ac.in",
-      "note": "Covers tournament format, game basics, and live demo game."
+      "note": ""
     }
   ],
-  "lastSynced": 1788444811917
+  "lastSynced": 1788452240563
 }
