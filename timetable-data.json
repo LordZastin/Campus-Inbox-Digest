@@ -1223,7 +1223,31 @@
       "for": "",
       "sender": "vishesh.yaduvanshi@niser.ac.in",
       "note": ""
+    },
+    {
+      "title": "Academic Program Student Registration",
+      "time": "11:00 AM",
+      "date": "Tue 4 Aug",
+      "location": "",
+      "category": "admin",
+      "compulsory": true,
+      "bring": "",
+      "for": "Batch 2026",
+      "sender": "2203031241159@paruluniversity.ac.in",
+      "note": ""
+    },
+    {
+      "title": "Vaktavya Induction Programme",
+      "time": "6:30 PM onwards",
+      "date": "Mon 7 Sep",
+      "location": "LH2",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "Freshers",
+      "sender": "vaktavya@niser.ac.in",
+      "note": ""
     }
   ],
-  "lastSynced": 1788459425059
+  "lastSynced": 1788466337379
 }
