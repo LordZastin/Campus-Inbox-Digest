@@ -1100,9 +1100,9 @@
       "category": "optional-academic",
       "compulsory": false,
       "bring": "",
-      "for": "",
+      "for": "NISER community",
       "sender": "director@niser.ac.in",
-      "note": "NISER@20 Celebrations"
+      "note": "Topic: Transience and Nonergodicity in the Model of Many Sokobans and Boxes on a Line"
     },
     {
       "title": "Anime Screening: Witch Hat Atelier",
@@ -1247,7 +1247,19 @@
       "for": "Freshers",
       "sender": "vaktavya@niser.ac.in",
       "note": "Fun interactive challenges & games to build confidence and overcome stage fear."
+    },
+    {
+      "title": "Vaktavya Club Induction",
+      "time": "6:30 PM onwards",
+      "date": "Mon 7 Sep",
+      "location": "LH2",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "Freshers",
+      "sender": "vaktavya@niser.ac.in",
+      "note": ""
     }
   ],
-  "lastSynced": 1788473698607
+  "lastSynced": 1788481310337
 }
