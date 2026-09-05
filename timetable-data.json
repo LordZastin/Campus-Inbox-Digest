@@ -518,13 +518,13 @@
     },
     {
       "title": "Drama and Music Club Induction - SPOTLIGHT",
-      "time": "5:30 PM",
+      "time": "TBD",
       "date": "Fri 4 Sep",
-      "location": "LH 5",
+      "location": "LH5",
       "category": "club-sports",
       "compulsory": false,
       "bring": "",
-      "for": "Freshers",
+      "for": "",
       "sender": "dmc@niser.ac.in",
       "note": ""
     },
@@ -998,7 +998,7 @@
     },
     {
       "title": "SMS Seminar: Higher-Genus Angel Surfaces",
-      "time": "2:30 PM - 3:30 PM",
+      "time": "02:30 PM - 03:30 PM",
       "date": "Fri 4 Sep",
       "location": "SMS Seminar Room",
       "category": "optional-academic",
@@ -1034,7 +1034,7 @@
     },
     {
       "title": "The Physics and Simulations of Liquid crystals",
-      "time": "7:30 PM onwards",
+      "time": "07:30 PM",
       "date": "Fri 4 Sep",
       "location": "Lecture Hall 4",
       "category": "optional-academic",
@@ -1094,15 +1094,15 @@
     },
     {
       "title": "Lecture by Prof. Deepak Dhar",
-      "time": "4:00 PM",
+      "time": "04:00 PM",
       "date": "Fri 4 Sep",
-      "location": "Pathani Samanta Auditorium, NISER",
+      "location": "Pathani Samanta Auditorium",
       "category": "optional-academic",
       "compulsory": false,
       "bring": "",
-      "for": "NISER community",
-      "sender": "director@niser.ac.in",
-      "note": "Topic: Transience and Nonergodicity in the Model of Many Sokobans and Boxes on a Line"
+      "for": "All members of NISER community",
+      "sender": "dean_aa@niser.ac.in",
+      "note": "Take seats by 3:55 PM. Talk title: Transience and Nonergodicity in the Model of Many Sokobans and Boxes on a Line"
     },
     {
       "title": "Anime Screening: Witch Hat Atelier",
@@ -1201,16 +1201,16 @@
       "note": ""
     },
     {
-      "title": "Introduction to Programming - Session 1",
+      "title": "Introduction to Programming Session 1",
       "time": "5:30 PM",
       "date": "Sat 5 Sep",
-      "location": "M4 (SMS, 1st Floor)",
+      "location": "M4, SMS, 1st Floor",
       "category": "club-sports",
       "compulsory": false,
       "bring": "",
       "for": "",
       "sender": "code@niser.ac.in",
-      "note": "First session of series; no prior coding experience required."
+      "note": "First session of Coding Club series; no prior experience required"
     },
     {
       "title": "Frisbee Unity Cup Induction Session",
@@ -1222,7 +1222,7 @@
       "bring": "",
       "for": "",
       "sender": "vishesh.yaduvanshi@niser.ac.in",
-      "note": ""
+      "note": "Covers tournament format, rules, basics, and live demo game"
     },
     {
       "title": "Academic Program Student Registration",
@@ -1259,7 +1259,223 @@
       "for": "Freshers",
       "sender": "vaktavya@niser.ac.in",
       "note": ""
+    },
+    {
+      "title": "AARPO'26: Pookkalam and Photo Session",
+      "time": "10:00 AM",
+      "date": "Sat 5 Sep",
+      "location": "NISER Community Centre",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "niranjankrishna.p@niser.ac.in",
+      "note": "Part of Onam celebrations"
+    },
+    {
+      "title": "Matki Phod Height Measurement",
+      "time": "12:00 PM - 2:45 PM",
+      "date": "Sat 5 Sep",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "Int. MSc., PhD",
+      "sender": "archishman.das@niser.ac.in",
+      "note": "Time slots for boys (12:00 PM - 1:45 PM) and girls (1:45 PM - 2:45 PM)"
+    },
+    {
+      "title": "AARPO'26: Ona Sadya (Feast)",
+      "time": "1:30 PM",
+      "date": "Sat 5 Sep",
+      "location": "NISER Community Centre",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "niranjankrishna.p@niser.ac.in",
+      "note": "For those who placed orders"
+    },
+    {
+      "title": "AARPO'26: Cultural Programs and Games",
+      "time": "4:15 PM",
+      "date": "Sat 5 Sep",
+      "location": "NISER Community Centre",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "niranjankrishna.p@niser.ac.in",
+      "note": "Cultural events and games for Onam celebrations"
+    },
+    {
+      "title": "Janmashtami Cultural Programme",
+      "time": "5:00 PM",
+      "date": "Sat 5 Sep",
+      "location": "SAC",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "mamishsatya.sarma@niser.ac.in",
+      "note": "Participants requested to reach SAC by 4:45 PM; on the spot registrations available"
+    },
+    {
+      "title": "Guided Reading Session: Menis",
+      "time": "9:00 PM",
+      "date": "Sun 6 Sep",
+      "location": "LitC Room, SAC",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "litc@niser.ac.in",
+      "note": "Weekly guided reading session on Homer's Iliad and Greek mythology"
+    },
+    {
+      "title": "Film Screening: The Northman",
+      "time": "09:00 PM",
+      "date": "Fri 4 Sep",
+      "location": "LH5",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "filmclub@niser.ac.in",
+      "note": ""
+    },
+    {
+      "title": "Janmashtami Celebration",
+      "time": "10:00 PM",
+      "date": "Fri 4 Sep",
+      "location": "SAC (Dance Room)",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "archishman.das@niser.ac.in",
+      "note": "Cultural programs at SAC and rituals in Dance Room"
+    },
+    {
+      "title": "Janmashtami Morning Aarti & Prashad Distribution",
+      "time": "08:45 AM",
+      "date": "Sat 5 Sep",
+      "location": "SAC (Dance Room)",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "mamishsatya.sarma@niser.ac.in",
+      "note": ""
+    },
+    {
+      "title": "AARPO'26: Ona Sadya",
+      "time": "01:00 PM",
+      "date": "Sat 5 Sep",
+      "location": "NISER Community Centre",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "niranjankrishna.p@niser.ac.in",
+      "note": ""
+    },
+    {
+      "title": "AARPO'26: Cultural Events and Games",
+      "time": "03:30 PM",
+      "date": "Sat 5 Sep",
+      "location": "NISER Community Centre",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "niranjankrishna.p@niser.ac.in",
+      "note": ""
+    },
+    {
+      "title": "Intra-College Tug of War Championship",
+      "time": "08:30 AM",
+      "date": "Sun 6 Sep",
+      "location": "Cricket Ground",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "gac@niser.ac.in",
+      "note": "Reporting & weigh-in at 8:30 AM sharp. Spot registration strictly from 8:00 AM to 8:30 AM at venue. Online registration link: https://forms.gle/vmKR8Jg3uToRsFZj6"
+    },
+    {
+      "title": "Women’s Kabaddi Team Trials for IISM",
+      "time": "07:40 PM",
+      "date": "Sun 6 Sep",
+      "location": "Community Centre",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "Women students",
+      "sender": "sportsclub@niser.ac.in",
+      "note": "Fill details in Google Form by Sunday evening: https://forms.gle/iQ2rDFJRLbzDrJnF7"
+    },
+    {
+      "title": "Batch 26 Carrom Representative Submission",
+      "time": "05:00 PM",
+      "date": "Fri 4 Sep",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "Batch 26",
+      "sender": "amit.mazumder@niser.ac.in",
+      "note": "Text representative details to Amit Mazumder to be added to the Unity Cup group"
+    },
+    {
+      "title": "Unity Cup Carrom Tournament",
+      "time": "TBD",
+      "date": "Mon 7 Sep",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "All batches",
+      "sender": "amit.mazumder@niser.ac.in",
+      "note": "Tournament starts with Batch 26 playing. Team rules: 1 male and 1 female minimum, max 5 players per team."
+    },
+    {
+      "title": "Ganesh Mahotsav 2026",
+      "time": "TBD",
+      "date": "Mon 14 Sep",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "NISER Community",
+      "sender": "prajwalpravin.sahare@niser.ac.in",
+      "note": "Theme: आमचो बाप्पा. Celebrated from 14th to 18th September. Includes cultural performances and volunteering opportunities."
+    },
+    {
+      "title": "Pre-synopsis Seminar: Ms. Sagrika Rajput",
+      "time": "11:00 AM",
+      "date": "Thu 17 Sep",
+      "location": "SCS Seminar Room",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "convener_pgcsc@niser.ac.in",
+      "note": "Title: Bis-Guanidinate Stabilized Zinc, Boron, Gallium, and Heterobimetallic (Zr/Li) Complexes: Synthesis, Structure, Reactivity, and Catalytic Applications"
+    },
+    {
+      "title": "Matki Phod",
+      "time": "09:00 PM",
+      "date": "Sat 5 Sep",
+      "location": "Mahanadi Courtyard",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "archishman.das@niser.ac.in",
+      "note": "Part of Janmashtami Celebrations"
     }
   ],
-  "lastSynced": 1788481310337
+  "lastSynced": 1788609090954
 }
