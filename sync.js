@@ -11,37 +11,68 @@ const {
 const GEMINI_API = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_API_KEY}`;
 
 // Same prompt as admin.html — keep both in sync.
-const GEMINI_PROMPT = `You triage campus email for a NISER student.
+const GEMINI_PROMPT = `You are an event extraction engine. Parse campus emails into structured calendar events for a NISER (National Institute of Science Education and Research) student.
 
-STRICTLY EXCLUDE these types of emails entirely — do NOT return them as events:
-- Lost and found / missing items
-- Mess complaints, hygiene, food quality complaints
-- Secondhand sales, buy/sell posts
-- General newsletters, announcements without a date/time
-- Hygiene complaints, hostel complaints
+═══ WHAT TO EXTRACT ═══
+Extract ONLY emails containing a concrete, actionable event with a date or time:
+- Classes, labs, lectures, tutorials with a specific time slot
+- Seminars, workshops, orientations, guest lectures with a date
+- Deadlines: assignment submission, registration, fee payment, form filling
+- Exams, quizzes, viva, oral presentations with a date
+- Club meetings, sports events, practices, tryouts, photoshoots
+- Festivals, cultural events, orientations, inductions
+- Any event where someone is expected to be somewhere at a specific time
+
+═══ WHAT TO SKIP (return nothing for these) ═══
+- Lost and found / missing items (wallet, ID card, keys, earbuds)
+- Mess complaints, hygiene, food quality issues
+- Secondhand sales, buy/sell, "looking for roommate"
+- Generic newsletters, weekly digests, motivational quotes
 - Anything without a concrete date, time, or deadline
+- Pure informational emails with no action required
 
-ONLY extract emails that have a specific actionable event with a date or time:
-- Classes, labs, lectures with a time slot
-- Seminars, workshops, orientations with a date
-- Deadlines (assignment, registration, fee payment) with a date
-- Club meetings, sports events, photoshoots with a date/time
-- Any event where attendance is expected at a specific time
+═══ SEPARATION RULES (critical) ═══
+- Each DISTINCT event gets its OWN entry. Different date = different event. Different time = different event. Different type (seminar vs deadline) = different event.
+- DO merge: a "general announcement" email + a "detailed follow-up" about the SAME event → one entry with combined details.
+- DO merge: "VAC Course Session" + "VAC Course: Sports and Physical Education" if they are the same event on the same date.
+- DO NOT merge: "Seminar on Monday" and "Workshop on Tuesday" — these are separate events.
+- DO NOT merge: "Assignment 1 due Friday" and "Assignment 2 due next Monday" — different deadlines.
+- DO NOT merge: "Physics Lab Batch 1" and "Physics Lab Batch 2" if they are at different times.
+- If an email mentions MULTIPLE separate events (e.g. "upcoming week has a seminar on Wed and a deadline on Fri"), extract EACH as a separate entry.
 
-IMPORTANT: If multiple emails refer to the same event (e.g. a general announcement + a detailed follow-up, or "VAC Course Session" + "VAC Course: Sports and Physical Education"), merge them into ONE entry using the most specific title and combining all details (location, who it's for, whether compulsory, etc.). Do not return duplicate entries for the same event.
+═══ DATE/TIME RULES ═══
+- Parse dates from email text: "21st August", "August 21", "21/08", "next Monday", "this Friday"
+- Use the "today is..." context to resolve relative dates (e.g. "next Monday" from a Wednesday = the following Monday)
+- If only a date is given with no time, use "TBD" for the time field
+- If a time range is given ("11:30 AM - 12:30 PM"), include the full range
+- For deadlines, use the deadline time if given, otherwise "TBD"
+- NEVER guess or fabricate a date or time. If not stated, use "TBD".
 
-Return ONLY a raw JSON array. No markdown fences, no explanation, no text before or after. The very first character must be [ and the last must be ]. Each item:
-{"title": "short event name", "time": "11:30 AM - 12:30 PM" or "TBD", "date": "Fri 21 Aug", "location": "room/hall or empty string", "category": "mandatory" | "optional-academic" | "admin" | "club-sports", "compulsory": true or false, "bring": "what to bring or empty string", "for": "target audience like Roll No 1-100 or empty string", "sender": "sender email address", "note": "extra info or empty string"}
+═══ CATEGORY RULES ═══
+- "mandatory": emails that say mandatory/required/compulsory/"must attend"/"no absence allowed"
+- "optional-academic": seminars, workshops, guest lectures, optional classes
+- "admin": registration deadlines, fee payments, form submissions, administrative tasks
+- "club-sports": club meetings, sports events, cultural events, festivals
 
-Rules:
-- compulsory=true only if email says mandatory/required/compulsory/"must attend"
-- compulsory=false for optional/unclear
-- "for": extract roll numbers, batch, year, department if mentioned
-- "bring": extract materials, documents, laptops, IDs if mentioned
-- CRITICAL: NEVER invent, guess, or fabricate any detail not explicitly stated in the email snippet. If a location is not mentioned, leave location as empty string. If a time is not mentioned, use "TBD". If a detail (venue, room, building) appears elsewhere in the thread but not in the context of this event, do NOT use it. Hallucinated details are worse than missing details.
-- Be terse. Titles under 60 chars.
-- Max 20 items. Sort chronologically.
-- If no emails have calendar-worthy events, return an empty array: []`;
+═══ FIELD RULES ═══
+- title: Short event name under 60 chars. Use the MOST SPECIFIC title available (e.g. "Quantum Computing Workshop" not just "Workshop")
+- time: "HH:MM AM - HH:MM PM" format, or "TBD"
+- date: "Day DD Mon" format (e.g. "Fri 21 Aug")
+- location: Room/hall/building ONLY if explicitly mentioned. Leave "" if not stated.
+- compulsory: true ONLY if email explicitly says mandatory/required/compulsory
+- "for": Target audience — roll numbers, batch, year, department if mentioned
+- "bring": Materials, documents, laptops, IDs if mentioned
+- "sender": Sender email address
+- "note": Extra details — registration links, contact info, prerequisites
+- NEVER invent details. If not in the email, leave the field empty or "TBD".
+
+═══ OUTPUT FORMAT ═══
+Return ONLY a raw JSON array. No markdown, no explanation, no text before/after.
+First character must be [, last must be ].
+Each item:
+{"title":"short name","time":"11:30 AM - 12:30 PM","date":"Fri 21 Aug","location":"LHC 302","category":"mandatory","compulsory":true,"bring":"","for":"","sender":"sender@example.com","note":""}
+
+Max 20 items. Sort chronologically by date then time. If no events found, return: []`;
 
 // Gmail query-level filter: exclude junk threads before fetch. Add more terms to the same -subject:() pattern if new junk categories appear.
 const EXCLUDE = '-subject:(lost OR found OR missing OR "for sale" OR selling OR wallet OR charger OR earbuds) -subject:(hygiene OR complaint)';
@@ -177,6 +208,13 @@ function mergeEvents(existing, fresh) {
 }
 
 async function main() {
+  // Skip scans between 23:00 and 05:00 to save tokens
+  const hour = new Date().getHours();
+  if (hour >= 23 || hour < 5) {
+    console.log(`Skipping scan — it's ${hour}:00 (outside 05:00–23:00 window).`);
+    return;
+  }
+
   if (!GEMINI_API_KEY || !GMAIL_CLIENT_ID || !GMAIL_CLIENT_SECRET || !GMAIL_REFRESH_TOKEN) {
     console.error('Missing required env vars: GEMINI_API_KEY, GMAIL_CLIENT_ID, GMAIL_CLIENT_SECRET, GMAIL_REFRESH_TOKEN');
     process.exit(1);
