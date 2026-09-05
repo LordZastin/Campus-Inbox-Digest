@@ -1511,7 +1511,55 @@
       "for": "Beginners",
       "sender": "code@niser.ac.in",
       "note": "No prior coding experience required."
+    },
+    {
+      "title": "Matki Phod Competition 2026",
+      "time": "9:00 PM",
+      "date": "Sat 5 Sep",
+      "location": "Mahanadi Courtyard",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "archishman.das@niser.ac.in",
+      "note": "Teams requested to report by 8:55 PM. Conducted batch-wise with separate competitions for boys and girls. Register at https://forms.gle/LvXAbbZJSW8cX5xP8"
+    },
+    {
+      "title": "Registration Deadline: Unity Cup Volleyball Tournament 2026",
+      "time": "TBD",
+      "date": "Thu 10 Sep",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "alishaj.dungdung@niser.ac.in",
+      "note": "Registration deadline for Men's and Women's teams. Women's registration link: https://docs.google.com/forms/d/e/1FAIpQLScgdjnq9M4zWNvc2Yt24hCYoHbTBDqiT2Pi_4b3no5UyEeB0w/viewform?usp=publish-editor"
+    },
+    {
+      "title": "Registration Deadline: Unity Cup Chess 2026",
+      "time": "11:59 PM",
+      "date": "Mon 5 Oct",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "Batch representatives",
+      "sender": "chess.club@niser.ac.in",
+      "note": "Submit team rosters via form: https://forms.gle/Fxv37tG1hmT1aNes5"
+    },
+    {
+      "title": "Unity Cup Chess 2026",
+      "time": "TBD",
+      "date": "Sun 11 Oct",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "chess.club@niser.ac.in",
+      "note": "Double Round Robin format across 10 rounds over two days. Time control: 15 mins + 10 sec increment. Squad of 4 main players + 1 substitute (at least 1 female player on Board 1)."
     }
   ],
-  "lastSynced": 1788617459916
+  "lastSynced": 1788624731386
 }
