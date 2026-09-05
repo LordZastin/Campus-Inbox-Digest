@@ -41,8 +41,11 @@ Extract ONLY emails containing a concrete, actionable event with a date or time:
 - If an email mentions MULTIPLE separate events (e.g. "upcoming week has a seminar on Wed and a deadline on Fri"), extract EACH as a separate entry.
 
 ═══ DATE/TIME RULES ═══
+- Each email has a "Date:" header showing when it was sent. USE THIS to resolve relative dates in the email body.
+- If the email body says "today", "tomorrow", "this Friday" — resolve it relative to the email's Date header, NOT the current date.
+- Example: email sent on "Wed 20 Aug" mentions "tomorrow's seminar" → the event is on "Thu 21 Aug".
+- Example: email sent on "Mon 18 Aug" mentions "today at 3PM" → the event is on "Mon 18 Aug".
 - Parse dates from email text: "21st August", "August 21", "21/08", "next Monday", "this Friday"
-- Use the "today is..." context to resolve relative dates (e.g. "next Monday" from a Wednesday = the following Monday)
 - If only a date is given with no time, use "TBD" for the time field
 - If a time range is given ("11:30 AM - 12:30 PM"), include the full range
 - For deadlines, use the deadline time if given, otherwise "TBD"
