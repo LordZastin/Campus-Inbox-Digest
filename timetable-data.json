@@ -1475,7 +1475,19 @@
       "for": "",
       "sender": "archishman.das@niser.ac.in",
       "note": "Part of Janmashtami Celebrations"
+    },
+    {
+      "title": "Introduction to Programming Session",
+      "time": "5:30 PM",
+      "date": "Sat 5 Sep",
+      "location": "M4 (SMS, 1st Floor)",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "code@niser.ac.in",
+      "note": "First session of the series; beginner friendly."
     }
   ],
-  "lastSynced": 1788609090954
+  "lastSynced": 1788610453161
 }
