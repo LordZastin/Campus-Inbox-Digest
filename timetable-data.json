@@ -686,15 +686,15 @@
     },
     {
       "title": "Matki Phod Competition",
-      "time": "9:00 PM onwards",
+      "time": "09:00 PM",
       "date": "Sat 5 Sep",
       "location": "Mahanadi Courtyard",
       "category": "club-sports",
       "compulsory": false,
       "bring": "",
-      "for": "Students",
+      "for": "",
       "sender": "archishman.das@niser.ac.in",
-      "note": "Batch-wise competition with separate contests for boys and girls. Registration link: https://forms.gle/LvXAbbZJSW8cX5xP8"
+      "note": "Batch-wise competition for Janmashtami 2026. Register at https://forms.gle/LvXAbbZJSW8cX5xP8"
     },
     {
       "title": "Anime & Manga Club: Paprika Screening",
@@ -1559,7 +1559,31 @@
       "for": "",
       "sender": "chess.club@niser.ac.in",
       "note": "Double Round Robin format across 10 rounds over two days. Time control: 15 mins + 10 sec increment. Squad of 4 main players + 1 substitute (at least 1 female player on Board 1)."
+    },
+    {
+      "title": "NIUS 2026-27 Application Deadline (Chemistry)",
+      "time": "TBD",
+      "date": "Wed 30 Sep",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "1st and 2nd Year Students",
+      "sender": "rajatshuvra.saha@niser.ac.in",
+      "note": "HBCSE TIFR NIUS application for Chemistry: https://secure.hbcse.tifr.res.in/nius/chemistry/"
+    },
+    {
+      "title": "NIUS 2026-27 Application Deadline (Biology)",
+      "time": "TBD",
+      "date": "Sat 3 Oct",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "1st and 2nd Year Students",
+      "sender": "rajatshuvra.saha@niser.ac.in",
+      "note": "HBCSE TIFR NIUS application for Biology: https://secure.hbcse.tifr.res.in/nius/biology/"
     }
   ],
-  "lastSynced": 1788631978809
+  "lastSynced": 1788639113272
 }
