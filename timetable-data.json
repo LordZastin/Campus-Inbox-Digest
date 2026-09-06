@@ -158,15 +158,15 @@
     },
     {
       "title": "NISER Chess 960 Tournament",
-      "time": "10:30 AM - 12:30 PM, 3:00 PM - 5:30 PM",
+      "time": "9:30 AM",
       "date": "Sun 6 Sep",
-      "location": "SPS Lounge",
+      "location": "Physics Lounge, 4th Floor, SPS",
       "category": "club-sports",
       "compulsory": false,
       "bring": "",
       "for": "",
       "sender": "chess.club@niser.ac.in",
-      "note": "Capped at 60 players, registration required"
+      "note": "Time control: 10+15 for 6 rounds. Afternoon slot rescheduled to next week."
     },
     {
       "title": "SPS Seminar by Dr. Pradip Bera",
@@ -994,7 +994,7 @@
       "bring": "",
       "for": "",
       "sender": "arc@niser.ac.in",
-      "note": "Reply to the mail thread with team member names."
+      "note": "Membership form: https://docs.google.com/forms/d/e/1FAIpQLSc2eqqBOGWDMCG1TRSxvqRwVaXe1bKhS6mVMDsN8xz-aPK9ew/viewform?pli=1"
     },
     {
       "title": "SMS Seminar: Higher-Genus Angel Surfaces",
@@ -1394,15 +1394,15 @@
     },
     {
       "title": "Intra-College Tug of War Championship",
-      "time": "08:30 AM",
+      "time": "TBD",
       "date": "Sun 6 Sep",
-      "location": "Cricket Ground",
+      "location": "",
       "category": "club-sports",
       "compulsory": false,
       "bring": "",
       "for": "",
       "sender": "gac@niser.ac.in",
-      "note": "Reporting & weigh-in at 8:30 AM sharp. Spot registration strictly from 8:00 AM to 8:30 AM at venue. Online registration link: https://forms.gle/vmKR8Jg3uToRsFZj6"
+      "note": "Postponed to evening. Exact time to be announced. Register at https://forms.gle/vmKR8Jg3uToRsFZj6"
     },
     {
       "title": "Women’s Kabaddi Team Trials for IISM",
@@ -1583,7 +1583,31 @@
       "for": "1st and 2nd Year Students",
       "sender": "rajatshuvra.saha@niser.ac.in",
       "note": "Apply at https://secure.hbcse.tifr.res.in/nius/biology/"
+    },
+    {
+      "title": "NIUS Chemistry Application Deadline",
+      "time": "TBD",
+      "date": "Wed 30 Sep",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "1st and 2nd Year Students",
+      "sender": "rajatshuvra.saha@niser.ac.in",
+      "note": "Apply online at https://secure.hbcse.tifr.res.in/nius/chemistry/"
+    },
+    {
+      "title": "NIUS Biology Application Deadline",
+      "time": "TBD",
+      "date": "Sat 3 Oct",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "1st and 2nd Year Students",
+      "sender": "rajatshuvra.saha@niser.ac.in",
+      "note": "Apply online at https://secure.hbcse.tifr.res.in/nius/biology/"
     }
   ],
-  "lastSynced": 1788646274421
+  "lastSynced": 1788675311116
 }
