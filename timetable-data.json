@@ -986,7 +986,7 @@
     },
     {
       "title": "Arts Club Induction & Scribble Game",
-      "time": "3:30 PM - 5:00 PM",
+      "time": "3:30 PM",
       "date": "Sun 6 Sep",
       "location": "LH4",
       "category": "club-sports",
@@ -994,7 +994,7 @@
       "bring": "",
       "for": "",
       "sender": "arc@niser.ac.in",
-      "note": "Membership form: https://docs.google.com/forms/d/e/1FAIpQLSc2eqqBOGWDMCG1TRSxvqRwVaXe1bKhS6mVMDsN8xz-aPK9ew/viewform?pli=1"
+      "note": ""
     },
     {
       "title": "SMS Seminar: Higher-Genus Angel Surfaces",
@@ -1330,7 +1330,7 @@
       "bring": "",
       "for": "",
       "sender": "litc@niser.ac.in",
-      "note": "Weekly guided reading session on Homer's Iliad and Greek mythology"
+      "note": ""
     },
     {
       "title": "Film Screening: The Northman",
@@ -1607,7 +1607,19 @@
       "for": "1st and 2nd Year Students",
       "sender": "rajatshuvra.saha@niser.ac.in",
       "note": "Apply online at https://secure.hbcse.tifr.res.in/nius/biology/"
+    },
+    {
+      "title": "PH101: Assignment 3 Submission",
+      "time": "TBD",
+      "date": "Fri 11 Sep",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "mishratapan@niser.ac.in",
+      "note": ""
     }
   ],
-  "lastSynced": 1788682378773
+  "lastSynced": 1788689520876
 }
