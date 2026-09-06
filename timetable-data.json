@@ -1185,7 +1185,7 @@
       "compulsory": false,
       "bring": "",
       "for": "Batch 26",
-      "sender": "rtc@niser.ac.in",
+      "sender": "architpratap.singh@niser.ac.in",
       "note": ""
     },
     {
@@ -1394,15 +1394,15 @@
     },
     {
       "title": "Intra-College Tug of War Championship",
-      "time": "TBD",
+      "time": "6:30 PM",
       "date": "Sun 6 Sep",
-      "location": "",
+      "location": "new football ground (behind SAC)",
       "category": "club-sports",
       "compulsory": false,
       "bring": "",
       "for": "",
-      "sender": "gac@niser.ac.in",
-      "note": "Postponed to evening. Exact time to be announced. Register at https://forms.gle/vmKR8Jg3uToRsFZj6"
+      "sender": "asmit.chandra@niser.ac.in",
+      "note": "On spot registrations available. Registration link: https://forms.gle/vmKR8Jg3uToRsFZj6"
     },
     {
       "title": "Women’s Kabaddi Team Trials for IISM",
@@ -1621,5 +1621,5 @@
       "note": ""
     }
   ],
-  "lastSynced": 1788689520876
+  "lastSynced": 1788696908788
 }
