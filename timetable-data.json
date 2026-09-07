@@ -1703,7 +1703,31 @@
       "for": "",
       "sender": "shots@niser.ac.in",
       "note": "Registration Fee: ₹120. Themes: Life in Motion, Music in Sight, Nature Unfiltered. Organized under PULSE 2026 by AIIMS Delhi."
+    },
+    {
+      "title": "Rāga & Taal - Informal Interactive Session",
+      "time": "11:30 PM",
+      "date": "Mon 7 Sep",
+      "location": "Gas Bank Lab 2 near Mathematical Sciences",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "dmc@niser.ac.in",
+      "note": "Informal interactive session with instrumentalists. Contact: 9800889446"
+    },
+    {
+      "title": "Shutter Up Submission Deadline",
+      "time": "10:00 PM",
+      "date": "Tue 15 Sep",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "shots@niser.ac.in",
+      "note": "Online photography competition under PULSE 2026 by AIIMS Delhi. Registration fee: ₹120."
     }
   ],
-  "lastSynced": 1788797581154
+  "lastSynced": 1788804905195
 }
