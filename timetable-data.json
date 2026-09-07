@@ -1622,16 +1622,40 @@
     },
     {
       "title": "Rāga & Taal: An Evening of Indian Classical Music",
-      "time": "07:30 PM onwards",
+      "time": "07:30 PM",
       "date": "Mon 7 Sep",
-      "location": "Pathani Samanta Auditorium, NISER",
+      "location": "Pathani Samanta Auditorium",
       "category": "club-sports",
       "compulsory": false,
       "bring": "",
       "for": "",
       "sender": "dmc@niser.ac.in",
-      "note": "Sarod performance by Sri Monit Paul and Tabla by Sri Nilimesh Chakraborty, followed by an interactive workshop."
+      "note": "Sarod performance by Sri Monit Paul accompanied by Sri Nilimesh Chakraborty on tabla. Includes an interactive workshop."
+    },
+    {
+      "title": "Vaktavya Club Induction Programme",
+      "time": "06:30 PM",
+      "date": "Mon 7 Sep",
+      "location": "LH2",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "Freshers",
+      "sender": "vaktavya@niser.ac.in",
+      "note": "Website: http://tinyurl.com/vaktavya123"
+    },
+    {
+      "title": "NISER Basketball Auction League Registration Deadline",
+      "time": "TBD",
+      "date": "Thu 10 Sep",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "BS-MS, M.Sc., Ph.D., postdocs, and faculty",
+      "sender": "unmesh.singh@niser.ac.in",
+      "note": "Registration form link: https://forms.gle/UWyA3kPrXDfJ5te47"
     }
   ],
-  "lastSynced": 1788732664846
+  "lastSynced": 1788761877798
 }
