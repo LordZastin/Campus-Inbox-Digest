@@ -1622,15 +1622,15 @@
     },
     {
       "title": "Rāga & Taal: An Evening of Indian Classical Music",
-      "time": "07:30 PM",
+      "time": "TBD",
       "date": "Mon 7 Sep",
-      "location": "Pathani Samanta Auditorium, NISER",
+      "location": "Pathani Samanta Auditorium",
       "category": "club-sports",
       "compulsory": false,
       "bring": "",
       "for": "",
       "sender": "dmc@niser.ac.in",
-      "note": "Performers: Sri Monit Paul (sarod) and Sri Nilimesh Chakraborty (tabla). Requested to be seated by 7:00 PM."
+      "note": "Organized by Drama and Music Club (DMC)."
     },
     {
       "title": "Vaktavya Club Induction Programme",
@@ -1691,7 +1691,19 @@
       "for": "",
       "sender": "sms_seminar@niser.ac.in",
       "note": "Speaker: Dr. Tony Nixon Mavely (NISER)"
+    },
+    {
+      "title": "SHUTTER UP - Online Photography Competition Deadline",
+      "time": "10:00 PM",
+      "date": "Tue 15 Sep",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "shots@niser.ac.in",
+      "note": "Registration Fee: ₹120. Themes: Life in Motion, Music in Sight, Nature Unfiltered. Organized under PULSE 2026 by AIIMS Delhi."
     }
   ],
-  "lastSynced": 1788790438840
+  "lastSynced": 1788797581154
 }
