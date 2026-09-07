@@ -1622,15 +1622,15 @@
     },
     {
       "title": "Rāga & Taal: An Evening of Indian Classical Music",
-      "time": "7:30 PM",
+      "time": "07:30 PM",
       "date": "Mon 7 Sep",
-      "location": "Pathani Samanta Auditorium",
+      "location": "Pathani Samanta Auditorium, NISER",
       "category": "club-sports",
       "compulsory": false,
       "bring": "",
       "for": "",
       "sender": "dmc@niser.ac.in",
-      "note": "Be seated by 7:00 PM"
+      "note": "Performers: Sri Monit Paul (sarod) and Sri Nilimesh Chakraborty (tabla). Requested to be seated by 7:00 PM."
     },
     {
       "title": "Vaktavya Club Induction Programme",
@@ -1679,7 +1679,19 @@
       "for": "First Year Students (B26)",
       "sender": "rajatshuvra.saha@niser.ac.in",
       "note": "Apply at https://secure.hbcse.tifr.res.in/nius/biology/"
+    },
+    {
+      "title": "SMS Seminar: Crossed modules of powerful p-groups",
+      "time": "03:30 PM - 04:30 PM",
+      "date": "Fri 11 Sep",
+      "location": "SMS Seminar Room",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "sms_seminar@niser.ac.in",
+      "note": "Speaker: Dr. Tony Nixon Mavely (NISER)"
     }
   ],
-  "lastSynced": 1788783387753
+  "lastSynced": 1788790438840
 }
