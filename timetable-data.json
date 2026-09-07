@@ -1655,7 +1655,31 @@
       "for": "BS-MS, M.Sc., Ph.D., postdocs, and faculty",
       "sender": "unmesh.singh@niser.ac.in",
       "note": "Registration form link: https://forms.gle/UWyA3kPrXDfJ5te47"
+    },
+    {
+      "title": "NIUS Chemistry Programme Application Deadline",
+      "time": "TBD",
+      "date": "Wed 30 Sep",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "Second year students who have taken chemistry",
+      "sender": "rajatshuvra.saha@niser.ac.in",
+      "note": "Apply at https://secure.hbcse.tifr.res.in/nius/chemistry/"
+    },
+    {
+      "title": "NIUS Biology Programme Application Deadline",
+      "time": "TBD",
+      "date": "Sat 3 Oct",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "First Year Students (B26)",
+      "sender": "rajatshuvra.saha@niser.ac.in",
+      "note": "Apply at https://secure.hbcse.tifr.res.in/nius/biology/"
     }
   ],
-  "lastSynced": 1788768868320
+  "lastSynced": 1788775962085
 }
