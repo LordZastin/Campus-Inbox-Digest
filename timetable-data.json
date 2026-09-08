@@ -1798,8 +1798,20 @@
       "bring": "",
       "for": "",
       "sender": "sps_seminar@niser.ac.in",
-      "note": "Speaker: Dr. Swati Chaudhary (University of Tokyo). Host: Dr. Kush Saha."
+      "note": "Speaker: Dr. Swati Chaudhary (University of Tokyo)"
+    },
+    {
+      "title": "SHADAJ Auditions",
+      "time": "7:00 PM onwards",
+      "date": "Wed 9 Sep",
+      "location": "Music Room",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "dmc@niser.ac.in",
+      "note": "Registration link: https://docs.google.com/forms/d/1g99E5jelweG6N7ZiDesebl-uzK1EmGAVoSz0FAmxByE/viewform"
     }
   ],
-  "lastSynced": 1788884214621
+  "lastSynced": 1788891297732
 }
