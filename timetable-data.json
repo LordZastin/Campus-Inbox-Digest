@@ -1727,7 +1727,55 @@
       "for": "",
       "sender": "shots@niser.ac.in",
       "note": "Online photography competition under PULSE 2026 by AIIMS Delhi. Registration fee: ₹120."
+    },
+    {
+      "title": "Registration Deadline: Basketball Auction League",
+      "time": "TBD",
+      "date": "Thu 10 Sep",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "BS-MS, M.Sc., Ph.D., postdocs, faculty",
+      "sender": "unmesh.singh@niser.ac.in",
+      "note": "Matches will be held after midsem break. Open to all genders."
+    },
+    {
+      "title": "SEPS Seminar: Atmospheric Circulation in a Warming World",
+      "time": "4:00 PM",
+      "date": "Fri 11 Sep",
+      "location": "SEPS Seminar Room",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "jkhanna@niser.ac.in",
+      "note": "Speaker: Dr. Susmit Subhransu Satpathy from IBS Centre for Climate Physics, Pusan National University"
+    },
+    {
+      "title": "Registration Deadline: Dance Club Auditions",
+      "time": "9:00 PM",
+      "date": "Fri 11 Sep",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "dance@niser.ac.in",
+      "note": "Fill out registration Google form using NISER email ID"
+    },
+    {
+      "title": "Dance Club Auditions for Ritva Crew & IICM",
+      "time": "7:00 PM",
+      "date": "Sat 12 Sep",
+      "location": "Dance Room",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "dance@niser.ac.in",
+      "note": "Auditions for Ritva Crew and IICM group dance. 30-second choreography will be taught on the spot."
     }
   ],
-  "lastSynced": 1788819134417
+  "lastSynced": 1788848163482
 }
