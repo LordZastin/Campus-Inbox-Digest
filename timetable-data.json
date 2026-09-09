@@ -1811,7 +1811,115 @@
       "bring": "",
       "sender": "dmc@niser.ac.in",
       "note": "Registration link: https://docs.google.com/forms/d/1g99E5jelweG6N7ZiDesebl-uzK1EmGAVoSz0FAmxByE/viewform"
+    },
+    {
+      "title": "Pre-synopsis Seminar: Mr. Sayantan Mukhopadhyay",
+      "time": "03:30 PM - 04:30 PM",
+      "date": "Wed 9 Sep",
+      "location": "SCS Seminar Room",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "bhargava@niser.ac.in",
+      "note": ""
+    },
+    {
+      "title": "Icebreaker 2026 - The Quizone Induction",
+      "time": "02:30 PM",
+      "date": "Fri 11 Sep",
+      "location": "LH3",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "Batch 2025",
+      "sender": "quizone@niser.ac.in",
+      "note": ""
+    },
+    {
+      "title": "Chess Practice",
+      "time": "02:30 PM - 05:30 PM",
+      "date": "Fri 11 Sep",
+      "location": "4th Floor Lounge, SPS",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "Chess Team Members",
+      "sender": "sanjitchakraborty@niser.ac.in",
+      "note": ""
+    },
+    {
+      "title": "Chess VAC Class",
+      "time": "05:00 PM",
+      "date": "Fri 11 Sep",
+      "location": "4th Floor Lounge, SPS",
+      "category": "mandatory",
+      "compulsory": true,
+      "bring": "",
+      "for": "Chess Team Members",
+      "sender": "sanjitchakraborty@niser.ac.in",
+      "note": ""
+    },
+    {
+      "title": "SPS Seminar: Dr. Tal Agranov",
+      "time": "03:30 PM",
+      "date": "Fri 18 Sep",
+      "location": "",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "sps_seminar@niser.ac.in",
+      "note": "Google Meet: https://meet.google.com/cut-nytm-iww"
+    },
+    {
+      "title": "SPS Alumni Seminar: Mr. Dwaipayan Paul",
+      "time": "03:30 PM",
+      "date": "Wed 30 Sep",
+      "location": "SPS Seminar Room",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "sps_seminar@niser.ac.in",
+      "note": ""
+    },
+    {
+      "title": "SHADAJ Auditions - Hindustani Classical Music Group",
+      "time": "7:00 PM",
+      "date": "Wed 9 Sep",
+      "location": "Music Room",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "dmc@niser.ac.in",
+      "note": "Includes a performance by the SHADAJ group. Registration link: https://docs.google.com/forms/d/1g99E5jelweG6N7ZiDesebl-uzK1EmGAVoSz0FAmxByE/viewform"
+    },
+    {
+      "title": "TheBioClub Induction & Game Night",
+      "time": "9:00 PM",
+      "date": "Fri 11 Sep",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "thebioclub@niser.ac.in",
+      "note": "Strategy card game Anemon with teams of 3. Registration link: https://docs.google.com/forms/d/e/1FAIpQLSdDRua9ni1zjNxR5ejNaBi6q4XmRvZLq2JHpVnK7jy4CXvI0w/viewform?usp=publish-editor"
+    },
+    {
+      "title": "Registration Deadline: LASYA Odissi Dance Classes",
+      "time": "11:59 PM",
+      "date": "Sun 20 Sep",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "dance@niser.ac.in",
+      "note": "Odissi dance training program conducted in collaboration with Dance Image Academy, instructed by Ms Sasmita Behera."
     }
   ],
-  "lastSynced": 1788905533500
+  "lastSynced": 1788934588928
 }
