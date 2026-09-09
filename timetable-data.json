@@ -1919,7 +1919,43 @@
       "for": "",
       "sender": "dance@niser.ac.in",
       "note": "Odissi dance training program conducted in collaboration with Dance Image Academy, instructed by Ms Sasmita Behera."
+    },
+    {
+      "title": "HSS Lecture",
+      "time": "8:30 AM",
+      "date": "Thu 10 Sep",
+      "location": "",
+      "category": "optional-academic",
+      "compulsory": false,
+      "for": "",
+      "bring": "",
+      "sender": "praneel.shankaran@niser.ac.in",
+      "note": "Rescheduled from 10:30 AM"
+    },
+    {
+      "title": "Icebreaker 2026: Quizone Induction Quiz",
+      "time": "TBD",
+      "date": "Fri 11 Sep",
+      "location": "LH3",
+      "category": "club-sports",
+      "compulsory": false,
+      "for": "Batch 2025",
+      "bring": "",
+      "sender": "quizone@niser.ac.in",
+      "note": ""
+    },
+    {
+      "title": "SRS 46b: An Introduction to $A_p$ Weights",
+      "time": "3:30 PM",
+      "date": "Tue 15 Sep",
+      "location": "",
+      "category": "optional-academic",
+      "compulsory": false,
+      "for": "",
+      "bring": "",
+      "sender": "mathematix@niser.ac.in",
+      "note": "Speaker: Mr. Yuvraj Thapa"
     }
   ],
-  "lastSynced": 1788934588928
+  "lastSynced": 1788941616489
 }
