@@ -2111,7 +2111,31 @@
       "for": "Eligible 2027 Graduates",
       "sender": "dosa@niser.ac.in",
       "note": "Registration link: https://www.tcs.com/careers/india/tcs-bps-fresher-hiring"
+    },
+    {
+      "title": "Special Talk: The Geotechnique Quandary",
+      "time": "06:00 PM - 07:00 PM",
+      "date": "Sat 12 Sep",
+      "location": "LH-04",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "pratap.sahoo@niser.ac.in",
+      "note": "Speaker: Dr. Manas Mishra, Assistant Professor, KIIT University"
+    },
+    {
+      "title": "Registration Deadline: TCS BPS Hiring 2027",
+      "time": "TBD",
+      "date": "Sun 13 Sep",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "2027 Graduates",
+      "sender": "dosa@niser.ac.in",
+      "note": "Registration link: https://www.tcs.com/careers/india/tcs-bps-fresher-hiring"
     }
   ],
-  "lastSynced": 1789049370238
+  "lastSynced": 1789066764580
 }
