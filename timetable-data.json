@@ -2039,7 +2039,79 @@
       "for": "",
       "sender": "astroclub@niser.ac.in",
       "note": "Speaker: Aseema Nandi (SPS, B24). No prerequisites required."
+    },
+    {
+      "title": "Unity Cup Volleyball Tournament Registration Deadline",
+      "time": "TBD",
+      "date": "Thu 10 Sep",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "smohidnabi.naikoo@niser.ac.in",
+      "note": "Last day for volleyball tournament registration for men's and women's teams."
+    },
+    {
+      "title": "Quiz",
+      "time": "11:45 AM - 12:45 PM",
+      "date": "Fri 11 Sep",
+      "location": "LH-4, LH-5",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "calculator",
+      "for": "Roll Nos. up to 120 in LH-5, remaining in LH-4",
+      "sender": "aringh@niser.ac.in",
+      "note": "Must take seats by 11:30 AM. Closed-book/closed-notes quiz. No phones or electronic gadgets allowed."
+    },
+    {
+      "title": "Vaktavya Monthly Debate",
+      "time": "4:30 PM",
+      "date": "Sat 12 Sep",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "laptops or tablets",
+      "for": "",
+      "sender": "vaktavya@niser.ac.in",
+      "note": "Motion: The three-language formula strengthens India's unity and its reaffirmation under the NEP is justified. Registration form: https://forms.gle/BoWYHByu9ofjYTiy7"
+    },
+    {
+      "title": "Anime & Manga Club Screening: Witch Hat Atelier",
+      "time": "8:45 PM",
+      "date": "Sat 12 Sep",
+      "location": "LH4",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "kanishk.kaushik@niser.ac.in",
+      "note": "Rescheduled screening of Witch Hat Atelier (Episodes 1-6) followed by a discussion."
+    },
+    {
+      "title": "TheBioClub Induction & Game Night",
+      "time": "9:00 PM",
+      "date": "Sat 12 Sep",
+      "location": "",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "thebioclub@niser.ac.in",
+      "note": "Postponed event."
+    },
+    {
+      "title": "TCS BPS Hiring 2027 Registration Deadline",
+      "time": "TBD",
+      "date": "Sun 13 Sep",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "Eligible 2027 Graduates",
+      "sender": "dosa@niser.ac.in",
+      "note": "Registration link: https://www.tcs.com/careers/india/tcs-bps-fresher-hiring"
     }
   ],
-  "lastSynced": 1789029812938
+  "lastSynced": 1789049370238
 }
