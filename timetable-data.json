@@ -1967,7 +1967,79 @@
       "for": "",
       "sender": "code@niser.ac.in",
       "note": "WhatsApp group: https://chat.whatsapp.com/BOtsANAU5wW3km3GUlpmxd"
+    },
+    {
+      "title": "MAT101 Quiz-I Paper Checking",
+      "time": "06:00 PM - 07:20 PM",
+      "date": "Thu 10 Sep",
+      "location": "Seminar room, SMS building",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "MAT101 students",
+      "sender": "no-reply@classroom.google.com",
+      "note": "Schedule by Roll No: 6:00-6:20 PM (2611001-2611050), 6:20-6:40 PM (2611051-2611100), 6:40-7:00 PM (2611101-2611150), 7:00-7:20 PM (Remaining)."
+    },
+    {
+      "title": "Closed-Book Quiz",
+      "time": "11:45 AM - 12:45 PM",
+      "date": "Fri 11 Sep",
+      "location": "LH-4, LH-5",
+      "category": "mandatory",
+      "compulsory": false,
+      "bring": "Calculator",
+      "for": "Roll Nos. up to 120 in LH-5, remaining in LH-4",
+      "sender": "aringh@niser.ac.in",
+      "note": "Must take seats by 11:30 AM. 20 marks closed-book quiz. Bags and phones to be deposited on the dais."
+    },
+    {
+      "title": "NISER Chess 960 Tournament - Morning Slot",
+      "time": "10:00 AM - 12:30 PM",
+      "date": "Sat 12 Sep",
+      "location": "Krishna Canteen",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "Participants",
+      "sender": "chess.club@niser.ac.in",
+      "note": "Remaining rounds of NISER Chess 960 Tournament."
+    },
+    {
+      "title": "NISER Chess 960 Tournament - Afternoon Slot",
+      "time": "03:00 PM - 05:30 PM",
+      "date": "Sat 12 Sep",
+      "location": "Krishna Canteen",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "Participants",
+      "sender": "chess.club@niser.ac.in",
+      "note": "Remaining rounds of NISER Chess 960 Tournament."
+    },
+    {
+      "title": "DASTAAN Auditions",
+      "time": "04:00 PM",
+      "date": "Sat 12 Sep",
+      "location": "Amphitheatre",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "dmc@niser.ac.in",
+      "note": "Register via form: https://forms.gle/hJYMLmjjAcg2NKs28. Round 1 requires a self-prepared act. Venue moves to DMC room in SAC in case of rain."
+    },
+    {
+      "title": "NAC Talk: MHD in Solar Physics",
+      "time": "06:30 PM",
+      "date": "Sat 12 Sep",
+      "location": "LH-4",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "astroclub@niser.ac.in",
+      "note": "Speaker: Aseema Nandi (SPS, B24). No prerequisites required."
     }
   ],
-  "lastSynced": 1788986141988
+  "lastSynced": 1789029812938
 }
