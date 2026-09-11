@@ -2255,7 +2255,19 @@
       "for": "",
       "sender": "code@niser.ac.in",
       "note": "Beginner friendly ML theory & hands-on tutorial implementing a simple neural network using PyTorch"
+    },
+    {
+      "title": "Guided Reading Session: Menis",
+      "time": "09:00 PM",
+      "date": "Sat 12 Sep",
+      "location": "LitC Room, SAC",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "litc@niser.ac.in",
+      "note": "Second session exploring Greek mythology and reading The Iliad"
     }
   ],
-  "lastSynced": 1789116133339
+  "lastSynced": 1789135904338
 }
