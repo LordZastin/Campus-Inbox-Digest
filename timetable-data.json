@@ -1742,7 +1742,7 @@
     },
     {
       "title": "SEPS Seminar: Atmospheric Circulation in a Warming World",
-      "time": "4:00 PM",
+      "time": "04:00 PM",
       "date": "Fri 11 Sep",
       "location": "SEPS Seminar Room",
       "category": "optional-academic",
@@ -1750,19 +1750,19 @@
       "bring": "",
       "for": "",
       "sender": "jkhanna@niser.ac.in",
-      "note": "Speaker: Dr. Susmit Subhransu Satpathy from IBS Centre for Climate Physics, Pusan National University"
+      "note": "Speaker: Dr. Susmit Subhransu Satpathy"
     },
     {
       "title": "Registration Deadline: Dance Club Auditions",
-      "time": "9:00 PM",
+      "time": "09:00 PM",
       "date": "Fri 11 Sep",
       "location": "",
-      "category": "club-sports",
+      "category": "admin",
       "compulsory": false,
       "bring": "",
       "for": "",
       "sender": "dance@niser.ac.in",
-      "note": "Fill out registration Google form using NISER email ID"
+      "note": "Fill out Google Form using NISER email ID for IICM and Ritva Crew auditions"
     },
     {
       "title": "Dance Club Auditions for Ritva Crew & IICM",
@@ -2135,7 +2135,127 @@
       "for": "2027 Graduates",
       "sender": "dosa@niser.ac.in",
       "note": "Registration link: https://www.tcs.com/careers/india/tcs-bps-fresher-hiring"
+    },
+    {
+      "title": "Quizone Icebreaker 2026",
+      "time": "02:30 PM",
+      "date": "Fri 11 Sep",
+      "location": "LH3",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "Batch 2026",
+      "sender": "quizone@niser.ac.in",
+      "note": ""
+    },
+    {
+      "title": "Chess Club Session",
+      "time": "05:00 PM",
+      "date": "Fri 11 Sep",
+      "location": "Physics Lounge, 4th Floor, School of Physical Science",
+      "category": "mandatory",
+      "compulsory": true,
+      "bring": "",
+      "for": "",
+      "sender": "chess.club@niser.ac.in",
+      "note": "Attendance will be marked."
+    },
+    {
+      "title": "Repeat Experiments Form Submission Deadline",
+      "time": "TBD",
+      "date": "Sun 13 Sep",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "jerushajoseph@niser.ac.in",
+      "note": "Fill out the shared Google Sheet for your respective batch."
+    },
+    {
+      "title": "SCoS Seminar: Catalytic Computation",
+      "time": "11:30 AM",
+      "date": "Thu 17 Sep",
+      "location": "Mathematics Seminar Hall",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "preronac@niser.ac.in",
+      "note": "Speaker: Prof. Ramprasad Saptharishi (TIFR, Mumbai)"
+    },
+    {
+      "title": "IITB Research Internship Application Deadline",
+      "time": "TBD",
+      "date": "Wed 23 Sep",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "Undergraduate and master's students",
+      "sender": "preronac@niser.ac.in",
+      "note": "Internship on algebraic computation, complexity theory, and coding theory. Stipend of Rs. 15,000/- per month."
+    },
+    {
+      "title": "SPS Seminar: Dr. Pradip Bera",
+      "time": "03:00 PM",
+      "date": "Fri 11 Sep",
+      "location": "SPS Seminar room",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "sps_seminar@niser.ac.in",
+      "note": "Title: Moving in a Crowd: The Biophysics of Collective Cell Dynamics"
+    },
+    {
+      "title": "SMS Seminar: Dr. Tony Nixon Mavely",
+      "time": "03:30 PM - 04:30 PM",
+      "date": "Fri 11 Sep",
+      "location": "SMS Seminar Room",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "sms_seminar@niser.ac.in",
+      "note": "Title: Crossed modules of powerful p-groups and its applications to automorphism groups"
+    },
+    {
+      "title": "Introductory Machine Learning Workshop - Day 1",
+      "time": "04:00 PM - 05:30 PM",
+      "date": "Sat 12 Sep",
+      "location": "LH1",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "code@niser.ac.in",
+      "note": "Beginner friendly ML theory & hands-on tutorial implementing a simple neural network using PyTorch"
+    },
+    {
+      "title": "Dance Club Auditions - IICM & Ritva Crew",
+      "time": "07:00 PM",
+      "date": "Sat 12 Sep",
+      "location": "Dance Room",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "dance@niser.ac.in",
+      "note": "30-second choreography on the spot. Regular attendance expected if selected."
+    },
+    {
+      "title": "Introductory Machine Learning Workshop - Day 2",
+      "time": "04:00 PM - 05:30 PM",
+      "date": "Sun 13 Sep",
+      "location": "LH1",
+      "category": "optional-academic",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "code@niser.ac.in",
+      "note": "Beginner friendly ML theory & hands-on tutorial implementing a simple neural network using PyTorch"
     }
   ],
-  "lastSynced": 1789078729191
+  "lastSynced": 1789116133339
 }
