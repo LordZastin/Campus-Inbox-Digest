@@ -2017,16 +2017,16 @@
       "note": "Remaining rounds of NISER Chess 960 Tournament."
     },
     {
-      "title": "DASTAAN Auditions",
+      "title": "Dastaan Auditions",
       "time": "04:00 PM",
       "date": "Sat 12 Sep",
-      "location": "Amphitheatre",
+      "location": "",
       "category": "club-sports",
       "compulsory": false,
       "bring": "",
       "for": "",
       "sender": "dmc@niser.ac.in",
-      "note": "Register via form: https://forms.gle/hJYMLmjjAcg2NKs28. Round 1 requires a self-prepared act. Venue moves to DMC room in SAC in case of rain."
+      "note": "Register using: https://forms.gle/hJYMLmjjAcg2NKs28"
     },
     {
       "title": "NAC Talk: MHD in Solar Physics",
@@ -2090,15 +2090,15 @@
     },
     {
       "title": "TheBioClub Induction & Game Night",
-      "time": "9:00 PM",
+      "time": "09:00 PM",
       "date": "Sat 12 Sep",
-      "location": "",
+      "location": "LH3",
       "category": "club-sports",
       "compulsory": false,
       "bring": "",
       "for": "",
       "sender": "thebioclub@niser.ac.in",
-      "note": "Postponed event."
+      "note": ""
     },
     {
       "title": "TCS BPS Hiring 2027 Registration Deadline",
@@ -2279,7 +2279,67 @@
       "for": "SBS PhD Freshers",
       "sender": "surya-pet@niser.ac.in",
       "note": "Indoor badminton court at the library annex will be closed during this time for dinner arrangements."
+    },
+    {
+      "title": "NISER Chess 960 Tournament",
+      "time": "10:00 AM",
+      "date": "Sat 12 Sep",
+      "location": "Physics Lounge, 4th Floor, SPS",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "roshanm.philip@niser.ac.in",
+      "note": "Reminder for scheduled rounds."
+    },
+    {
+      "title": "Monthly Debate (September Edition)",
+      "time": "02:30 PM",
+      "date": "Sat 12 Sep",
+      "location": "LH2",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "vaktavya@niser.ac.in",
+      "note": "Registration deadline is 2:30 PM today. Refreshing cooler drink will be served."
+    },
+    {
+      "title": "NISER Chess 960 Tournament - Next Round",
+      "time": "03:00 PM",
+      "date": "Sat 12 Sep",
+      "location": "Physics Lounge",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "roshanm.philip@niser.ac.in",
+      "note": "Report to the physics lounge by 2:45 PM"
+    },
+    {
+      "title": "Ganesh Chaturthi Art Competition Submission",
+      "time": "02:00 PM",
+      "date": "Mon 14 Sep",
+      "location": "Dance Room, SAC",
+      "category": "club-sports",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "arc@niser.ac.in",
+      "note": "Theme: Kokan and culture revolving around coastal Maharashtra. Winners announced on 19th Sep."
+    },
+    {
+      "title": "LitC Core Committee Nominations Deadline",
+      "time": "TBD",
+      "date": "Sat 19 Sep",
+      "location": "",
+      "category": "admin",
+      "compulsory": false,
+      "bring": "",
+      "for": "",
+      "sender": "litc@niser.ac.in",
+      "note": "Nomination deadline for Library Head, Challenge of the Week Organizers, and Campus Coordinator positions via Google Form."
     }
   ],
-  "lastSynced": 1789165105159
+  "lastSynced": 1789201690649
 }
